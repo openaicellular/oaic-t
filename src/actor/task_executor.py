@@ -1,3 +1,10 @@
+# ====================================================================
+#
+# Licensed under the GNU General Public License v3.0;
+# you may not use this file except in compliance with the License.
+#
+# ====================================================================
+
 import threading
 import time
 from actor_logger import logger
@@ -9,13 +16,13 @@ thread_lock = threading.Lock()
 pending_tasks = []
 past_tasks = []
 
-
+# Push a new task: It must use thread lock(s) as the other thread may pop a task at the same time
 def register_new_task(new_task):
     thread_lock.acquire()
     pending_tasks.append(new_task)
     thread_lock.release()
 
-
+# Pop the next task. It must use thread lock(s) as the other thread may push new tasks at the same time
 def next_task():
     thread_lock.acquire()
     if len(pending_tasks) > 0:
@@ -28,6 +35,7 @@ def next_task():
 
 
 def run(server_connection):
+    # A forever loop to execute all tasks one by one, and wait new tasks when no task is available.
     while True:
         task = next_task()
         if task is None:
@@ -41,6 +49,7 @@ def run(server_connection):
                 if action is None:
                     break
 
+                # A factory of actions is used to get the associated action executor based on the action name.
                 action_exec = action_factory.get_action_executor(action)
                 if action_exec is not None:
                     results = action_exec.run()

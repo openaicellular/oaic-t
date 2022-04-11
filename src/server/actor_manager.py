@@ -1,3 +1,10 @@
+# ====================================================================
+#
+# Licensed under the GNU General Public License v3.0;
+# you may not use this file except in compliance with the License.
+#
+# ====================================================================
+
 import socket
 from _thread import *
 import threading
@@ -16,6 +23,7 @@ class ActorManager:
         self.port = port
         self.actor_list = []
 
+    # A new thread to handle requests from the actor
     def waiting_actor_thread(self, actor):
         while True:
             # data received from client
@@ -25,9 +33,6 @@ class ActorManager:
 
             if not data:
                 logger.info("Actor disconnected" + " from " + str(actor.addr[0]) + ':' + str(actor.addr[1]))
-
-                # lock released on exit
-                # print_lock.release()
                 break
 
             message = json.loads(data)
@@ -60,33 +65,17 @@ class ActorManager:
             c, addr = self.s.accept()
 
             actor = Actor(addr, c)
+
             self.register_actor(actor)
-            # lock acquired by client
-            # print_lock.acquire()
+
             logger.info('Connected to : ' + str(addr[0]) + ':' + str(addr[1]))
 
-            # Start a new thread and return its identifier
+            # Start a new thread to listen and handle messages sent from this actor
             start_new_thread(self.waiting_actor_thread, (actor,))
 
         self.s.close()
 
     def run(self):
+        # Start a new thread to handle actor connections
         start_new_thread(self.waiting_actor_registration, ())
 
-        time.sleep(5)
-        ## TO DO: this will be replaced by an module that can interact with users, where users can type commands
-        id_count = 0
-        while True:
-            for actor in self.actor_list:
-
-                message = {"type": "resource update request"}
-                actor.send_msg_dict(message)
-                time.sleep(5)
-
-
-                message = test_script_reader.read_test_script_xml("test.xml")
-                id_count = id_count + 1
-                message["id"] = str(id_count)
-                message["type"] = "new task request"
-                actor.send_msg_dict(message)
-                time.sleep(5)

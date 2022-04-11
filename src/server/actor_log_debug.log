@@ -1,0 +1,34 @@
+22:49:36,448 OAIC-T Server INFO Server socket binded to port 12345
+22:49:36,448 OAIC-T Server INFO Server socket is listening... 
+22:50:11,698 OAIC-T Server INFO Server socket binded to port 12345
+22:50:11,698 OAIC-T Server INFO Server socket is listening... 
+23:06:55,381 OAIC-T Server INFO Server socket binded to port 12345
+23:06:55,381 OAIC-T Server INFO Server socket is listening... 
+23:21:45,305 OAIC-T Server INFO Server socket binded to port 12345
+23:21:45,306 OAIC-T Server INFO Server socket is listening... 
+23:24:21,426 OAIC-T Server INFO Connected to : 127.0.0.1:50282
+23:24:21,426 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:50282
+23:24:21,426 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:50282
+23:24:21,427 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:50282
+23:25:56,245 OAIC-T Server INFO Server socket binded to port 12345
+23:25:56,356 OAIC-T Server INFO Server socket is listening... 
+23:26:01,126 OAIC-T Server INFO Connected to : 127.0.0.1:50286
+23:26:01,126 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:50286
+23:26:01,126 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:50286
+23:26:01,248 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50286
+23:26:01,305 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "35.7", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:50286
+23:26:01,305 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:06,252 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50286
+23:26:06,252 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:50286
+23:26:06,253 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:11,255 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50286
+23:26:11,258 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "2.4", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:50286
+23:26:11,258 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:16,260 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50286
+23:26:16,261 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:50286
+23:26:16,261 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:16,648 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Action 1", "status": "Succeed", "description": "Success!"}, {"name": "Action 2", "status": "Succeed", "description": "Success!"}, {"name": "Action 3", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}]} from Actor1 127.0.0.1:50286
+23:26:16,649 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:18,255 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:50286
+23:26:18,255 OAIC-T Server INFO Actor disconnected from 127.0.0.1:50286
+23:26:21,264 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50286

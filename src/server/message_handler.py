@@ -1,3 +1,10 @@
+# ====================================================================
+#
+# Licensed under the GNU General Public License v3.0;
+# you may not use this file except in compliance with the License.
+#
+# ====================================================================
+
 from actor_resource import ActorResource
 
 
@@ -5,11 +12,12 @@ class MessageHandler:
     def __init__(self):
         pass
 
+    # Handle all different types of messages/requests from the actor
+    # including "registration" when the actor registers for the first time,
+    # "resource update" when the actor sends back the resource update,
+    # and others.
+    # Server-actor socket communications are all json-based. Two keys of "name", "type" are always required.
     def handle(self, actor, message):
-        ## TO DO: this function should handle different messages from the actor, depending on the type of the message.
-
-        ## This is just an example for testing
-        # reverse the given string from client
         if (message['type'] == "registration"):
             actor.set_name(message['name'])
             message_sent = {"type": "registration confirmed"}
@@ -18,7 +26,7 @@ class MessageHandler:
             actor.update_resource(actor_resource)
             message_sent = {"type": "resource update confirmed"}
         else:
-            ## TO DO: implement other message from the actor
+            # TO DO: implement other message from the actor
             message_sent = {"type": "confirmed"}
 
         actor.send_msg_dict(message_sent)

@@ -1,3 +1,10 @@
+# ====================================================================
+#
+# Licensed under the GNU General Public License v3.0;
+# you may not use this file except in compliance with the License.
+#
+# ====================================================================
+
 import socket
 from _thread import *
 import threading
@@ -36,12 +43,6 @@ class ServerConnection:
             message = json.loads(data)
             msg_handler.handle(message)
 
-            # ask the client whether he wants to continue
-            # ans = input('\nDo you want to continue(y/n) :')
-            # if ans == 'y':
-            #    continue
-            # else:
-            #    break
         # close the connection
         logger.info('Server disconnected')
         socket.close()

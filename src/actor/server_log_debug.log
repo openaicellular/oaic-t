@@ -1,0 +1,33 @@
+23:24:21,426 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+23:24:21,427 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+23:24:26,523 OAIC-T Actor INFO Server disconnected
+23:26:01,126 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+23:26:01,248 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:26:01,304 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '35.7', 'mem': '100', 'sdr_size': '2'}
+23:26:01,305 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:26:06,252 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+23:26:06,252 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:26:06,253 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:26:06,639 OAIC-T Actor INFO Task running: task_test id: 1
+23:26:06,639 OAIC-T Actor DEBUG --------------------------ActionExample1
+23:26:06,639 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+23:26:11,255 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:26:11,258 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '2.4', 'mem': '100', 'sdr_size': '2'}
+23:26:11,258 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:26:11,644 OAIC-T Actor INFO ------    Action Done!
+23:26:11,644 OAIC-T Actor DEBUG --------------------------ActionExample1
+23:26:11,644 OAIC-T Actor DEBUG --------------------------ActionExample2
+23:26:11,644 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+23:26:16,261 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "2", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+23:26:16,261 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:26:16,261 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:26:16,648 OAIC-T Actor INFO ------    Action Done!
+23:26:16,648 OAIC-T Actor DEBUG --------------------------ActionExample1
+23:26:16,648 OAIC-T Actor DEBUG --------------------------ActionExample2
+23:26:16,648 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+23:26:16,648 OAIC-T Actor INFO Task Done!task_test id: 1
+23:26:16,648 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+23:26:16,648 OAIC-T Actor INFO Task running: task_test id: 2
+23:26:16,648 OAIC-T Actor DEBUG --------------------------ActionExample1
+23:26:16,648 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+23:26:16,649 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}

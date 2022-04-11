@@ -1,3 +1,10 @@
+# ====================================================================
+#
+# Licensed under the GNU General Public License v3.0;
+# you may not use this file except in compliance with the License.
+#
+# ====================================================================
+
 import json
 from server_logger import logger
 
@@ -24,7 +31,6 @@ class Actor:
             return False
 
     def send_msg_dict(self, msg):
-        ## TO DO: use high-level socket send function, e.g., sendall
         logger.info('-->> Send message to the actor: {}'.format(msg) + " : " + self.name + " " + str(self.addr[0]) + ':' + str(
             self.addr[1]))
         data = json.dumps(msg)
