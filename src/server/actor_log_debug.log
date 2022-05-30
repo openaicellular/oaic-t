@@ -59,3 +59,15 @@
 00:52:19,120 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
 00:52:24,120 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '5', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
 00:52:29,121 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+13:45:32,136 OAIC-T Server INFO Server socket binded to port 12345
+13:45:32,137 OAIC-T Server INFO Server socket is listening... 
+13:45:49,87 OAIC-T Server INFO Connected to : 127.0.0.1:36904
+13:45:49,87 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:36904
+13:45:49,87 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:36904
+13:45:49,88 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:36904
+13:45:54,88 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:36904
+13:45:54,89 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:36904
+13:45:54,89 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:36904
+13:45:59,90 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:36904
+13:45:59,210 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:36904
+13:45:59,210 OAIC-T Server INFO Actor disconnected from 127.0.0.1:36904
