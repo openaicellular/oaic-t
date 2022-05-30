@@ -8,6 +8,7 @@
 from actor_logger import logger
 from task import Action
 import time
+from abc import abstractmethod
 
 
 class ActionExecutor:
@@ -16,6 +17,7 @@ class ActionExecutor:
     def __init__(self, action):
         self.action = action
 
+    @abstractmethod
     def run(self):
         pass
 

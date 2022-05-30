@@ -32,3 +32,30 @@
 23:26:18,255 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:50286
 23:26:18,255 OAIC-T Server INFO Actor disconnected from 127.0.0.1:50286
 23:26:21,264 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50286
+00:50:16,392 OAIC-T Server INFO Server socket binded to port 12345
+00:50:16,392 OAIC-T Server INFO Server socket is listening... 
+00:51:39,78 OAIC-T Server INFO Connected to : 127.0.0.1:50288
+00:51:39,78 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:50288
+00:51:39,79 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:50288
+00:51:39,79 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:50288
+00:51:44,83 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:51:44,84 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:50288
+00:51:44,84 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:51:49,87 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+00:51:49,91 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "13.6", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:50288
+00:51:49,91 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:51:54,91 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:51:54,92 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:50288
+00:51:54,92 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:51:54,96 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Action 1", "status": "Succeed", "description": "Success!"}, {"name": "Action 2", "status": "Succeed", "description": "Success!"}, {"name": "Action 3", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}]} from Actor1 127.0.0.1:50288
+00:51:54,97 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:51:59,97 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+00:51:59,100 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "3.6", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:50288
+00:51:59,100 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:52:04,104 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '3', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:52:04,105 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "2", "results": [{"name": "Action 1", "status": "Succeed", "description": "Success!"}, {"name": "Action 2", "status": "Succeed", "description": "Success!"}, {"name": "Action 3", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}]}{"type": "new task received and pending to run"} from Actor1 127.0.0.1:50288
+00:52:09,110 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+00:52:14,115 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '4', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:52:19,120 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+00:52:24,120 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '5', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:52:29,121 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288

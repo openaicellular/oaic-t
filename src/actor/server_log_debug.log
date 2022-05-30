@@ -31,3 +31,89 @@
 23:26:16,648 OAIC-T Actor DEBUG --------------------------ActionExample1
 23:26:16,648 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
 23:26:16,649 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:39,78 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+00:51:39,79 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+00:51:44,84 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:51:44,84 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:51:44,84 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:44,88 OAIC-T Actor INFO Task running: task_test id: 1
+00:51:44,88 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:44,88 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:51:49,88 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:51:49,90 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '13.6', 'mem': '100', 'sdr_size': '2'}
+00:51:49,91 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:49,91 OAIC-T Actor INFO ------    Action Done!
+00:51:49,91 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:49,91 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:51:49,91 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+00:51:54,92 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "2", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:51:54,92 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:51:54,92 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:54,96 OAIC-T Actor INFO ------    Action Done!
+00:51:54,96 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:54,96 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:51:54,96 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+00:51:54,96 OAIC-T Actor INFO Task Done!task_test id: 1
+00:51:54,96 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+00:51:54,96 OAIC-T Actor INFO Task running: task_test id: 2
+00:51:54,96 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:54,96 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:51:54,97 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:59,97 OAIC-T Actor INFO ------    Action Done!
+00:51:59,98 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:59,98 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:51:59,98 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+00:51:59,98 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:51:59,100 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '3.6', 'mem': '100', 'sdr_size': '2'}
+00:51:59,101 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:52:04,104 OAIC-T Actor INFO ------    Action Done!
+00:52:04,104 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:04,104 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:04,104 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+00:52:04,104 OAIC-T Actor INFO Task Done!task_test id: 2
+00:52:04,104 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '2', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+00:52:04,104 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "3", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:52:04,104 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:52:04,605 OAIC-T Actor INFO Task running: task_test id: 3
+00:52:04,605 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:04,605 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:52:09,111 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:52:09,113 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '6.2', 'mem': '100', 'sdr_size': '2'}
+00:52:09,610 OAIC-T Actor INFO ------    Action Done!
+00:52:09,610 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:09,610 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:09,610 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+00:52:14,116 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "4", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:52:14,116 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:52:14,611 OAIC-T Actor INFO ------    Action Done!
+00:52:14,611 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:14,611 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:14,611 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+00:52:14,611 OAIC-T Actor INFO Task Done!task_test id: 3
+00:52:14,611 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '3', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+00:52:14,611 OAIC-T Actor INFO Task running: task_test id: 4
+00:52:14,611 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:14,611 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:52:19,120 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:52:19,122 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '7.6', 'mem': '100', 'sdr_size': '2'}
+00:52:19,613 OAIC-T Actor INFO ------    Action Done!
+00:52:19,613 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:19,613 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:19,613 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+00:52:24,121 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "5", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:52:24,121 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:52:24,615 OAIC-T Actor INFO ------    Action Done!
+00:52:24,615 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:24,615 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:24,615 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+00:52:24,615 OAIC-T Actor INFO Task Done!task_test id: 4
+00:52:24,615 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '4', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+00:52:24,615 OAIC-T Actor INFO Task running: task_test id: 5
+00:52:24,615 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:24,615 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:52:29,121 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:52:29,124 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '7.0', 'mem': '100', 'sdr_size': '2'}
+00:52:29,616 OAIC-T Actor INFO ------    Action Done!
+00:52:29,616 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:29,616 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:29,616 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
