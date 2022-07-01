@@ -44,10 +44,11 @@ class ServerConnection:
             msg_handler.handle(message)
 
         # close the connection
-        logger.info('Server disconnected')
+        print('Server disconnected!')
         socket.close()
 
     def start(self, host, port, name):
+        print("Trying to connect to the server, server ip: " + host + " server port: " + str(port) + "...")
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         # connect to server on local computer
@@ -66,5 +67,6 @@ class ServerConnection:
         data = data.decode("utf-8")
         # print the received message
         logger.info('-->> Receive a message from the server : {}'.format(data))
+        print("Server connection is completed!")
 
         start_new_thread(self.waiting_server_thread, (self.socket,))

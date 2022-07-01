@@ -8,9 +8,10 @@
 # This module implements the loading of one or more test scripts
 def read_test_script_xml(filename):
     # TO DO: read xml and convert it into a dict, one example given as follows:
-    action1 = {'name': "Action 1", 'paras': "paras examples", 'type': "running"}
-    action2 = {'name': "Action 2", 'paras': "paras examples", 'type': "running"}
-    action3 = {'name': "Action 3", 'paras': "paras examples", 'type': "running"}
-    actions = [action1, action2, action3]
-    message = {"name": "task_test", "id": "123456", 'actions': actions}
+    action1 = {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}
+    action2 = {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}
+    action3 = {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}
+    action4 = {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}
+    actions = [action1, action2, action3, action4]
+    message = {"name": "task_test", "id": "123456", "mode": "virtual radio", "actions": actions}
     return message

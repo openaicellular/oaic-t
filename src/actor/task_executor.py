@@ -16,11 +16,13 @@ thread_lock = threading.Lock()
 pending_tasks = []
 past_tasks = []
 
+
 # Push a new task: It must use thread lock(s) as the other thread may pop a task at the same time
 def register_new_task(new_task):
     thread_lock.acquire()
     pending_tasks.append(new_task)
     thread_lock.release()
+
 
 # Pop the next task. It must use thread lock(s) as the other thread may push new tasks at the same time
 def next_task():
@@ -43,7 +45,7 @@ def run(server_connection):
         else:
             # logger.info( "Task running: " + task.name + " id: " + task.id + " action list (first 5 actions): " +
             # task.first_five_actions_str())
-            logger.info("Task running: " + task.name + " id: " + task.id)
+            print("Task running: " + task.name + " id: " + task.id)
             while True:
                 action = task.next_action()
                 if action is None:
@@ -52,14 +54,13 @@ def run(server_connection):
                 # A factory of actions is used to get the associated action executor based on the action name.
                 action_exec = action_factory.get_action_executor(action)
                 if action_exec is not None:
-                    results = action_exec.run()
-                    action.set_exec_done(results)
+                    action_output_summary, action_output = action_exec.run()
+                    action.set_exec_done(action_output_summary, action_output)
                 else:
-                    action.set_exec_failed("Cannot find the associated action executor. Please check if the action "
-                                           "name is correct or the corresponding action executor is defined in the "
-                                           "action_factory module!")
+                    action.set_exec_failed_notfound("Cannot find the associated action executor. Please check if the "
+                                                    "action name is correct or the corresponding action executor is defined in the "
+                                                    "action_factory module!")
 
-            logger.info("Task Done!" + task.name + " id: " + task.id)
+            print("Task Done!" + task.name + " id: " + task.id)
             report_msg = task.task_completed()
             server_connection.send_msg(report_msg)
-

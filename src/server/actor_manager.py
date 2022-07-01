@@ -35,10 +35,12 @@ class ActorManager:
                 logger.info("Actor disconnected" + " from " + str(actor.addr[0]) + ':' + str(actor.addr[1]))
                 break
 
-            message = json.loads(data)
+            message = json.loads(data, strict=False)
             message_handler.handle(actor, message)
 
         # connection closed
+        self.remove_actor(actor)
+        print("Actor [" + actor.name + "] is disconnected and unregistered!")
         actor.socket.close()
 
     def register_actor(self, actor):
@@ -53,11 +55,8 @@ class ActorManager:
     def waiting_actor_registration(self):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.s.bind((self.host, self.port))
-        logger.info("Server socket binded to port " + str(self.port))
-
-        # put the socket into listening mode
         self.s.listen(5)
-        logger.info("Server socket is listening... ")
+        print("Server socket is listening to the port " + str(self.port) + "...")
 
         # a forever loop until client wants to exit
         while True:

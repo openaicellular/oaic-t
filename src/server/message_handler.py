@@ -18,13 +18,21 @@ class MessageHandler:
     # and others.
     # Server-actor socket communications are all json-based. Two keys of "name", "type" are always required.
     def handle(self, actor, message):
-        if (message['type'] == "registration"):
+        if message['type'] == "registration":
             actor.set_name(message['name'])
             message_sent = {"type": "registration confirmed"}
-        elif (message['type'] == "resource udpate"):
+            print("Actor [" + actor.name + "] is registered!")
+        elif message['type'] == "resource update":
             actor_resource = ActorResource(message['cpu'], message['mem'], message['sdr_size'])
             actor.update_resource(actor_resource)
+            print("Actor [" + actor.name + "] updated its resource!")
             message_sent = {"type": "resource update confirmed"}
+        elif message['type'] == "task completed":
+            task_id = message['id']
+            task_results = message['results']
+            print("Actor [" + actor.name + "] completed the task!" + " Task ID: " + task_id)
+            message_sent = {"type": "confirmed"}
+
         else:
             # TO DO: implement other message from the actor
             message_sent = {"type": "confirmed"}

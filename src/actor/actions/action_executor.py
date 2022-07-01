@@ -5,10 +5,15 @@
 #
 # ====================================================================
 
+from task import Action
+from abc import abstractmethod
 
-class ActorResource:
-    def __init__(self, cpu, mem, sdr_size):
-        self.cpu = cpu
-        self.mem = mem
-        self.sdr_size = sdr_size
+class ActionExecutor:
+    ACTION_NAME = 'None'
 
+    def __init__(self, action):
+        self.action = action
+
+    @abstractmethod
+    def run(self):
+        pass

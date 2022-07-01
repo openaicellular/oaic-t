@@ -11,6 +11,7 @@ from server_logger import logger
 
 class Actor:
     def __init__(self, addr, socket):
+        self.actor_resource = None
         self.addr = addr
         self.socket = socket
         self.name = "Not Recognized"
@@ -34,7 +35,10 @@ class Actor:
         logger.info('-->> Send message to the actor: {}'.format(msg) + " : " + self.name + " " + str(self.addr[0]) + ':' + str(
             self.addr[1]))
         data = json.dumps(msg)
-        self.socket.sendall(bytes(data, encoding="utf-8"))
+        try:
+            self.socket.sendall(bytes(data, encoding="utf-8"))
+        except Exception as e:
+            logger.info('-->> Send message error: socket is disconnected!')
 
     def update_resource(self, actor_resource):
-        this.actor_resource = actor_resource
+        self.actor_resource = actor_resource

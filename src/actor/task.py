@@ -13,20 +13,21 @@ class Action:
     STATUS_FAILED = 'Failed'
 
     def __init__(self, action_name, action_paras, action_type):
-        self.results = None
+        self.action_output_summary = None
+        self.action_output = None
         self.status = None
         self.name = action_name
         self.paras = action_paras
         self.type = action_type
 
-    def set_exec_done(self, results):
+    def set_exec_done(self, action_output_summary, action_output):
         self.status = Action.STATUS_DONE
-        self.results = results
+        self.action_output_summary = action_output_summary
+        self.action_output = action_output
 
-    def set_exec_failed(self, reasons):
+    def set_exec_failed_notfound(self, action_output_summary):
         self.status = Action.STATUS_FAILED
-        self.results = reasons
-
+        self.action_output_summary = action_output_summary
 
 class Task:
     STATUS_NEW = 'New'
@@ -76,7 +77,7 @@ class Task:
         message = {"type": "task completed", "id": self.id}
         action_res_all = []
         for action in self.actions:
-            action_res = {'name': action.name, 'status': action.status, 'description': action.results}
+            action_res = {'name': action.name, 'status': action.status, 'description': action.action_output_summary}
             action_res_all.append(action_res)
         message['results'] = action_res_all
         return message

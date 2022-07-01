@@ -42,14 +42,20 @@ class MessageHandler:
 
     def handle(self, message):
         if message['type'] == "resource update request":
+            print("Receive a Resource Update Request from the Server...")
             self.rsc_update_message(message)
         elif message['type'] == "new task request":
+            print("Receive a New Task Request from the Server...")
             self.new_task_message(message)
         elif message['type'] == "task status request":
+            print("Receive a Task Status Request from the Server...")
             self.task_status_message(message)
         elif message['type'] == "task termination request":
+            print("Receive a Task Termination Request from the Server...")
             self.task_termination_message(message)
         elif message['type'] == "sdr reset request":
+            print("Receive a SDR Reset Request from the Server...")
             self.sdr_reset_message(message)
         elif message['type'] == "actor reset request":
+            print("Receive a Actor Reset Request from the Server...")
             self.actor_reset_message(message)

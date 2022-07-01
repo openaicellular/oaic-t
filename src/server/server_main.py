@@ -16,26 +16,29 @@ if __name__ == '__main__':
     # TO DO: The port will be configured from the configuration file.
     host = "127.0.0.1"
     port = 12345
-
+    print("Server is running...")
     actor_manager = ActorManager(host, port)
     actor_manager.run()
 
     # TO DO: this will be replaced by a module that can interact with users, where users can type commands
     # This is just an example of implementation which periodically sends requests to update each actor's resource,
     # and some fake test actions for testing purposes only.
-    time.sleep(5)
+    time.sleep(10)
     id_count = 0
-    while True:
-        for actor in actor_manager.actor_list:
-            message = {"type": "resource update request"}
-            actor.send_msg_dict(message)
-            time.sleep(5)
 
-            message = test_script_reader.read_test_script_xml("test.xml")
-            id_count = id_count + 1
-            message["id"] = str(id_count)
-            message["type"] = "new task request"
-            actor.send_msg_dict(message)
-            time.sleep(5)
+    #while True:
+    for actor in actor_manager.actor_list:
+        print("Send a Resource Update Request to the Actor [" + actor.name + "] ...")
+        message = {"type": "resource update request"}
+        actor.send_msg_dict(message)
+        time.sleep(5)
+
+        print("Send a New Task Request to the Actor [" + actor.name + "] ...")
+        message = test_script_reader.read_test_script_xml("test.xml")
+        id_count = id_count + 1
+        message["id"] = "task id" + str(id_count)
+        message["type"] = "new task request"
+        actor.send_msg_dict(message)
+        time.sleep(1000)
 
 
