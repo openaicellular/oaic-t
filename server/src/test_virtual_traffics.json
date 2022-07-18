@@ -1,0 +1,40 @@
+{
+    "test_name": "test_virtual_traffics_example",
+    "mode": "virtual radio",
+    "actions":
+    [
+        {
+            "name": "Create Network Namespace",
+            "paras": {
+                "namespace": "ue1"
+            },
+            "type": "running"
+        },
+
+        {
+            "name": "Run UE",
+            "paras": {
+                "namespace": "ue1"
+            },
+            "type": "running"
+        },
+
+        {
+            "name": "Generate Traffic",
+            "paras": {
+                "namespace": "ue1",
+                "direction": "uplink",
+                "ping_time": 20
+            },
+            "type": "running"
+        },
+
+        {
+            "name": "Stop UE",
+            "paras": {
+                "namespace": "ue1"
+            },
+            "type": "running"
+        }
+    ]
+}
