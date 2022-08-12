@@ -33,12 +33,19 @@ Then, you can type commands in the console to interact with the Server. The foll
 
 1. "list actors": It will list all registered Actors.
 2. "run --test test_script_file --actor actor_name": It will run the test script in the specified actor. Currently six test script exampls are included (more will become available soon):
+
 "start_epc.json": This script will run the srsepc (Note: only one running epc is allowed in one actor).
+
 "stop_epc.json": This script will stop the running srsepc.
+
 "start_enodeb.json": This script will run the srsenb (Note: only one running enodeb is allowed in one actor).
+
 "stop_enodeb.json": This script will stop the running srsenb.
+
 "test_virtual_traffics.json": This script will run a UE and generate traffics using ping methods (Note: epc and enodeb have to be started before starting the UE, either mannually starting them or using the above two scripts).
+
 "test_virtual_traffics_iperf.json": Similar to the "test_virtual_traffics.json" script, but using the iperf method which allows to generate traffics with specific bandwidth, e.g., 10Mbps for 20 seconds.
+
 "test_virtual_traffics_all.json": This script will include a whole workflow to generate traffics, combining "start epc", "start enodeb", "generate traffics using ping", "stop ue", "stop enodeb" and "stop epc" actions. 
 
 
