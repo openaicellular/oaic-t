@@ -4,6 +4,20 @@
     "actions":
     [
         {
+            "name": "Start EPC",
+            "paras": {}
+        },
+        
+        {
+            "name": "Start ENodeB",
+            "paras": {
+            	"--rf.device_name":"zmq",
+            	"--rf.device_args":"fail_on_disconnect=true,tx_port=tcp://*:2000,rx_port=tcp://localhost:2001,id=enb,base_srate=23.04e6"
+            }
+        },
+        
+        
+        {
             "name": "Create Network Namespace",
             "paras": {
                 "namespace": "ue1"
@@ -22,8 +36,9 @@
             "paras": {
                 "namespace": "ue1",
                 "direction": "uplink",
-                "traffic_gen_mode": "ping",
-                "ping_time": 20
+                "traffic_gen_mode": "iperf",
+                "bandwidth": 100,
+                "iperf_time": 20
             }
         },
 
@@ -32,6 +47,16 @@
             "paras": {
                 "namespace": "ue1"
             }
+        },
+        
+        {
+            "name": "Stop ENodeB",
+            "paras": {}
+        },
+        
+        {
+            "name": "Stop EPC",
+            "paras": {}
         }
     ]
 }

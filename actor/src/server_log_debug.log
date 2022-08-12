@@ -1443,3 +1443,34 @@ Software Radio Systems RAN (srsRAN) 22/6/2022 5:0:17 TZ:0
 22:16:45,409 OAIC-T Actor INFO UE Stopped!
 22:16:50,411 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.6'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop.'}]}
 22:17:11,699 OAIC-T Actor INFO Clean environment before the actor ends...
+15:39:59,563 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+15:42:56,685 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+15:43:38,521 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:00:24,10 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:08:11,967 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:11:05,101 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:14:23,758 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:28:58,359 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:31:52,910 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:33:05,71 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:34:12,372 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:36:06,480 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:38:24,520 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:38:55,631 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:01:16,367 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:19:11,890 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:23:53,702 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:26:37,389 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:26:49,940 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:45:38,720 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:23:42,225 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:26:46,314 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:28:55,961 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:31:08,337 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:42:44,673 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+18:02:38,822 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+18:07:10,955 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+18:11:52,242 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+22:44:26,912 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:28:19,449 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:02:27,761 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server

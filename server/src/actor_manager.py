@@ -43,6 +43,12 @@ class ActorManager:
         print("Actor [" + actor.name + "] is disconnected and unregistered!")
         actor.socket.close()
 
+    def get_actor(self, actor_name):
+        for actor in self.actor_list:
+            if actor.name == actor_name:
+                return actor
+        return None
+
     def register_actor(self, actor):
         self.actor_list.append(actor)
 
@@ -78,3 +84,5 @@ class ActorManager:
         # Start a new thread to handle actor connections
         start_new_thread(self.waiting_actor_registration, ())
 
+    def stop(self):
+        self.s.close()

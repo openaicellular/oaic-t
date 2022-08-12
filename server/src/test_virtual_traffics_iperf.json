@@ -22,8 +22,9 @@
             "paras": {
                 "namespace": "ue1",
                 "direction": "uplink",
-                "traffic_gen_mode": "ping",
-                "ping_time": 20
+                "traffic_gen_mode": "iperf",
+                "bandwidth": 10,
+                "iperf_time": 20
             }
         },
 

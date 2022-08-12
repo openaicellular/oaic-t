@@ -12,7 +12,8 @@ import task_executor
 import sys
 from backports import configparser
 import atexit
-from actions.ue_vr import stop_all_ue_running
+from actions.proc_gen import stop_all_running_process
+
 
 
 def main(argv):
@@ -39,7 +40,7 @@ def main(argv):
 
 def exit_handler():
     logger.info("Clean environment before the actor ends...")
-    stop_all_ue_running()
+    stop_all_running_process()
     print("Actor stopped and exited!")
 
 

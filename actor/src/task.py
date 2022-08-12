@@ -52,7 +52,8 @@ class Task:
         action_list = []
         actions_msg = self.message['actions']
         for item in actions_msg:
-            action = Action(item['name'], item['paras'], item['type'])
+            #action = Action(item['name'], item['paras'], item['type'])
+            action = Action(item['name'], item['paras'], None)
             action_list.append(action)
 
         return action_list
