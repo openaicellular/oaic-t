@@ -12,10 +12,10 @@ Key Design Requirements of OAIC-T:
 6. Support for multitasking and distributed testing to enable a multi-user testing environment (e.g., producing different traffic scenarios)
 
 Major Release Milestones of OAIC-T:
-1. Phase I in Month 15 with implementations of core OAIC-T framework (test case interpreter, engine, test executor, adapters, test report generation).	
-2. Phase II in Month 21 with implementations of AI testing methods, including Fuzzing, AI-Fuzzing, and adversarial learning.
-3. Phase III in Month 27 with implementations of multitasking.
-4. Phase IV in Month 33 with system integration and testing.
+1. Phase I (Expected Date: Dec. 15, 2022) with implementations of core OAIC-T framework (test case interpreter, engine, test executor, adapters, test report generation).	
+2. Phase II (Expected Date: June. 15, 2023) with implementations of AI testing methods, including Fuzzing, AI-Fuzzing, and adversarial learning.
+3. Phase III (Expected Date: Dec. 15, 2023) with implementations of multitasking.
+4. Phase IV (Expected Date: June. 15, 2024) with system integration and testing.
 
 OAIC-T Framework: An OAIC-T test involves automated setup of the testing environment, automated test execution, and automated generation of testing performance report. The OAIC-T framework consists of three major components: the OAIC-T server which sets up the testing environment as described in test configuration files and orchestrates the test execution as defined in test cases, the OAIC-T actor which executes test steps as instructed by the OAIC server, and the test repository which stores various test assets (e.g., test files, data files, log files, test results, etc.). 
 
