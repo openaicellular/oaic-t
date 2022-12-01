@@ -9,6 +9,7 @@ from actor_logger import logger
 from abc import abstractmethod
 from actions.action_executor import ActionExecutor
 import actions.actions_vr
+import actions.actions_srsue
 
 def get_action_executor(action):
     for cls in ActionExecutor.__subclasses__():
