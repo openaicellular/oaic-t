@@ -257,3 +257,15 @@ class StopENodeB(ActionExecutor):
         print("Action: " + self.action.name + " " + results)
         action_output_summary = results
         return action_output_summary, action_output
+
+class ConnectTestXApp(ActionExecutor):
+    ACTION_NAME = "Connect Test xApp"  ## Be sure this action name is the one used in the test script
+
+    def run(self):
+        print("Action running: " + self.action.name + " ...")
+        xapp_ip = self.action.paras['xapp_ip']
+        xapp_port = int(self.action.paras['xapp_port'])
+
+        print("Action: " + self.action.name + " " + results)
+        action_output_summary = results
+        return action_output_summary, action_output
