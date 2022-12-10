@@ -7,6 +7,7 @@
 
 from task import Task
 import utils
+import psutil
 import json
 import task_executor
 from actor_logger import logger
@@ -18,8 +19,12 @@ class MessageHandler:
         pass
 
     def rsc_update_message(self, message):
-        message_sent = {"type": "resource update", "cpu": str(utils.get_cpu_info()),
-                        "mem": str(utils.get_mem_info()), "sdr_size": str(2)}
+        # message_sent = {"type": "resource update", "cpu": str(utils.get_cpu_info()),
+        #                 "mem": str(utils.get_mem_info()), "sdr_size": str(2)}
+        message_sent = {"type": "resource update", "cpu": str(psutil.cpu_percent()),
+                        "mem": str(psutil.virtual_memory().percent), "sdr_size": str(2)}
+
+
         self.server_connection.send_msg(message_sent)
 
     def new_task_message(self, message):
