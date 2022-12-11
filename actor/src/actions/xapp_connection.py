@@ -79,8 +79,8 @@ class XAPPConnection:
         # data = data.decode("utf-8")
         # print the received message
         # logger.info('-->> Receive a message from the server : {}'.format(data))
-        print("Server connection is completed!")
+        print("Server connection is completed! It is now receiving data from the Test xApp!")
         self.status = True
-        self.reasons = "Test xApp connection success!"
+        self.reasons = "Test xApp connection success! It is now receiving data from the Test xApp!"
         start_new_thread(self.waiting_server_thread, (self.socket,))
 

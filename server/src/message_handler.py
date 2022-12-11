@@ -64,7 +64,12 @@ class MessageHandler:
         elif message['type'] == "KPI xApp":
 
             message_sent = {"type": "confirmed"}
-            actor_manager.update_kpi_xapp(message['timestamp'], 'kpi1', float(message['kpi1']), 'kpi2', float(message['kpi2']), 'kpi3', float(message['kpi3']))
+            kpi_all_dict = dict()
+            for k in message.keys():
+                if k.startswith("kpi"):
+                    kpi_all_dict[k] = float(message[k])
+
+            actor_manager.update_kpi_xapp(message['timestamp'], kpi_all_dict)
 
         else:
             # TO DO: implement other message from the actor

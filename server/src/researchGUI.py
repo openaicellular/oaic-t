@@ -448,9 +448,7 @@ class Ui_MainWindow(QWidget):
         self.actor_updater.kpi_updated.connect(self.on_actor_kpi_updated)
         self.kpi_names = []
         self.ts_all = []
-        self.kpi1 = []
-        self.kpi2 = []
-        self.kpi3 = []
+        self.kpi_all = dict()
         self.test_task_updater.status_changed.connect(self.on_status_updated)
         self.test_task_updater.log_changed.connect(self.on_log_updated)
         self.retranslateUi(MainWindow)
@@ -550,50 +548,53 @@ class Ui_MainWindow(QWidget):
         self.actor_updater.rsc_updated.emit(actor_name, actor_rsc_cpu, actor_rsc_mem)
 
     def plot_kpi(self):
-        if self.dropDown2.currentIndex() == 0:
-            data_plot = self.kpi1
-        elif self.dropDown2.currentIndex() == 1:
-            data_plot = self.kpi2
-        elif self.dropDown2.currentIndex() == 2:
-            data_plot = self.kpi3
+        current_selected = self.dropDown2.currentText()
+        data_plot = self.kpi_all[current_selected]
+
         print(data_plot)
         self.data2_x = list(range(len(data_plot)))
         pen = pg.mkPen(color='b')
         self.graphWidget2.setXRange(max(self.data2_x[-1] - 10, 0), self.data2_x[-1] + 5, padding=0)
         self.graphWidget2.setYRange(max(min(data_plot) - 0.2 * min(data_plot), 0),
                                     min(max(data_plot) + 0.2 * max(data_plot), 500), padding=0)
-        if len(data_plot) > 10:
-            # print(self.data2_x)
-            self.data2_line.setData(self.data2_x, data_plot)
-        else:
-            self.data2_line = self.graphWidget2.plot(self.data2_x, data_plot, name='KPI', pen=pen, symbol='o',
+        # if len(data_plot) > 10:
+        #     # print(self.data2_x)
+        #     self.data2_line.setData(self.data2_x, data_plot)
+        # else:
+
+        self.data2_line = self.graphWidget2.plot(self.data2_x, data_plot, name='KPI', pen=pen, symbol='o',
                                                      symbolSize=8, symbolBrush=('b'))
 
     def kpi_plot_updated(self):
         self.graphWidget2.clear()
         self.plot_kpi()
 
-    @QtCore.pyqtSlot(str, str, float, str, float, str, float)
-    def on_actor_kpi_updated(self, timestamp, kpi_name1, kpi_val1, kpi_name2, kpi_val2, kpi_name3, kpi_val3):
-        print("received kpi: " + timestamp + " " + str(kpi_val1) + " " + str(kpi_val2) + " " + str(kpi_val3))
+    @QtCore.pyqtSlot(str, bool)
+    def on_actor_kpi_updated(self, timestamp, flag):
+        print("received kpi: " + timestamp)
+        print(self.kpi_all_update)
+
         self.ts_all = self.ts_all.copy() + [timestamp]
-        self.kpi1 = self.kpi1.copy() + [kpi_val1]
-        self.kpi2 = self.kpi2.copy() + [kpi_val2]
-        self.kpi3 = self.kpi3.copy() + [kpi_val3]
-        if len(self.kpi_names) == 0:
-            self.dropDown2.addItem(kpi_name1)
-            self.dropDown2.addItem(kpi_name2)
-            self.dropDown2.addItem(kpi_name3)
+        first_input_flag = len(self.kpi_all) == 0
+        for k in self.kpi_all_update.keys():
+            if self.kpi_all.__contains__(k):
+                old_value = self.kpi_all[k]
+                new_value = old_value.copy() + [self.kpi_all_update[k]]
+                self.kpi_all[k] = new_value
+            else:
+                self.kpi_all[k] = [self.kpi_all_update[k]]
+                self.dropDown2.addItem(k)
+        if first_input_flag:
             self.dropDown2.setCurrentIndex(0)
 
-        self.kpi_names = [kpi_name1, kpi_name2, kpi_name3]
         self.plot_kpi()
 
 
 
 
-    def actor_kpi_updated(self, timestamp, kpi_name1, kpi_val1, kpi_name2, kpi_val2, kpi_name3, kpi_val3):
-        self.actor_updater.kpi_updated.emit(timestamp, kpi_name1, kpi_val1, kpi_name2, kpi_val2, kpi_name3, kpi_val3)
+    def actor_kpi_updated(self, timestamp, kpi_all):
+        self.kpi_all_update = kpi_all
+        self.actor_updater.kpi_updated.emit(timestamp, True)
 
     @QtCore.pyqtSlot(str, int)
     def on_log_updated(self, log, row_index):
@@ -742,7 +743,7 @@ class TestTaskUpdater(QObject):
 
 class ActorUpdater(QObject):
     rsc_updated = pyqtSignal(str, float, float)
-    kpi_updated = pyqtSignal(str, str, float, str, float, str, float)  #ts, kpi_name1, kpi_val1, ..., 3
+    kpi_updated = pyqtSignal(str, bool)  #ts, kpi_name1, kpi_val1, ..., 3
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
