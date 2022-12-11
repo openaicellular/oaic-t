@@ -11,7 +11,7 @@ import threading
 from actor_logger import logger
 import json
 import utils as utils
-from message_handler import MessageHandler
+from message_handler import message_handler
 
 
 class ServerConnection:
@@ -29,7 +29,8 @@ class ServerConnection:
         self.socket.sendall(bytes(data, encoding="utf-8"))
 
     def waiting_server_thread(self, socket):
-        msg_handler = MessageHandler(self)
+        # msg_handler = MessageHandler(self)
+        message_handler.set_server_connection(self)
         while True:
             # this thread is created to wait new message received from server
             data = socket.recv(1024)
@@ -41,7 +42,7 @@ class ServerConnection:
             logger.info('<<-- Receive a message from the server : {}'.format(data))
 
             message = json.loads(data)
-            msg_handler.handle(message)
+            message_handler.handle(message)
 
         # close the connection
         print('Server disconnected!')

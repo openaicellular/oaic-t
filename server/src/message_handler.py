@@ -61,6 +61,11 @@ class MessageHandler:
             actor_manager.update_test_logs(task_id, action_results)
             output_summary = message['output summary']
             actor_manager.update_test_logs(task_id, ">>>>>> Details:" + output_summary)
+        elif message['type'] == "KPI xApp":
+
+            message_sent = {"type": "confirmed"}
+            actor_manager.update_kpi_xapp(message['timestamp'], 'kpi1', float(message['kpi1']), 'kpi2', float(message['kpi2']), 'kpi3', float(message['kpi3']))
+
         else:
             # TO DO: implement other message from the actor
             message_sent = {"type": "confirmed"}

@@ -14,9 +14,11 @@ from actor_logger import logger
 
 # Handle all requests from the server.
 class MessageHandler:
-    def __init__(self, server_connection):
-        self.server_connection = server_connection
+    def __init__(self):
         pass
+
+    def set_server_connection(self, server_connection):
+        self.server_connection = server_connection
 
     def rsc_update_message(self, message):
         # message_sent = {"type": "resource update", "cpu": str(utils.get_cpu_info()),
@@ -32,6 +34,9 @@ class MessageHandler:
         task_executor.register_new_task(new_task)
         message_sent = {"type": "new task received and pending to run"}
         self.server_connection.send_msg(message_sent)
+
+    # def test_xapp_kpi(self, message):
+    #     self.server_connection.send_msg(message)
 
     def task_status_message(self, message):
         pass
@@ -64,3 +69,7 @@ class MessageHandler:
         elif message['type'] == "actor reset request":
             print("Receive a Actor Reset Request from the Server...")
             self.actor_reset_message(message)
+        # elif message['type'] == "xApp KPI":
+        #     self.test_xapp_kpi(message)
+
+message_handler = MessageHandler()

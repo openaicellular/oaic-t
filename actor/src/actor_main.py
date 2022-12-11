@@ -14,7 +14,7 @@ from backports import configparser
 import atexit
 from actions.proc_gen import stop_all_running_process
 
-
+server_connection = None
 
 def main(argv):
     # server_ip = '127.0.0.1'

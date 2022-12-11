@@ -13,6 +13,7 @@ from actions.action_executor import ActionExecutor
 from actions.proc_gen import *
 import time
 import subprocess
+from actions.xapp_connection import XAPPConnection
 
 # This action is to create a new network namespace for one UE
 # It first creates a namespace and verify the new namespace exists
@@ -261,11 +262,26 @@ class StopENodeB(ActionExecutor):
 class ConnectTestXApp(ActionExecutor):
     ACTION_NAME = "Connect Test xApp"  ## Be sure this action name is the one used in the test script
 
+    def __init__(self, action):
+        super().__init__(action)
+        # Base.__init__(self)
+
     def run(self):
         print("Action running: " + self.action.name + " ...")
         xapp_ip = self.action.paras['xapp_ip']
         xapp_port = int(self.action.paras['xapp_port'])
+        xapp_connection = XAPPConnection(xapp_ip, xapp_port, "Test xApp", super().get_server_connection())
+        time.sleep(2)
+        # (socket_status, socket_outputs) = xapp_connection.check_status()
+        print("Action: " + self.action.name + " " + xapp_connection.reasons)
+        action_output_summary = xapp_connection.reasons
+        action_output = xapp_connection.reasons
 
-        print("Action: " + self.action.name + " " + results)
-        action_output_summary = results
+        server_connection = super().get_server_connection()
+        for i in range(50):
+            time.sleep(2)
+            message_sent = {"type": "KPI xApp", "timestamp": str(i),
+                            "kpi1": str(i+100), "kpi2": str(i+200), "kpi3": str(i+300)}
+            server_connection.send_msg(message_sent)
+
         return action_output_summary, action_output
