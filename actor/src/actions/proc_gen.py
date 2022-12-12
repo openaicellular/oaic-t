@@ -47,7 +47,7 @@ class Process:
     STATUS_Running = 'Running'
     STATUS_Terminated = 'Terminated'
 
-    def __init__(self, process_name, cmds, running_str_indicator, stop_str_indicator):
+    def __init__(self, process_name, cmds, running_str_indicator, stop_str_indicator, stop_proc=2):
         self.process_name = process_name
         self.process = None
         self.status = Process.STATUS_NotStarted
@@ -57,6 +57,7 @@ class Process:
         self.line_num = 0
         self.running_str_indicator = running_str_indicator
         self.stop_str_indicator = stop_str_indicator
+        self.stop_proc = stop_proc
         self.cmds = cmds
         self.thread = None
         self.execute()
@@ -90,8 +91,17 @@ class Process:
             self.return_code = return_code
 
     def stop(self):
-        subprocess.check_call(["sudo", "kill", str(self.process.pid + 1), "-9"])  # note: pid is for sudo
-        subprocess.check_call(["sudo", "kill", str(self.process.pid), "-9"])
+        if self.stop_proc == 2:
+            try:
+                subprocess.check_call(["sudo", "kill", str(self.process.pid + 1), "-9"])  # note: pid is for sudo
+            except subprocess.CalledProcessError:
+                pass
+
+        try:
+            subprocess.check_call(["sudo", "kill", str(self.process.pid), "-9"])
+        except subprocess.CalledProcessError:
+            pass
+
 
 
 

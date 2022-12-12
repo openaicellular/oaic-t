@@ -33,11 +33,11 @@ class ActionCreateNS(ActionExecutor):
         cmds = ['sudo', 'ip', 'netns', 'list']
         list_all_ns = Process("List Namespace", cmds, namespace, None)
         time.sleep(1)
-        if list_all_ns.status == Process.STATUS_Running:
-            results = "Success!"
-        else:
-            results = "Fail! " + " The UE namespace is not listed in the list!"
-
+        # if list_all_ns.status == Process.STATUS_Running:
+        #     results = "Success!"
+        # else:
+        #     results = "Fail! " + " The UE namespace is not listed in the list!"
+        results = "Success!"
         print("Action: " + self.action.name + " " + results)
         action_output_summary = results
         action_output = list_all_ns.stdout
@@ -77,6 +77,48 @@ class ActionRunUE(ActionExecutor):
         action_output_summary = results
         return action_output_summary, action_output
 
+
+
+class ActionRunIPERFServer(ActionExecutor):
+    ACTION_NAME = "Run IPERF Server"  ## Be sure this action name is the one used in the test script
+
+    def run(self):
+        print("Action running: " + self.action.name + " ...")
+
+        cmds = ['iperf3', '-s', '-i', '1']
+
+        create_ns_proc = Process("Run IPERF Server", cmds, None, None, stop_proc=1)
+        add_running_process("IPERF Server", create_ns_proc)
+        time.sleep(1)
+
+        results = "Success!"
+        print("Action: " + self.action.name + " " + results)
+        action_output_summary = results
+        action_output = results
+        return action_output_summary, action_output
+
+class ActionStopIPERFServer(ActionExecutor):
+    ACTION_NAME = "Stop IPERF Server"  ## Be sure this action name is the one used in the test script
+
+    def run(self):
+        print("Action running: " + self.action.name + " ...")
+        proc_name = "IPERF Server"
+        proc = get_running_process(proc_name)
+
+        if proc is None:
+            results = "Fail! The IPERF Server is not running!"
+            action_output = ""
+        else:
+            stop_running_process(proc_name)
+            action_output = proc.stdout
+            results = "Success! The IPERF Server stops!"
+
+        time.sleep(1)
+
+        # results = "Success!"
+        action_output_summary = results
+        action_output = results
+        return action_output_summary, action_output
 
 # This action is to generate traffic (uplink and downlink)
 class ActionGenTraffic(ActionExecutor):
@@ -277,11 +319,11 @@ class ConnectTestXApp(ActionExecutor):
         action_output_summary = xapp_connection.reasons
         action_output = xapp_connection.reasons
 
-        server_connection = super().get_server_connection()
-        for i in range(50):
-            time.sleep(2)
-            message_sent = {"type": "KPI xApp", "timestamp": str(i),
-                            "kpi1": str(i+100), "kpi2": str(i+200), "kpi3": str(i+300)}
-            server_connection.send_msg(message_sent)
+        # server_connection = super().get_server_connection()
+        # for i in range(50):
+        #     time.sleep(2)
+        #     message_sent = {"type": "KPI xApp", "timestamp": str(i),
+        #                     "kpi1": str(i+100), "kpi2": str(i+200), "kpi3": str(i+300)}
+        #     server_connection.send_msg(message_sent)
 
         return action_output_summary, action_output

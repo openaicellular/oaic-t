@@ -19,6 +19,7 @@ from PyQt5.QtWidgets import QWidget, QFileDialog, QInputDialog, QAbstractItemVie
 from pyqtgraph import PlotWidget, plot
 import pyqtgraph as pg
 from random import randint
+from test_task import TestTask
 
 if __name__ == '__main__':
     # The server starts with the actor manager that handles actor connections.
@@ -106,7 +107,8 @@ if __name__ == '__main__':
 
                     selected_actors = args.actor
                     selected_tests = args.test
-                    actor_manager.start_test_task(selected_actors, selected_tests, id_count)
+                    test_task = TestTask(selected_actors, selected_tests, str(id_count))
+                    actor_manager.start_test_task(test_task)
                     id_count = id_count + 1
                 except SystemExit:
                     print("Unknown arguments. Usage: run --actor actor(s) --test testscript(s) ")
@@ -121,7 +123,12 @@ if __name__ == '__main__':
                         all_actor_name = all_actor_name + actor.name + "; "
                     print("[" + str(len(actor_manager.actor_list)) + "] active actors available: " + all_actor_name)
                 elif cmds[1].lower() == "tests":
-                    print("To Be Supported Soon!")
+                    all_test_name = ""
+                    for test in actor_manager.test_task_all:
+                        all_test_name = all_test_name + test.test_id + "; "
+                    print("[" + str(len(actor_manager.test_task_all)) + "] tests: " + all_test_name)
+
+                    # print("To Be Supported Soon!")
                 else:
                     print(
                         "Unknown list commands. Usage: list actors [This lists all active actors.] or list tests [This lists all running tests.]")

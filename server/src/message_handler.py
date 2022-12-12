@@ -26,7 +26,7 @@ class MessageHandler:
         elif message['type'] == "resource update":
             actor_resource = ActorResource(message['cpu'], message['mem'], message['sdr_size'])
             actor.update_resource(actor_resource)
-            print("Actor [" + actor.name + "] updated its resource!" + actor_resource.cpu + ": " + actor_resource.mem)
+            # print("Actor [" + actor.name + "] updated its resource!" + actor_resource.cpu + ": " + actor_resource.mem)
             actor_manager.update_actor_rsc(actor.name, actor_resource)
             message_sent = {"type": "resource update confirmed"}
         elif message['type'] == "task running":
@@ -38,7 +38,7 @@ class MessageHandler:
         elif message['type'] == "task completed":
             task_id = message['id']
             task_results = message['results']
-            print("Actor [" + actor.name + "] completed the task!" + " Task ID: " + task_id)
+            # print("Actor [" + actor.name + "] completed the task!" + " Task ID: " + task_id)
             message_sent = {"type": "confirmed"}
             actor_manager.update_test_logs(task_id, task_results)
             actor_manager.update_test_status(task_id, "Completed")
@@ -62,14 +62,17 @@ class MessageHandler:
             output_summary = message['output summary']
             actor_manager.update_test_logs(task_id, ">>>>>> Details:" + output_summary)
         elif message['type'] == "KPI xApp":
-
+            # print("Received KPI xApp data: ")
+            # print(message)
             message_sent = {"type": "confirmed"}
             kpi_all_dict = dict()
+            kpi_kept = ["PRB-Usage-DL", "PRB-Usage-UL", "QCI", "fiveQI", "MeasPeriodUEPRBUsage", "Meas-Period-PDCP", "Meas-Period-RF", "Number-of-Active-UEs"]
             for k in message.keys():
                 if k.startswith("kpi"):
+                # if k in kpi_kept:
                     kpi_all_dict[k] = float(message[k])
-
-            actor_manager.update_kpi_xapp(message['timestamp'], kpi_all_dict)
+            timestamp = message["timestamp"]
+            actor_manager.update_kpi_xapp(timestamp, kpi_all_dict)
 
         else:
             # TO DO: implement other message from the actor

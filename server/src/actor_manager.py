@@ -131,12 +131,16 @@ class ActorManager:
         test_task.update_status(status)
         if self.ui and test_task is not None:
             self.ui.status_updated(test_task)
+        else:
+            print("The status of the test task has been updated to be " + status + "!")
 
     def update_test_logs(self, test_id, logs):
         test_task = self.find_test_task(test_id)
         if self.ui and test_task:
             test_task.append_log(logs)
             self.ui.logs_updated(test_task)
+        else:
+            print(logs)
 
     def start_test_task(self, test_task):
         # check if all test scripts exist

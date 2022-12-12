@@ -12,7 +12,7 @@ from actor_logger import logger
 import json
 import utils as utils
 from socket import error as socket_error
-
+import time
 
 
 class XAPPConnection:
@@ -34,6 +34,14 @@ class XAPPConnection:
 
     def waiting_server_thread(self, socket):
         # msg_handler = MessageHandler(self)
+        print("Just send some fake data......")
+        for i in range(100):
+            time.sleep(2)
+            message_sent = {"type": "KPI xApp", "timestamp": str(i),
+                            "kpi1": str(i+100), "kpi2": str(i+200), "kpi3": str(i+300)}
+            self.server_connection.send_msg(message_sent)
+        return
+
         while True:
             # this thread is created to wait new message received from server
             data = socket.recv(1024)
@@ -64,10 +72,13 @@ class XAPPConnection:
         # connect to server on local computer
         try:
             self.socket.connect((host, port))
+            print("Server connection is completed! It is now receiving data from the Test xApp!")
+            self.status = True
+            self.reasons = "Test xApp connection success! It is now receiving data from the Test xApp!"
         except socket_error as err:
             self.status = False
             self.reasons = "Fail to connect Test xApp."
-            return
+            # return
 
         # message = {"type": "registration", "name": name}  # a real dict.
         # data = json.dumps(message)
@@ -79,8 +90,6 @@ class XAPPConnection:
         # data = data.decode("utf-8")
         # print the received message
         # logger.info('-->> Receive a message from the server : {}'.format(data))
-        print("Server connection is completed! It is now receiving data from the Test xApp!")
-        self.status = True
-        self.reasons = "Test xApp connection success! It is now receiving data from the Test xApp!"
+
         start_new_thread(self.waiting_server_thread, (self.socket,))
 

@@ -551,7 +551,7 @@ class Ui_MainWindow(QWidget):
         current_selected = self.dropDown2.currentText()
         data_plot = self.kpi_all[current_selected]
 
-        print(data_plot)
+        # print(data_plot)
         self.data2_x = list(range(len(data_plot)))
         pen = pg.mkPen(color='b')
         self.graphWidget2.setXRange(max(self.data2_x[-1] - 10, 0), self.data2_x[-1] + 5, padding=0)
@@ -571,8 +571,8 @@ class Ui_MainWindow(QWidget):
 
     @QtCore.pyqtSlot(str, bool)
     def on_actor_kpi_updated(self, timestamp, flag):
-        print("received kpi: " + timestamp)
-        print(self.kpi_all_update)
+        # print("received kpi: " + timestamp)
+        # print(self.kpi_all_update)
 
         self.ts_all = self.ts_all.copy() + [timestamp]
         first_input_flag = len(self.kpi_all) == 0
