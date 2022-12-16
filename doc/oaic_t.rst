@@ -37,8 +37,7 @@ To use OAIC-T, go to the oaic-t folder:
 .. note::
 
 	The OAIC-T now only supports the testing of O-RAN under ZeroMQ mode, i.e., both eNodeB and UE are running in the same machine without 
-	the use of SDRs, also known as virtual radio. The srsRAN with E2 Agent must be installed prior to the use of oaci-t. Follow the `srsRAN with E2 Agent Installation Guide
- <https://openaicellular.github.io/oaic/srsRAN_installation.html>` to ensure that the 5G Network is successfully set up.	
+	the use of SDRs, also known as virtual radio. The srsRAN with E2 Agent must be installed prior to the use of oaci-t. Follow the `srsRAN with E2 Agent Installation Guide <https://openaicellular.github.io/oaic/srsRAN_installation.html>` to ensure that the 5G Network is successfully set up.	
 
 
 
@@ -58,7 +57,7 @@ Install the following python package for the actor:
     
     sudo pip install psutil
 
-Both server and actors can be further configured by their configuration files in their source folder.
+Both server and actors can be further configured by their configuration files in their source folders. For server: server/src/config.txt. For actor: actor/src/config.txt
 
 
 ZeroMQ Mode
@@ -66,6 +65,7 @@ ZeroMQ Mode
 
 
 How To Run OAIC-T, assuming both server and actor run in the same machine:
+
 Step 1. Run the OAIC-T Server: 
 
 .. code-block:: rst
@@ -82,11 +82,9 @@ Step 2. Run the OAIC-T Actor(s):
 	
 	sudo python3 actor_main.py
 
-More actors can be started, but each actor should have a unique name. Edit the actor/src/config.txt to change the actor name before running it.
+More actors can be started, but each actor should have a unique name. Edit the configuration file to change the actor name before running it.
 
-The server is started with a GUI by default. Users can then create and run test tasks. A test task consists of an actor and at least one test script (json file). Examples of test scripts are included in the server source folder.
-
-The server also supports a command-line mode by setting the GUI flag as "false" or "False" in the configuration file. 
+The server is started with a GUI by default. Users can then create and run test tasks. A test task consists of an actor and at least one test script (json file). Examples of test scripts are included in the server source folder. The server also supports a command-line mode by setting the GUI flag as "false" or "False" in the configuration file. 
 
 Once the actor starts, you will see a message in the server console showing one Actor is registered with its name.
 Then, you can type commands in the console to interact with the Server. The following commands are currently supported:
