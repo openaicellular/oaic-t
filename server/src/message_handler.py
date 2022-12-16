@@ -66,12 +66,24 @@ class MessageHandler:
             # print(message)
             message_sent = {"type": "confirmed"}
             kpi_all_dict = dict()
-            kpi_kept = ["PRB-Usage-DL", "PRB-Usage-UL", "QCI", "fiveQI", "MeasPeriodUEPRBUsage", "Meas-Period-PDCP", "Meas-Period-RF", "Number-of-Active-UEs"]
-            for k in message.keys():
-                if k.startswith("kpi"):
-                # if k in kpi_kept:
-                    kpi_all_dict[k] = float(message[k])
-            timestamp = message["timestamp"]
+            ue_kpi_kept = ["PRB-Usage-DL", "PRB-Usage-UL", "QCI", "fiveQI", "MeasPeriodUEPRBUsage", "Meas-Period-PDCP", "Meas-Period-RF", "Number-of-Active-UEs"]
+            cell_kpi_kept = ["PDCP-Bytes-DL", "PDCP-Bytes-UL", "Avail-PRB-DL", "Avail-PRB-UL", "Meas-Period-PDCPBytes", "MeasPeriodAvailPRB", "Total-Available-PRBs-DL",
+                           "Total-Available-PRBs-UL"]
+            ue_metrics = message["UE Metrics"]
+            cell_metrics = message["Cell Metrics"]
+            count = 0
+            for k in ue_metrics.keys():
+                #if k.startswith("kpi"):
+                if k in ue_kpi_kept:
+                    kpi_all_dict[count] = float(message[k])
+                    count += 1
+            for k in cell_metrics.keys():
+                #if k.startswith("kpi"):
+                if k in cell_kpi_kept:
+                    kpi_all_dict[count] = float(message[k])
+                    count += 1
+            #timestamp = message["timestamp"]
+            timestamp = count
             actor_manager.update_kpi_xapp(timestamp, kpi_all_dict)
 
         else:
