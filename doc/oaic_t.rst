@@ -33,7 +33,6 @@ To use OAIC-T, go to the oaic-t folder:
 
    cd oaic-t
 
-
 .. note::
 
 	The OAIC-T now only supports the testing of O-RAN under ZeroMQ mode, i.e., both eNodeB and UE are running in the same machine without 
