@@ -4,6 +4,14 @@
     "actions":
     [
         {
+            "name": "Connect Test xApp",
+            "paras": {
+            	"xapp_ip": "127.0.0.1",
+            	"xapp_port": 8757
+            }
+        },
+        
+        {
             "name": "Create Network Namespace",
             "paras": {
                 "namespace": "ue1"
@@ -13,7 +21,8 @@
         {
             "name": "Run UE",
             "paras": {
-                "namespace": "ue1"
+                "namespace": "ue1",
+                "waiting_time_to_startup": 20
             }
         },
 

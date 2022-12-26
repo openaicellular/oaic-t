@@ -48,7 +48,7 @@ Install the following python package for the server:
 
 .. code-block:: bash
     
-    sudo pip install backports configparser
+    sudo pip install configparser
 
 Install the following python package for the actor:
 
@@ -86,7 +86,7 @@ More actors can be started, but each actor should have a unique name. Edit the c
 The server is started with a GUI by default. Users can then create and run test tasks. A test task consists of an actor and at least one test script (json file). Examples of test scripts are included in the server source folder. The server also supports a command-line mode by setting the GUI flag as "false" or "False" in the configuration file. 
 
 Once the actor starts, you will see a message in the server console showing one Actor is registered with its name.
-Then, you can type commands in the console to interact with the Server. The following commands are currently supported:
+Then, you can type commands in the console to interact with the Server. The following commands are currently supported in the command-line mode:
 
 1. "list actors": It will list all registered Actors.
 2. "run --test test_script_file --actor actor_name": It will run the test script in the specified actor. Currently six test script exampls are included (more will become available soon):

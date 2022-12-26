@@ -28,6 +28,12 @@ class Action:
         message['results'] = action_res_all
         return message
 
+    def get_action_para(self, key):
+        if key in self.paras.keys():
+            return self.paras[key]
+        else:
+            return None
+
     def action_completed(self, task_id, action_output_summary, action_output):
         self.status = Action.STATUS_COMPLETED
         self.action_output_summary = action_output_summary

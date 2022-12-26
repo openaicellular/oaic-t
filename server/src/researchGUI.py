@@ -19,7 +19,7 @@ class Ui_MainWindow(QWidget):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.showMaximized()
-        MainWindow.setStyleSheet("background-color: rgb(135,206,250);")
+        MainWindow.setStyleSheet("background-color: rgb(229, 227, 206);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.line = QtWidgets.QFrame(self.centralwidget)
@@ -131,34 +131,34 @@ class Ui_MainWindow(QWidget):
         self.line.setObjectName("line")
         self.actorList = QtWidgets.QListWidget(self.centralwidget)
         self.actorList.setGeometry(QtCore.QRect(10, 180, 200, 161))
-        self.actorList.setStyleSheet("background-color: rgb(255, 204, 204);")
+        self.actorList.setStyleSheet("background-color: rgb(224, 224, 224);")
         self.actorList.setEditTriggers(
             QtWidgets.QAbstractItemView.EditKeyPressed | QtWidgets.QAbstractItemView.SelectedClicked)
         self.actorList.setObjectName("actorList")
         self.scriptList = QtWidgets.QListWidget(self.centralwidget)
         self.scriptList.setGeometry(QtCore.QRect(290, 180, 221, 161))
-        self.scriptList.setStyleSheet("background-color: rgb(255, 204, 204);")
+        self.scriptList.setStyleSheet("background-color: rgb(224, 224, 224);")
         self.scriptList.setObjectName("scriptList")
         self.addButton = QtWidgets.QPushButton(self.centralwidget)
         self.addButton.setGeometry(QtCore.QRect(570, 180, 141, 28))
-        self.addButton.setStyleSheet("background-color: rgb(153, 153, 255);")
+        self.addButton.setStyleSheet("background-color: rgb(190, 208, 166);")
         self.addButton.setObjectName("addButton")
         self.startButton = QtWidgets.QPushButton(self.centralwidget)
         self.startButton.setGeometry(QtCore.QRect(570, 250, 141, 28))
-        self.startButton.setStyleSheet("background-color: rgb(153, 153, 255);")
+        self.startButton.setStyleSheet("background-color: rgb(190, 208, 166);")
         self.startButton.setObjectName("startButton")
         self.taskLogs = QtWidgets.QTextBrowser(self.centralwidget)
         self.taskLogs.setGeometry(QtCore.QRect(290, 420, 491, 350))
         self.taskLogs.setStyleSheet("background-color: rgb(224, 224, 224);")
         self.taskLogs.setObjectName("taskLogs")
-        self.stopButton = QtWidgets.QPushButton(self.centralwidget)
-        self.stopButton.setGeometry(QtCore.QRect(20, 800, 93, 28))
-        self.stopButton.setStyleSheet("background-color: rgb(153, 153, 255);")
-        self.stopButton.setObjectName("stopButton")
-        self.removeButton = QtWidgets.QPushButton(self.centralwidget)
-        self.removeButton.setGeometry(QtCore.QRect(150, 800, 93, 28))
-        self.removeButton.setStyleSheet("background-color: rgb(153, 153, 255);")
-        self.removeButton.setObjectName("removeButton")
+        # self.stopButton = QtWidgets.QPushButton(self.centralwidget)
+        # self.stopButton.setGeometry(QtCore.QRect(20, 800, 93, 28))
+        # self.stopButton.setStyleSheet("background-color: rgb(153, 153, 255);")
+        # self.stopButton.setObjectName("stopButton")
+        # self.removeButton = QtWidgets.QPushButton(self.centralwidget)
+        # self.removeButton.setGeometry(QtCore.QRect(150, 800, 93, 28))
+        # self.removeButton.setStyleSheet("background-color: rgb(153, 153, 255);")
+        # self.removeButton.setObjectName("removeButton")
         self.actor_label = QtWidgets.QLabel(self.centralwidget)
         self.actor_label.setGeometry(QtCore.QRect(30, 160, 161, 16))
         font = QtGui.QFont()
@@ -344,20 +344,13 @@ class Ui_MainWindow(QWidget):
         self.graphWidget1.setObjectName("graphWidget1")
         self.graphWidget1.setFrameStyle(QtGui.QFrame.StyledPanel | QtGui.QFrame.Plain)
         CHART_MARGINS = (0, 0, 20, 5)
-        #self.graphWidget1.getPlotItem().setContentsMargins(*CHART_MARGINS)
         self.graphWidget1.showGrid(x=True, y=True)
-        # self.graphWidget1.hideAxis('left')
-        # self.graphWidget1.showAxis('right')
-        #self.graphWidget1.setCursor(QtCore.Qt.BlankCursor)
-        #self.graphWidget1.sigXRangeChanged.connect(self._update_yrange_limits)
-        # self.graphWidget1.setXRange(1, 100, padding=0)
         self.graphWidget1.setXRange(0, 5, padding=0)
 
         self.graphWidget2 = PlotWidget(self.centralwidget, background=(224,255,255))
         self.graphWidget2.setGeometry(QtCore.QRect(1030, 500, 750, 340))
         self.graphWidget2.setObjectName("graphWidget2")
         self.graphWidget2.setFrameStyle(QtGui.QFrame.StyledPanel | QtGui.QFrame.Plain)
-        #self.graphWidget2.getPlotItem().setContentsMargins(*CHART_MARGINS)
         self.graphWidget2.showGrid(x=True, y=True)
         self.graphWidget2.setXRange(1, 10, padding=0)
         self.graphWidget2.setXRange(0, 10, padding=0)
@@ -388,7 +381,7 @@ class Ui_MainWindow(QWidget):
         self.label_2.setObjectName("label_2")
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(10, 420, 200, 350))
-        self.tableWidget.setStyleSheet("background-color: rgb(255, 204, 204);")
+        self.tableWidget.setStyleSheet("background-color: rgb(224, 224, 224);")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setRowCount(0)
@@ -460,8 +453,8 @@ class Ui_MainWindow(QWidget):
         self.actorList.setSortingEnabled(True)
         self.addButton.setText(_translate("MainWindow", "Load Test Scripts"))
         self.startButton.setText(_translate("MainWindow", "Start A New Test"))
-        self.stopButton.setText(_translate("MainWindow", "Stop"))
-        self.removeButton.setText(_translate("MainWindow", "Remove"))
+        # self.stopButton.setText(_translate("MainWindow", "Stop"))
+        # self.removeButton.setText(_translate("MainWindow", "Remove"))
         self.actor_label.setText(_translate("MainWindow", "Actors"))
         self.files_label.setText(_translate("MainWindow", "Test Script Files"))
         self.tasks_label.setText(_translate("MainWindow", "Active Test Tasks"))
@@ -507,11 +500,6 @@ class Ui_MainWindow(QWidget):
             new_value = old_value.copy() + [actor_rsc_cpu]
             self.data1_x = list(range(len(new_value)))
             self.data1_y = new_value
-            # if len(new_value) > 10:
-            #     self.data1_y = new_value[len(new_value)-10:]
-            #     self.data1_x = self.data1_x[len(new_value)-10:]
-            # else:
-            #     self.data1_y = new_value
             new_dic = {actor_name: new_value}
             self.actor_rsc_all.update(new_dic)
         else:
@@ -533,16 +521,6 @@ class Ui_MainWindow(QWidget):
             else:
                 self.data1_line = self.graphWidget1.plot(self.data1_x, self.data1_y, name='CPU', pen=pen, symbol='o', symbolSize=8, symbolBrush=('b'))
 
-    #
-    # xData = xData[1:]
-    # xData.append(xData[-1] + 1)
-    # ui.dropDown1.setItemData(index, xData, ui.graphRoleX)
-    #
-    # yData = yData[1:]
-    # yData.append(randint(0,100))
-    # ui.dropDown1.setItemData(index, yData, ui.graphRoleY)
-    #
-    # ui.showGraph()
 
     def actor_rsc_updated(self, actor_name, actor_rsc_cpu, actor_rsc_mem):
         self.actor_updater.rsc_updated.emit(actor_name, actor_rsc_cpu, actor_rsc_mem)
@@ -557,10 +535,6 @@ class Ui_MainWindow(QWidget):
         self.graphWidget2.setXRange(max(self.data2_x[-1] - 10, 0), self.data2_x[-1] + 5, padding=0)
         self.graphWidget2.setYRange(max(min(data_plot) - 0.2 * min(data_plot), 0),
                                     min(max(data_plot) + 0.2 * max(data_plot), 500), padding=0)
-        # if len(data_plot) > 10:
-        #     # print(self.data2_x)
-        #     self.data2_line.setData(self.data2_x, data_plot)
-        # else:
 
         self.data2_line = self.graphWidget2.plot(self.data2_x, data_plot, name='KPI', pen=pen, symbol='o',
                                                      symbolSize=8, symbolBrush=('b'))
@@ -590,8 +564,6 @@ class Ui_MainWindow(QWidget):
         self.plot_kpi()
 
 
-
-
     def actor_kpi_updated(self, timestamp, kpi_all):
         self.kpi_all_update = kpi_all
         self.actor_updater.kpi_updated.emit(timestamp, True)
@@ -606,37 +578,8 @@ class Ui_MainWindow(QWidget):
         (row_index, item_first, item_second) = self.test_task_all[test_task]
         self.test_task_updater.log_changed.emit(test_task.log, row_index)
 
-        # if (self.tableWidget.currentRow() is None) or (self.tableWidget.currentRow() == row_index):
-        #     self.taskLogs.clear()
-        #     self.taskLogs.append(test_task.log)
-
-        # matching_items = self.tableWidget.findItems(task_id, Qt.MatchExactly)
-        # print(task_id)
-        # print(matching_items)
-        # if matching_items:
-        #     print("found matched test id")
-        #     item = matching_items[0]  # Take the first.
-        #     self.tableWidget.setCurrentItem(item)
-        # foo = self.tableWidget.item(self.tableWidget.currentRow(), 0)
-        # foo.setData(self.logRole, log)
-        # self.showLogs()
-
     def update_status(self, task_id, status):
         pass
-        # ## TODO: To be improved
-        # tableStatus = QTableWidgetItem(status)
-        # self.tableWidget.blockSignals(True)
-        # if (status == 'Pending'):
-        #     tableStatus.setForeground(QtGui.QBrush(QtGui.QColor(0, 0, 0)))
-        # if (status == 'Running'):
-        #     tableStatus.setForeground(QtGui.QBrush(QtGui.QColor(255, 255, 0)))
-        # if (status == 'Completed'):
-        #     tableStatus.setForeground(QtGui.QBrush(QtGui.QColor(0, 255, 0)))
-        # if (status == 'Failed'):
-        #     tableStatus.setForeground(QtGui.QBrush(QtGui.QColor(255, 0, 0)))
-        # self.tableWidget.blockSignals(False)
-        #
-        # self.tableWidget.setItem(self.tableWidget.currentRow(), 1, tableStatus)
 
     def addGraphData(self, xData, yData):
         index = self.dropDown1.currentIndex()
@@ -671,8 +614,10 @@ class Ui_MainWindow(QWidget):
 
     # Functions within the GUI
     def addToScript(self):
-        path = QFileDialog.getOpenFileName()
-        filename = path[0].split("/")[-1]
+        #path = QFileDialog.getOpenFileName()
+        #filename = path
+        # filename = path[0].split("/")[-1]
+        filename, _filter = QFileDialog.getOpenFileName(None, "Select one or more files to open", ".", "JSON (*.json)")
         ## check if the file is already included in the list
         if filename in self.load_test_files:
             pass
@@ -691,8 +636,16 @@ class Ui_MainWindow(QWidget):
         if not selected_actors:
             QMessageBox.about(self, "Error", "At least one actor should be selected!")
             return
+        if len(selected_actors) > 1:
+            QMessageBox.about(self, "Error", "Only one actor should be selected! Multiple actors testing will be supported soon!")
+            return
+
         if not selected_tests:
             QMessageBox.about(self, "Error", "At least one test script should be selected!")
+            return
+
+        if len(selected_tests) > 1:
+            QMessageBox.about(self, "Error", "Only one test script should be selected! Multiple test scripts will be supported soon!")
             return
 
         test_name, ok = QInputDialog.getText(self, 'Text Input Dialog', 'Enter a name for your Test Task:')

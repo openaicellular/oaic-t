@@ -49,27 +49,19 @@ if __name__ == '__main__':
 
         actor_manager.set_ui(ui)
 
-        #ui.addActor("temp 1")
-        #ui.addActor("temp 2")
-        #logs = "test and test and test and test and test and test"
 
         # Use this to get the list of actors and test script files used in
         # each test task.
         ui.tableWidget.itemClicked.connect(lambda: ui.getActors())
         ui.tableWidget.itemClicked.connect(lambda: ui.printout())
-        ui.stopButton.clicked.connect(lambda: ui.updateStatus("Running"))
-        ui.stopButton.clicked.connect(lambda: ui.addLogs(logs))
+        # ui.stopButton.clicked.connect(lambda: ui.updateStatus("Running"))
+        # ui.stopButton.clicked.connect(lambda: ui.addLogs(logs))
 
 
 
         ui.graphX = list(range(100))
         ui.graphY = [randint(0, 100) for _ in range(100)]
         ui.addGraphData(ui.graphX, ui.graphY)
-
-        # timer = QtCore.QTimer()
-        # timer.setInterval(100)
-        # timer.timeout.connect(lambda: updatePlotData(ui))
-        # timer.start()
 
         sys.exit(app.exec_())
     else:
@@ -139,29 +131,3 @@ if __name__ == '__main__':
             else:
                 print("Unknown command!")
                 continue
-
-    # test_file = sys.argv[1]
-    #
-    #
-    #
-    #
-    # #time.sleep(10)
-    # id_count = 0
-    #
-    # # To Be Replaced
-    # print("Running the test script: " + test_file)
-    #
-    # #while True:
-    # for actor in actor_manager.actor_list:
-    #     print("Send a Resource Update Request to the Actor [" + actor.name + "] ...")
-    #     message = {"type": "resource update request"}
-    #     actor.send_msg_dict(message)
-    #     time.sleep(5)
-    #
-    #     print("Send a New Task Request to the Actor [" + actor.name + "] ...")
-    #     message = test_script_reader.read_test_script_json(test_file)
-    #     id_count = id_count + 1
-    #     message["id"] = "task id" + str(id_count)
-    #     message["type"] = "new task request"
-    #     actor.send_msg_dict(message)
-    #     time.sleep(1000)

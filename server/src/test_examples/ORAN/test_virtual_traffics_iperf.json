@@ -4,23 +4,18 @@
     "actions":
     [
         {
-            "name": "Start EPC",
-            "paras": {}
-        },
-        
-        {
-            "name": "Start ENodeB",
+            "name": "Connect Test xApp",
             "paras": {
-            	"--rf.device_name":"zmq",
-            	"--rf.device_args":"fail_on_disconnect=true,tx_port=tcp://*:2000,rx_port=tcp://localhost:2001,id=enb,base_srate=23.04e6"
+            	"xapp_ip": "127.0.0.1",
+            	"xapp_port": 8757
             }
         },
-        
         
         {
             "name": "Create Network Namespace",
             "paras": {
-                "namespace": "ue1"
+                "namespace": "ue1",
+                "waiting_time_to_startup": 20
             }
         },
 
@@ -30,24 +25,23 @@
                 "namespace": "ue1"
             }
         },
-        
-        {
+	
+	{
             "name": "Run IPERF Server",
             "paras": {}
         },
         
-
         {
             "name": "Generate Traffic",
             "paras": {
                 "namespace": "ue1",
                 "direction": "uplink",
                 "traffic_gen_mode": "iperf",
-                "bandwidth": 20,
+                "bandwidth": 10,
                 "iperf_time": 20
             }
         },
-
+	
 	{
             "name": "Stop IPERF Server",
             "paras": {}
@@ -58,17 +52,6 @@
             "paras": {
                 "namespace": "ue1"
             }
-        },
-        
-        {
-            "name": "Stop ENodeB",
-            "paras": {}
-        },
-        
-        {
-            "name": "Stop EPC",
-            "paras": {}
         }
-        
     ]
 }

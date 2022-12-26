@@ -22,7 +22,7 @@ class ActionCreateNS(ActionExecutor):
 
     def run(self):
         print("Action running: " + self.action.name + " ...")
-        namespace = self.action.paras['namespace']
+        namespace = self.action.get_action_para('namespace')
 
         cmds = ['sudo', 'ip', 'netns', 'add', namespace]
 
@@ -54,19 +54,38 @@ class ActionRunUE(ActionExecutor):
 
     def run(self):
         print("Action running: " + self.action.name + " ...")
-        namespace = self.action.paras['namespace']
+        namespace = self.action.get_action_para('namespace')
+        device_name = self.action.get_action_para('--rf.device_name')
+        device_args = self.action.get_action_para('--rf.device_args')
+        waiting_time_to_startup = self.action.get_action_para('waiting_time_to_startup')
+        if waiting_time_to_startup is None:
+            waiting_time_to_startup = 25   # default value
+        para_args = []
+        if device_name is not None:
+            para_args.append('--rf.device_name=' + device_name)
+        if device_args is not None:
+            para_args.append('--rf.device_args=\"' + device_args + '\"')
+        if namespace is not None:
+            para_args.append('--gw.netns=' + namespace)
 
         if get_running_process(namespace) is None:
-            cmds = ['sudo', 'srsue', '--rf.device_name=zmq',
-             '--rf.device_args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"',
-             '--gw.netns=' + namespace]
+            # cmds = ['sudo', 'srsue', '--rf.device_name=zmq',
+            #  '--rf.device_args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"',
+            #  '--gw.netns=' + namespace]
+            cmds = ['sudo', 'srsue']
+            cmds.extend(para_args)
+            print(cmds)
             ue_proc = UE_Process(namespace, cmds, "Network attach successful", "Stopping")
-            time.sleep(10)
-            if ue_proc.status == Process.STATUS_Running:
-                results = "Success! " + "UE is initially running with IP: " + ue_proc.UE_IP
-                add_running_process(namespace, ue_proc)
-            else:
-                results = "Fail! " + "UE is not successfully started after 10 seconds"
+            waiting_time_total = 0
+            while waiting_time_total < waiting_time_to_startup:
+                time.sleep(2)  # check for every 2 second
+                waiting_time_total += 2
+                if ue_proc.status == Process.STATUS_Running:
+                    results = "Success! " + "UE is initially running with IP: " + ue_proc.UE_IP
+                    add_running_process(namespace, ue_proc)
+                    break
+            if ue_proc.status != Process.STATUS_Running:
+                results = "Fail! " + "UE is not successfully started after " + str(waiting_time_to_startup) + " seconds"
                 ue_proc.stop()
             action_output = ue_proc.stdout
         else:
@@ -127,16 +146,16 @@ class ActionGenTraffic(ActionExecutor):
     def run(self):
         print("Action running: " + self.action.name + " ...")
 
-        namespace = self.action.paras['namespace']
+        namespace = self.action.get_action_para('namespace')
         ue_proc = get_running_process(namespace)
         if ue_proc is None:
             results = "Fail! The UE is not in the running list:" + namespace
             action_output = " "
         else:
-            direction = self.action.paras['direction']  # uplink or downlink
-            traffic_gen_mode = self.action.paras['traffic_gen_mode']  # two modes supported: ping and surf
+            direction = self.action.get_action_para('direction')  # uplink or downlink
+            traffic_gen_mode = self.action.get_action_para('traffic_gen_mode')  # two modes supported: ping and surf
             if traffic_gen_mode.lower() == "ping":  # ping command to generate traffic
-                ping_time = self.action.paras['ping_time']
+                ping_time = self.action.get_action_para('ping_time')
 
                 if direction == "uplink":
                     ip = "172.16.0.1"  # default ip for enodeB
@@ -156,8 +175,8 @@ class ActionGenTraffic(ActionExecutor):
                     action_output = ping_proc.stdout
                     results = "Success!"
             elif traffic_gen_mode.lower() == "iperf":  # iperf command to generate traffic for a time
-                bandwidth = self.action.paras['bandwidth']  # M unit
-                iperf_time = self.action.paras['iperf_time']  # in second
+                bandwidth = self.action.get_action_para('bandwidth')  # M unit
+                iperf_time = self.action.get_action_para('iperf_time')  # in second
                 ip = "172.16.0.1"  # default ip for enodeB
                 logger.info("IP to be communicate (uplink using iperf): " + ip)
                 cmds = ['sudo', 'ip', 'netns', 'exec', namespace, 'iperf3', "-c", ip, "-b", str(bandwidth) + "M", "-i",
@@ -181,7 +200,7 @@ class StopUE(ActionExecutor):
 
     def run(self):
         print("Action running: " + self.action.name + " ...")
-        namespace = self.action.paras['namespace']
+        namespace = self.action.get_action_para('namespace')
         ue_proc = get_running_process(namespace)
         if ue_proc is None:
             results = "Fail! The UE to be stopped is not running or does not exist! The UE namespace: " + namespace
@@ -212,7 +231,7 @@ class StartEPC(ActionExecutor):
             cmds = ['sudo', 'srsepc']
             print("Wait 3 seconds to allow the EPC running...")
             epc = Process(epc_proc_name, cmds, 'SP-GW Initialized.', 'Stopping')
-            time.sleep(3) # wait for seconds to allow it running
+            time.sleep(5) # wait for seconds to allow it running
             if epc.status == Process.STATUS_Running:
                 add_running_process(epc_proc_name, epc)
                 results = "Success! The EPC is running!"
@@ -252,10 +271,14 @@ class StartENodeB(ActionExecutor):
 
     def run(self):
         print("Action running: " + self.action.name + " ...")
-
-        device_name = self.action.paras['--rf.device_name']
-        device_args = self.action.paras['--rf.device_args']
-        para_args = ['--rf.device_name=' + device_name, '--rf.device_args=\"' + device_args + '\"']
+        para_args = []
+        device_name = self.action.get_action_para('--rf.device_name')
+        if device_name is not None:
+            para_args.append('--rf.device_name=' + device_name)
+        device_args = self.action.get_action_para('--rf.device_args')
+        if device_args is not None:
+            para_args.append('--rf.device_args=\"' + device_args + '\"')
+        #para_args = ['--rf.device_name=' + device_name, '--rf.device_args=\"' + device_args + '\"']
 
         enb_proc_name = 'ENodeB'
         if get_running_process(enb_proc_name) is not None:
@@ -267,8 +290,8 @@ class StartENodeB(ActionExecutor):
                 cmds.append(arg)
 
             enb = Process(enb_proc_name, cmds, 'eNodeB started', 'Stopping')
-            print("Wait 3 seconds to allow the ENodeB running...")
-            time.sleep(3)  # wait for seconds to allow it running
+            print("Wait 5 seconds to allow the ENodeB running...")
+            time.sleep(5)  # wait for seconds to allow it running
             if enb.status == Process.STATUS_Running:
                 add_running_process(enb_proc_name, enb)
                 results = "Success! The ENodeB is running!"
@@ -310,8 +333,8 @@ class ConnectTestXApp(ActionExecutor):
 
     def run(self):
         print("Action running: " + self.action.name + " ...")
-        xapp_ip = self.action.paras['xapp_ip']
-        xapp_port = int(self.action.paras['xapp_port'])
+        xapp_ip = self.action.get_action_para('xapp_ip')
+        xapp_port = int(self.action.get_action_para('xapp_port'))
         xapp_connection = XAPPConnection(xapp_ip, xapp_port, "Test xApp", super().get_server_connection())
         time.sleep(2)
         # (socket_status, socket_outputs) = xapp_connection.check_status()
