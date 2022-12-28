@@ -123,8 +123,8 @@ class ActorManager:
             self.ui.actor_rsc_updated(actor_name, float(actor_rsc.cpu), float(actor_rsc.mem))
 
     def update_kpi_xapp(self, ts, kpi_all):
-        if self.ui:
-            self.ui.actor_kpi_updated(ts, kpi_all)
+        if self.ui & kpi_all:
+            self.ui.actor_kpi_updated(ts)
 
     def update_test_status(self, test_id, status):
         test_task = self.find_test_task(test_id)

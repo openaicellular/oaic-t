@@ -6,7 +6,7 @@
 # ====================================================================
 
 from actor_resource import ActorResource
-
+import json
 
 class MessageHandler:
     def __init__(self):
@@ -69,24 +69,29 @@ class MessageHandler:
             ue_kpi_kept = ["PRB-Usage-DL", "PRB-Usage-UL", "QCI", "fiveQI", "MeasPeriodUEPRBUsage", "Meas-Period-PDCP", "Meas-Period-RF", "Number-of-Active-UEs"]
             cell_kpi_kept = ["PDCP-Bytes-DL", "PDCP-Bytes-UL", "Avail-PRB-DL", "Avail-PRB-UL", "Meas-Period-PDCPBytes", "MeasPeriodAvailPRB", "Total-Available-PRBs-DL",
                            "Total-Available-PRBs-UL"]
-            count = 0
+
             if "UE Metrics" in message.keys():
+                count_ue = 0
                 ue_metrics = message["UE Metrics"]
+                ue_metrics = json.loads(ue_metrics[0][0], strict=False)
                 for k in ue_metrics.keys():
                     # if k.startswith("kpi"):
                     if k in ue_kpi_kept:
                         kpi_all_dict[count] = float(message[k])
-                        count += 1
+                        count_ue += 1
             if "Cell Metrics" in message.keys():
+                count_cell = 0
                 cell_metrics = message["Cell Metrics"]
+                cell_metrics = json.loads(cell_metrics[0][0], strict=False)
                 for k in cell_metrics.keys():
                     #if k.startswith("kpi"):
                     if k in cell_kpi_kept:
                         kpi_all_dict[count] = float(message[k])
-                        count += 1
+                        count_cell += 1
             #timestamp = message["timestamp"]
-            if kpi_all_dict:
-                timestamp = str(count)
+            print("KPI metrics received: " + str(count_ue) + " UE metrics, " + str(count_cell) + " Cell metrics!")
+            if (count_ue + count_cell) >= 1:
+                timestamp = str(count_ue + count_cell)
                 actor_manager.update_kpi_xapp(timestamp, kpi_all_dict)
 
         else:
