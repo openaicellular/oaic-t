@@ -1,0 +1,14 @@
+{
+    "test_name": "test_virtual_traffics_example",
+    "mode": "virtual radio",
+    "actions":
+    [
+        {
+            "name": "Connect Test xApp",
+            "paras": {
+            	"xapp_ip": "10.244.0.31",
+            	"xapp_port": 8585
+            }
+        }
+    ]
+}

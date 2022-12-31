@@ -1,0 +1,1477 @@
+23:24:21,426 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+23:24:21,427 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+23:24:26,523 OAIC-T Actor INFO Server disconnected
+23:26:01,126 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+23:26:01,248 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:26:01,304 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '35.7', 'mem': '100', 'sdr_size': '2'}
+23:26:01,305 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:26:06,252 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+23:26:06,252 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:26:06,253 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:26:06,639 OAIC-T Actor INFO Task running: task_test id: 1
+23:26:06,639 OAIC-T Actor DEBUG --------------------------ActionExample1
+23:26:06,639 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+23:26:11,255 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:26:11,258 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '2.4', 'mem': '100', 'sdr_size': '2'}
+23:26:11,258 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:26:11,644 OAIC-T Actor INFO ------    Action Done!
+23:26:11,644 OAIC-T Actor DEBUG --------------------------ActionExample1
+23:26:11,644 OAIC-T Actor DEBUG --------------------------ActionExample2
+23:26:11,644 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+23:26:16,261 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "2", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+23:26:16,261 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:26:16,261 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:26:16,648 OAIC-T Actor INFO ------    Action Done!
+23:26:16,648 OAIC-T Actor DEBUG --------------------------ActionExample1
+23:26:16,648 OAIC-T Actor DEBUG --------------------------ActionExample2
+23:26:16,648 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+23:26:16,648 OAIC-T Actor INFO Task Done!task_test id: 1
+23:26:16,648 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+23:26:16,648 OAIC-T Actor INFO Task running: task_test id: 2
+23:26:16,648 OAIC-T Actor DEBUG --------------------------ActionExample1
+23:26:16,648 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+23:26:16,649 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:39,78 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+00:51:39,79 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+00:51:44,84 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:51:44,84 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:51:44,84 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:44,88 OAIC-T Actor INFO Task running: task_test id: 1
+00:51:44,88 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:44,88 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:51:49,88 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:51:49,90 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '13.6', 'mem': '100', 'sdr_size': '2'}
+00:51:49,91 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:49,91 OAIC-T Actor INFO ------    Action Done!
+00:51:49,91 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:49,91 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:51:49,91 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+00:51:54,92 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "2", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:51:54,92 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:51:54,92 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:54,96 OAIC-T Actor INFO ------    Action Done!
+00:51:54,96 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:54,96 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:51:54,96 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+00:51:54,96 OAIC-T Actor INFO Task Done!task_test id: 1
+00:51:54,96 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+00:51:54,96 OAIC-T Actor INFO Task running: task_test id: 2
+00:51:54,96 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:54,96 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:51:54,97 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:51:59,97 OAIC-T Actor INFO ------    Action Done!
+00:51:59,98 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:51:59,98 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:51:59,98 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+00:51:59,98 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:51:59,100 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '3.6', 'mem': '100', 'sdr_size': '2'}
+00:51:59,101 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:52:04,104 OAIC-T Actor INFO ------    Action Done!
+00:52:04,104 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:04,104 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:04,104 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+00:52:04,104 OAIC-T Actor INFO Task Done!task_test id: 2
+00:52:04,104 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '2', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+00:52:04,104 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "3", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:52:04,104 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:52:04,605 OAIC-T Actor INFO Task running: task_test id: 3
+00:52:04,605 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:04,605 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:52:09,111 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:52:09,113 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '6.2', 'mem': '100', 'sdr_size': '2'}
+00:52:09,610 OAIC-T Actor INFO ------    Action Done!
+00:52:09,610 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:09,610 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:09,610 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+00:52:14,116 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "4", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:52:14,116 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:52:14,611 OAIC-T Actor INFO ------    Action Done!
+00:52:14,611 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:14,611 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:14,611 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+00:52:14,611 OAIC-T Actor INFO Task Done!task_test id: 3
+00:52:14,611 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '3', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+00:52:14,611 OAIC-T Actor INFO Task running: task_test id: 4
+00:52:14,611 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:14,611 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:52:19,120 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:52:19,122 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '7.6', 'mem': '100', 'sdr_size': '2'}
+00:52:19,613 OAIC-T Actor INFO ------    Action Done!
+00:52:19,613 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:19,613 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:19,613 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+00:52:24,121 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "5", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+00:52:24,121 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:52:24,615 OAIC-T Actor INFO ------    Action Done!
+00:52:24,615 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:24,615 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:24,615 OAIC-T Actor ERROR Cannot find the action executor: Action 3
+00:52:24,615 OAIC-T Actor INFO Task Done!task_test id: 4
+00:52:24,615 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '4', 'results': [{'name': 'Action 1', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 2', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Action 3', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+00:52:24,615 OAIC-T Actor INFO Task running: task_test id: 5
+00:52:24,615 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:24,615 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+00:52:29,121 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:52:29,124 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '7.0', 'mem': '100', 'sdr_size': '2'}
+00:52:29,616 OAIC-T Actor INFO ------    Action Done!
+00:52:29,616 OAIC-T Actor DEBUG --------------------------ActionExample1
+00:52:29,616 OAIC-T Actor DEBUG --------------------------ActionExample2
+00:52:29,616 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+13:45:49,87 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+13:45:49,88 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+13:45:54,89 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "actions": [{"name": "Action 1", "paras": "paras examples", "type": "running"}, {"name": "Action 2", "paras": "paras examples", "type": "running"}, {"name": "Action 3", "paras": "paras examples", "type": "running"}], "type": "new task request"}
+13:45:54,89 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+13:45:54,89 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+13:45:54,95 OAIC-T Actor INFO Task running: task_test id: 1
+13:45:54,95 OAIC-T Actor DEBUG --------------------------ActionExample1
+13:45:54,95 OAIC-T Actor INFO ------    Action to be executed: Action 1 ...
+13:45:59,90 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+13:45:59,99 OAIC-T Actor INFO ------    Action Done!
+13:45:59,99 OAIC-T Actor DEBUG --------------------------ActionExample1
+13:45:59,99 OAIC-T Actor DEBUG --------------------------ActionExample2
+13:45:59,99 OAIC-T Actor INFO ------    Action to be executed: Action 2 ...
+18:31:45,327 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+18:31:45,328 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+18:31:50,331 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+18:31:50,332 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+18:31:50,332 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+18:31:50,829 OAIC-T Actor INFO Task running: task_test id: 1
+18:31:50,829 OAIC-T Actor DEBUG --------------------------ActionExample1
+18:31:50,829 OAIC-T Actor DEBUG --------------------------ActionExample2
+18:31:50,829 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+18:31:50,830 OAIC-T Actor DEBUG --------------------------ActionExample1
+18:31:50,830 OAIC-T Actor DEBUG --------------------------ActionExample2
+18:31:50,830 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+18:31:50,830 OAIC-T Actor DEBUG --------------------------ActionExample1
+18:31:50,830 OAIC-T Actor DEBUG --------------------------ActionExample2
+18:31:50,830 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+18:31:50,830 OAIC-T Actor DEBUG --------------------------ActionExample1
+18:31:50,830 OAIC-T Actor DEBUG --------------------------ActionExample2
+18:31:50,830 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+18:31:50,830 OAIC-T Actor INFO Task Done!task_test id: 1
+18:31:50,830 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}, {'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}, {'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}, {'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+18:31:50,830 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+18:31:55,336 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+18:31:55,374 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '2.9', 'mem': '100', 'sdr_size': '2'}
+18:31:55,375 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:13:03,132 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+12:13:05,366 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+12:13:05,613 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '4.7', 'mem': '100', 'sdr_size': '2'}
+12:13:05,613 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:13:10,366 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:13:10,366 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:13:10,367 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:13:10,640 OAIC-T Actor INFO Task running: task_test id: 1
+12:13:10,640 OAIC-T Actor DEBUG --------------------------ActionExample1
+12:13:10,641 OAIC-T Actor DEBUG --------------------------ActionExample2
+12:13:10,641 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+12:13:10,641 OAIC-T Actor DEBUG --------------------------ActionExample1
+12:13:10,641 OAIC-T Actor DEBUG --------------------------ActionExample2
+12:13:10,641 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+12:13:10,641 OAIC-T Actor DEBUG --------------------------ActionExample1
+12:13:10,641 OAIC-T Actor DEBUG --------------------------ActionExample2
+12:13:10,641 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+12:13:10,641 OAIC-T Actor DEBUG --------------------------ActionExample1
+12:13:10,641 OAIC-T Actor DEBUG --------------------------ActionExample2
+12:13:10,641 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+12:13:10,641 OAIC-T Actor INFO Task Done!task_test id: 1
+12:13:10,641 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}, {'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}, {'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}, {'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+12:13:10,641 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:14:19,16 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+12:14:21,858 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+12:14:21,861 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '5.0', 'mem': '100', 'sdr_size': '2'}
+12:14:21,862 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:14:26,862 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:14:26,862 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:14:26,862 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:14:27,18 OAIC-T Actor INFO Task running: task_test id: 1
+12:14:27,19 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+12:14:27,19 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+12:14:27,19 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+12:14:27,19 OAIC-T Actor ERROR Cannot find the action executor: Create Network Namespace
+12:14:27,19 OAIC-T Actor INFO Task Done!task_test id: 1
+12:14:27,19 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}, {'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}, {'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}, {'name': 'Create Network Namespace', 'status': 'Failed', 'description': 'Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!'}]}
+12:14:27,19 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:19:57,571 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+12:19:57,571 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+12:20:02,576 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:20:02,576 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:20:02,576 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:20:03,72 OAIC-T Actor INFO Task running: task_test id: 1
+12:20:03,72 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:20:03,72 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:23:18,942 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+12:23:21,350 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+12:23:21,352 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '4.1', 'mem': '100', 'sdr_size': '2'}
+12:23:21,353 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:23:26,350 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:23:26,350 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:23:26,351 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:23:26,444 OAIC-T Actor INFO Task running: task_test id: 1
+12:23:26,444 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:23:26,444 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:25:57,613 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+12:26:00,366 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+12:26:00,369 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '3.3', 'mem': '100', 'sdr_size': '2'}
+12:26:00,369 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:26:05,371 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:26:05,371 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:26:05,372 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:26:05,616 OAIC-T Actor INFO Task running: task_test id: 1
+12:26:05,617 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:26:05,617 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:26:57,100 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+12:26:59,565 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+12:26:59,569 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '4.0', 'mem': '100', 'sdr_size': '2'}
+12:26:59,569 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:27:04,570 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:27:04,570 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:27:04,570 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:27:04,606 OAIC-T Actor INFO Task running: task_test id: 1
+12:27:04,606 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:27:04,606 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:27:04,630 OAIC-T Actor INFO ------    Action Done!
+12:27:04,630 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:27:04,630 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:27:04,653 OAIC-T Actor INFO ------    Action Done!
+12:27:04,654 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:27:04,654 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:27:04,677 OAIC-T Actor INFO ------    Action Done!
+12:27:04,678 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:27:04,678 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:27:04,706 OAIC-T Actor INFO ------    Action Done!
+12:27:04,708 OAIC-T Actor INFO Task Done!task_test id: 1
+12:27:04,708 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}]}
+12:27:04,708 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:27:09,570 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+12:27:09,573 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '3.8', 'mem': '100', 'sdr_size': '2'}
+12:27:09,573 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:27:14,573 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "2", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:27:14,574 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:27:14,574 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:27:14,711 OAIC-T Actor INFO Task running: task_test id: 2
+12:27:14,711 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:27:14,711 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:27:14,727 OAIC-T Actor INFO ------    Action Done!
+12:27:14,727 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:27:14,727 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:27:14,738 OAIC-T Actor INFO ------    Action Done!
+12:27:14,746 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:27:14,746 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:27:14,768 OAIC-T Actor INFO ------    Action Done!
+12:27:14,768 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:27:14,769 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:27:14,799 OAIC-T Actor INFO ------    Action Done!
+12:27:14,800 OAIC-T Actor INFO Task Done!task_test id: 2
+12:27:14,800 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '2', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}]}
+12:27:14,801 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:27:16,405 OAIC-T Actor INFO Server disconnected
+12:52:48,275 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+12:52:48,276 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+12:52:53,278 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:52:53,278 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:52:53,278 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:52:53,777 OAIC-T Actor INFO Task running: task_test id: 1
+12:52:53,777 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:52:53,777 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:52:53,788 OAIC-T Actor INFO ------    Action Done!
+12:52:53,788 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:52:53,788 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:52:53,804 OAIC-T Actor INFO ------    Action Done!
+12:52:53,809 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:52:53,813 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:52:53,834 OAIC-T Actor INFO ------    Action Done!
+12:52:53,835 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:52:53,835 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:52:53,863 OAIC-T Actor INFO ------    Action Done!
+12:52:53,863 OAIC-T Actor INFO Task Done!task_test id: 1
+12:52:53,863 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}]}
+12:52:53,865 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:52:58,281 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+12:52:58,284 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '5.0', 'mem': '100', 'sdr_size': '2'}
+12:52:58,284 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:53:03,283 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "2", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:53:03,283 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:53:03,283 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:53:03,373 OAIC-T Actor INFO Task running: task_test id: 2
+12:53:03,373 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:53:03,373 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:53:03,393 OAIC-T Actor INFO ------    Action Done!
+12:53:03,394 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:53:03,394 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:53:03,424 OAIC-T Actor INFO ------    Action Done!
+12:53:03,425 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:53:03,425 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:53:03,451 OAIC-T Actor INFO ------    Action Done!
+12:53:03,453 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:53:03,453 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:53:03,481 OAIC-T Actor INFO ------    Action Done!
+12:53:03,482 OAIC-T Actor INFO Task Done!task_test id: 2
+12:53:03,482 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '2', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}]}
+12:53:03,483 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:54:12,620 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+12:54:12,621 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+12:56:52,710 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+12:56:55,279 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+12:56:55,283 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '3.4', 'mem': '100', 'sdr_size': '2'}
+12:56:55,283 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:57:00,280 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:57:00,280 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:57:00,281 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:57:00,712 OAIC-T Actor INFO Task running: task_test id: 1
+12:57:00,713 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:57:00,713 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:57:00,723 OAIC-T Actor INFO ------    Action Done!
+12:57:00,727 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:57:00,727 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:57:00,737 OAIC-T Actor INFO ------    Action Done!
+12:57:00,737 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:57:00,737 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:57:00,750 OAIC-T Actor INFO ------    Action Done!
+12:57:00,751 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:57:00,751 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:57:00,774 OAIC-T Actor INFO ------    Action Done!
+12:57:00,774 OAIC-T Actor INFO Task Done!task_test id: 1
+12:57:00,774 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output:  ue1\n'}]}
+12:57:00,775 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:57:05,249 OAIC-T Actor INFO Server disconnected
+12:59:04,140 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+12:59:04,141 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+12:59:09,145 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+12:59:09,145 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+12:59:09,145 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:59:09,642 OAIC-T Actor INFO Task running: task_test id: 1
+12:59:09,642 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:59:09,642 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:59:09,657 OAIC-T Actor INFO ------    Action Done!
+12:59:09,657 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:59:09,657 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:59:09,669 OAIC-T Actor INFO ------    Action Done!
+12:59:09,669 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:59:09,677 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:59:09,698 OAIC-T Actor INFO ------    Action Done!
+12:59:09,698 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+12:59:09,698 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+12:59:09,726 OAIC-T Actor INFO ------    Action Done!
+12:59:09,726 OAIC-T Actor INFO Task Done!task_test id: 1
+12:59:09,726 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+12:59:09,728 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+12:59:14,150 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+12:59:14,153 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '4.1', 'mem': '100', 'sdr_size': '2'}
+12:59:14,153 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+13:00:37,819 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+13:00:40,28 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+13:00:40,32 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '6.5', 'mem': '100', 'sdr_size': '2'}
+13:00:40,32 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+13:00:45,30 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+13:00:45,30 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+13:00:45,31 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+13:00:45,323 OAIC-T Actor INFO Task running: task_test id: 1
+13:00:45,323 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:00:45,323 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:00:45,337 OAIC-T Actor INFO ------    Action Done!
+13:00:45,337 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:00:45,337 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:00:45,349 OAIC-T Actor INFO ------    Action Done!
+13:00:45,350 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:00:45,350 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:00:45,373 OAIC-T Actor INFO ------    Action Done!
+13:00:45,373 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:00:45,373 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:00:45,393 OAIC-T Actor INFO ------    Action Done!
+13:00:45,393 OAIC-T Actor INFO Task Done!task_test id: 1
+13:00:45,393 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+13:00:45,394 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+13:00:50,30 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+13:00:50,33 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '4.2', 'mem': '100', 'sdr_size': '2'}
+13:00:50,33 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+13:05:37,654 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+13:05:48,533 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+13:05:48,534 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+13:05:53,536 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+13:05:53,537 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+13:05:53,537 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+13:05:54,36 OAIC-T Actor INFO Task running: task_test id: 1
+13:05:54,36 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:05:54,36 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:05:54,49 OAIC-T Actor INFO ------    Action Done!
+13:05:54,50 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:05:54,50 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:05:54,64 OAIC-T Actor INFO ------    Action Done!
+13:05:54,67 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:05:54,68 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:05:54,86 OAIC-T Actor INFO ------    Action Done!
+13:05:54,87 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:05:54,87 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:05:54,108 OAIC-T Actor INFO ------    Action Done!
+13:05:54,114 OAIC-T Actor INFO Task Done!task_test id: 1
+13:05:54,114 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+13:05:54,114 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+13:06:05,497 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+13:06:05,497 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+13:06:10,500 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "2", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+13:06:10,501 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+13:06:10,501 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+13:06:10,998 OAIC-T Actor INFO Task running: task_test id: 2
+13:06:10,999 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:06:10,999 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:06:11,20 OAIC-T Actor INFO ------    Action Done!
+13:06:11,21 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:06:11,21 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:06:11,44 OAIC-T Actor INFO ------    Action Done!
+13:06:11,44 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:06:11,44 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:06:11,72 OAIC-T Actor INFO ------    Action Done!
+13:06:11,72 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+13:06:11,72 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+13:06:11,101 OAIC-T Actor INFO ------    Action Done!
+13:06:11,102 OAIC-T Actor INFO Task Done!task_test id: 2
+13:06:11,102 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '2', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+13:06:11,102 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:13:25,215 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+02:13:25,241 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+02:13:30,221 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "3", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:13:30,221 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:13:30,222 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:13:30,236 OAIC-T Actor INFO Task running: task_test id: 3
+02:13:30,237 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:13:30,237 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:13:30,411 OAIC-T Actor INFO ------    Action Done!
+02:13:30,411 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:13:30,411 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:13:30,427 OAIC-T Actor INFO ------    Action Done!
+02:13:30,427 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:13:30,427 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:13:30,454 OAIC-T Actor INFO ------    Action Done!
+02:13:30,455 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:13:30,455 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:13:30,484 OAIC-T Actor INFO ------    Action Done!
+02:13:30,485 OAIC-T Actor INFO Task Done!task_test id: 3
+02:13:30,485 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '3', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+02:13:30,487 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:13:35,221 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+02:13:35,274 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '5.6', 'mem': '100', 'sdr_size': '2'}
+02:13:35,275 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:14:42,306 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+02:14:42,306 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+02:14:44,186 OAIC-T Actor INFO Clean environment before the actor ends...
+02:14:44,186 OAIC-T Actor INFO The actor ended!
+02:18:30,269 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+02:18:30,269 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+02:18:35,272 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "6", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:18:35,272 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:18:35,273 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:18:35,771 OAIC-T Actor INFO Task running: task_test id: 6
+02:18:35,771 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:18:35,771 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:18:35,783 OAIC-T Actor INFO ------    Action Done!
+02:18:35,787 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:18:35,787 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:18:35,803 OAIC-T Actor INFO ------    Action Done!
+02:18:35,803 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:18:35,803 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:18:35,822 OAIC-T Actor INFO ------    Action Done!
+02:18:35,822 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:18:35,822 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:18:35,845 OAIC-T Actor INFO ------    Action Done!
+02:18:35,845 OAIC-T Actor INFO Task Done!task_test id: 6
+02:18:35,845 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '6', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+02:18:35,846 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:18:37,427 OAIC-T Actor INFO Clean environment before the actor ends...
+02:18:37,427 OAIC-T Actor INFO The actor ended!
+02:18:52,622 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+02:18:54,370 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+02:18:54,374 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '3.7', 'mem': '100', 'sdr_size': '2'}
+02:18:54,374 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:18:59,371 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:18:59,372 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:18:59,372 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:18:59,624 OAIC-T Actor INFO Task running: task_test id: 1
+02:18:59,625 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:18:59,625 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:18:59,640 OAIC-T Actor INFO ------    Action Done!
+02:18:59,640 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:18:59,641 OAIC-T Actor DEBUG --------------------------ActionRunUE
+02:18:59,641 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+02:18:59,784 OAIC-T Actor INFO Clean environment before the actor ends...
+02:18:59,784 OAIC-T Actor INFO The actor ended!
+02:20:59,365 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+02:20:59,366 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+02:21:04,367 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "2", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:21:04,367 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:21:04,368 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:21:04,867 OAIC-T Actor INFO Task running: task_test id: 2
+02:21:04,867 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:21:04,867 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:21:04,879 OAIC-T Actor INFO ------    Action Done!
+02:21:04,881 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:21:04,881 OAIC-T Actor DEBUG --------------------------ActionRunUE
+02:21:04,881 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+02:21:04,982 OAIC-T Actor INFO Clean environment before the actor ends...
+02:21:04,982 OAIC-T Actor INFO Stops the ue: ue1...
+02:23:29,910 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+02:23:29,910 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+02:23:34,914 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "3", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:23:34,914 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:23:34,915 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:23:35,411 OAIC-T Actor INFO Task running: task_test id: 3
+02:23:35,411 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:23:35,411 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:23:35,422 OAIC-T Actor INFO ------    Action Done!
+02:23:35,426 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:23:35,426 OAIC-T Actor DEBUG --------------------------ActionRunUE
+02:23:35,426 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+02:23:35,525 OAIC-T Actor INFO Clean environment before the actor ends...
+02:23:35,525 OAIC-T Actor INFO Stops the ue: ue1...
+02:23:35,526 OAIC-T Actor INFO Stops the ue: ue1...   Done!with the following output: 
+02:23:35,526 OAIC-T Actor INFO The actor ended!
+02:25:28,731 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+02:25:28,732 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "registration confirmed"}
+02:25:33,736 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "4", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:25:33,737 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:25:33,737 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:25:34,234 OAIC-T Actor INFO Task running: task_test id: 4
+02:25:34,234 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:25:34,234 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:25:34,248 OAIC-T Actor INFO ------    Action Done!
+02:25:34,248 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:25:34,248 OAIC-T Actor DEBUG --------------------------ActionRunUE
+02:25:34,248 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+02:25:34,267 OAIC-T Actor INFO ------    Action Done!
+02:25:34,267 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:25:34,267 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:25:34,291 OAIC-T Actor INFO ------    Action Done!
+02:25:34,292 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:25:34,293 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:25:34,320 OAIC-T Actor INFO ------    Action Done!
+02:25:34,321 OAIC-T Actor INFO Task Done!task_test id: 4
+02:25:34,321 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '4', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': "Success! UE is initially running with output: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \n---  Software Radio Systems LTE eNodeB  ---\n\n and errors: unrecognised option '--gw.netns=ue1'\n"}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+02:25:34,322 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:25:38,737 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+02:25:38,741 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '4.5', 'mem': '100', 'sdr_size': '2'}
+02:25:38,741 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:25:43,738 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "5", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:25:43,738 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:25:43,739 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:25:43,826 OAIC-T Actor INFO Task running: task_test id: 5
+02:25:43,826 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:25:43,826 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:25:43,839 OAIC-T Actor INFO ------    Action Done!
+02:25:43,839 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:25:43,839 OAIC-T Actor DEBUG --------------------------ActionRunUE
+02:25:43,840 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+02:25:43,941 OAIC-T Actor INFO Clean environment before the actor ends...
+02:25:43,942 OAIC-T Actor INFO Stops the ue: ue1...
+02:25:43,942 OAIC-T Actor INFO Stops the ue: ue1...   Done!with the following output: Active RF plugins: libsrsran_rf_zmq.so
+Inactive RF plugins: 
+---  Software Radio Systems LTE eNodeB  ---
+
+unrecognised option '--gw.netns=ue1'
+
+02:25:43,942 OAIC-T Actor INFO The actor ended!
+02:42:14,14 OAIC-T Actor INFO Clean environment before the actor ends...
+02:42:14,14 OAIC-T Actor INFO The actor ended!
+02:42:35,676 OAIC-T Actor INFO Clean environment before the actor ends...
+02:42:35,676 OAIC-T Actor INFO The actor ended!
+02:43:28,623 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+02:43:34,540 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+02:43:34,543 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '2.2', 'mem': '100', 'sdr_size': '2'}
+02:43:34,544 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:43:39,545 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:43:39,545 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:43:39,545 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:43:39,652 OAIC-T Actor INFO Task running: task_test id: 1
+02:43:39,652 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:43:39,652 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:43:39,665 OAIC-T Actor INFO ------    Action Done!
+02:43:39,666 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:43:39,666 OAIC-T Actor DEBUG --------------------------ActionRunUE
+02:43:39,666 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+02:43:40,667 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with output:  and errors: 
+02:43:40,668 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:43:40,668 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:43:40,835 OAIC-T Actor INFO ------    Action Done!
+02:43:40,835 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:43:40,835 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:43:40,851 OAIC-T Actor INFO ------    Action Done!
+02:43:40,851 OAIC-T Actor INFO Task Done!task_test id: 1
+02:43:40,851 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with output:  and errors: '}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+02:43:40,852 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:43:44,906 OAIC-T Actor INFO Server disconnected
+02:43:56,752 OAIC-T Actor INFO Clean environment before the actor ends...
+02:43:56,754 OAIC-T Actor INFO Stops the ue: ue1...
+02:46:18,880 OAIC-T Actor INFO Clean environment before the actor ends...
+02:46:18,880 OAIC-T Actor INFO The actor ended!
+02:49:44,457 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+02:49:52,185 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+02:49:52,190 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '29.8', 'mem': '100', 'sdr_size': '2'}
+02:49:52,191 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:49:57,185 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:49:57,185 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:49:57,186 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:49:57,471 OAIC-T Actor INFO Task running: task_test id: 1
+02:49:57,471 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:49:57,471 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:49:57,568 OAIC-T Actor INFO ------    Action Done!
+02:49:57,569 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:49:57,569 OAIC-T Actor DEBUG --------------------------ActionRunUE
+02:49:57,569 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+02:50:00,877 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with output:  and errors: 
+02:50:01,406 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:50:01,407 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:50:02,835 OAIC-T Actor INFO Server disconnected
+02:50:03,289 OAIC-T Actor INFO ------    Action Done!
+02:50:03,292 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:50:03,292 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:50:03,309 OAIC-T Actor INFO ------    Action Done!
+02:50:03,309 OAIC-T Actor INFO Task Done!task_test id: 1
+02:50:03,317 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with output:  and errors: '}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+02:50:03,958 OAIC-T Actor INFO Clean environment before the actor ends...
+02:50:03,958 OAIC-T Actor INFO Stops the ue: ue1...
+02:50:04,959 OAIC-T Actor INFO Stops the ue: ue1...   Done!with the following output: 
+02:50:04,960 OAIC-T Actor INFO The actor ended!
+02:53:32,624 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+02:53:39,770 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+02:53:39,777 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '9.0', 'mem': '100', 'sdr_size': '2'}
+02:53:39,777 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:53:44,771 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+02:53:44,771 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+02:53:44,772 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+02:53:45,138 OAIC-T Actor INFO Task running: task_test id: 1
+02:53:45,139 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:53:45,139 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:53:45,153 OAIC-T Actor INFO ------    Action Done!
+02:53:45,153 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:53:45,154 OAIC-T Actor DEBUG --------------------------ActionRunUE
+02:53:45,154 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+02:53:48,460 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with output:  and errors: 
+02:53:48,461 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:53:48,461 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:53:49,781 OAIC-T Actor INFO Server disconnected
+02:53:54,408 OAIC-T Actor INFO ------    Action Done!
+02:53:54,409 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+02:53:54,409 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+02:53:54,422 OAIC-T Actor INFO ------    Action Done!
+02:53:54,422 OAIC-T Actor INFO Task Done!task_test id: 1
+02:53:54,423 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with output:  and errors: '}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}]}
+02:56:40,422 OAIC-T Actor INFO Clean environment before the actor ends...
+02:56:41,189 OAIC-T Actor INFO Stops the ue: ue1...
+02:56:42,190 OAIC-T Actor INFO Stops the ue: ue1...   Done!with the following output: 
+02:56:42,190 OAIC-T Actor INFO The actor ended!
+11:04:08,399 OAIC-T Actor INFO Clean environment before the actor ends...
+11:04:08,414 OAIC-T Actor INFO The actor ended!
+11:04:16,514 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+11:04:24,279 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+11:04:24,308 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '2.4', 'mem': '0', 'sdr_size': '2'}
+11:04:24,309 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:04:29,281 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+11:04:29,281 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+11:04:29,282 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:04:29,585 OAIC-T Actor INFO Task running: task_test id: 1
+11:04:29,586 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:04:29,586 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+11:04:29,596 OAIC-T Actor INFO ------    Action Done!
+11:04:29,596 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:04:29,597 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:04:29,597 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+11:04:29,675 OAIC-T Actor INFO Clean environment before the actor ends...
+11:06:18,572 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+11:06:25,945 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+11:06:25,947 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '5.3', 'mem': '0', 'sdr_size': '2'}
+11:06:25,948 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:06:30,951 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+11:06:30,951 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+11:06:30,952 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:06:31,107 OAIC-T Actor INFO Task running: task_test id: 1
+11:06:31,108 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:06:31,108 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+11:06:31,117 OAIC-T Actor INFO ------    Action Done!
+11:06:31,118 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:06:31,118 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:06:31,118 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+11:06:35,962 OAIC-T Actor INFO Server disconnected
+11:06:41,125 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running!
+11:06:41,126 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:06:41,126 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:06:41,126 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:06:41,126 OAIC-T Actor DEBUG --------------------------StopUE
+11:06:41,126 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:06:41,239 OAIC-T Actor INFO Clean environment before the actor ends...
+11:22:21,193 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+11:22:27,144 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+11:22:27,147 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '0.4', 'mem': '0', 'sdr_size': '2'}
+11:22:27,147 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:22:32,145 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+11:22:32,145 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+11:22:32,145 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:22:32,247 OAIC-T Actor INFO Task running: task_test id: 1
+11:22:32,247 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:22:32,247 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+11:22:32,258 OAIC-T Actor INFO ------    Action Done!
+11:22:32,258 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:22:32,258 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:22:32,258 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+11:22:37,149 OAIC-T Actor INFO Server disconnected
+11:22:42,270 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running!
+11:22:42,271 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:22:42,273 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:22:42,273 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:22:42,274 OAIC-T Actor DEBUG --------------------------StopUE
+11:22:42,274 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:22:42,274 OAIC-T Actor INFO Stops the ue: ue1, pid: 11101...
+11:22:42,345 OAIC-T Actor INFO Clean environment before the actor ends...
+11:22:42,345 OAIC-T Actor INFO Stops the ue: ue1, pid: 11101...
+11:23:49,399 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+11:23:57,313 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+11:23:57,315 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '1.0', 'mem': '0', 'sdr_size': '2'}
+11:23:57,315 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:24:02,327 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+11:24:02,327 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+11:24:02,328 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:24:02,467 OAIC-T Actor INFO Task running: task_test id: 1
+11:24:02,467 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:24:02,467 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+11:24:02,478 OAIC-T Actor INFO ------    Action Done!
+11:24:02,478 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:24:02,478 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:24:02,478 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+11:24:12,489 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running!
+11:24:12,489 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:24:12,489 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:24:12,489 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:24:12,489 OAIC-T Actor DEBUG --------------------------StopUE
+11:24:12,489 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:24:12,489 OAIC-T Actor INFO Stops the ue: ue1, pid: 11189...
+11:24:13,505 OAIC-T Actor INFO Stops the ue: ue1...   Done!with the following output: 
+11:24:13,505 OAIC-T Actor INFO ------    Action Done!
+11:24:13,505 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:24:13,505 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:24:13,505 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:24:13,505 OAIC-T Actor DEBUG --------------------------StopUE
+11:24:13,505 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:24:13,505 OAIC-T Actor INFO Stops the ue: ue1, pid: 11189...
+11:24:14,518 OAIC-T Actor INFO Stops the ue: ue1...   Done!with the following output: 
+11:24:14,519 OAIC-T Actor INFO ------    Action Done!
+11:24:14,519 OAIC-T Actor INFO Task Done!task_test id: 1
+11:24:14,519 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running!'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stopped with the following outputs: \n and the following errors: '}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stopped with the following outputs: \n and the following errors: '}]}
+11:24:14,519 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:30:57,982 OAIC-T Actor INFO Server disconnected
+11:31:04,655 OAIC-T Actor INFO Clean environment before the actor ends...
+11:31:04,655 OAIC-T Actor INFO Stops the ue: ue1, pid: 11189...
+11:36:15,576 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+11:36:23,420 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+11:36:23,423 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '5.2', 'mem': '0', 'sdr_size': '2'}
+11:36:23,423 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:36:28,422 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+11:36:28,422 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+11:36:28,423 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:36:28,619 OAIC-T Actor INFO Task running: task_test id: 1
+11:36:28,619 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:36:28,619 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+11:36:28,631 OAIC-T Actor INFO ------    Action Done!
+11:36:28,631 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:36:28,631 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:36:28,631 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+11:36:38,643 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running!
+11:36:38,643 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:36:38,643 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:36:38,643 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:36:38,643 OAIC-T Actor DEBUG --------------------------StopUE
+11:36:38,643 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:36:38,643 OAIC-T Actor INFO Stops the ue: ue1, pid: 11360...
+11:36:43,714 OAIC-T Actor INFO Stops the ue: ue1...   Done!with the following output: Active RF plugins: libsrsran_rf_zmq.so
+Inactive RF plugins: 
+Couldn't open , trying /root/.config/srsran/ue.conf
+Couldn't open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf
+Reading configuration file /etc/srsran/ue.conf...
+
+Built in Release mode using commit f2dff0b7a on branch master.
+
+Opening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"
+Supported RF device list: zmq file
+CHx base_srate=23.04e6"
+CHx id=ue
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+CH0 rx_port=tcp://localhost:2000
+CH0 tx_port=tcp://*:2001
+Waiting PHY to initialize ... done!
+Attaching UE...
+Stopping ..
+
+11:36:43,714 OAIC-T Actor INFO ------    Action Done!
+11:36:43,714 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:36:43,714 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:36:43,714 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:36:43,714 OAIC-T Actor DEBUG --------------------------StopUE
+11:36:43,714 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:36:43,783 OAIC-T Actor INFO Clean environment before the actor ends...
+11:36:43,783 OAIC-T Actor INFO The actor ended!
+11:41:43,833 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+11:41:50,653 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+11:41:50,656 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '0.7', 'mem': '0', 'sdr_size': '2'}
+11:41:50,656 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:41:55,669 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+11:41:55,670 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+11:41:55,672 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:41:55,931 OAIC-T Actor INFO Task running: task_test id: 1
+11:41:55,931 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:41:55,931 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+11:41:55,941 OAIC-T Actor INFO ------    Action Done!
+11:41:55,941 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:41:55,941 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:41:55,941 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+11:42:05,943 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running!
+11:42:05,944 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:42:05,944 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:42:05,944 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:42:05,944 OAIC-T Actor DEBUG --------------------------StopUE
+11:42:05,944 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:42:05,944 OAIC-T Actor INFO Stops the ue: ue1, pid: 11615...
+11:42:11,37 OAIC-T Actor INFO Stops the ue: ue1...   Done!with the following output: Active RF plugins: libsrsran_rf_zmq.so
+Inactive RF plugins: 
+Couldn't open , trying /root/.config/srsran/ue.conf
+Couldn't open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf
+Reading configuration file /etc/srsran/ue.conf...
+
+Built in Release mode using commit f2dff0b7a on branch master.
+
+Opening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"
+Supported RF device list: zmq file
+CHx base_srate=23.04e6"
+CHx id=ue
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+CH0 rx_port=tcp://localhost:2000
+CH0 tx_port=tcp://*:2001
+Waiting PHY to initialize ... done!
+Attaching UE...
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+.
+Found Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz
+Current sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)
+Current sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)
+Found PLMN:  Id=00101, TAC=7
+Random Access Transmission: seq=14, tti=181, ra-rnti=0x2
+RRC Connected
+Random Access Complete.     c-rnti=0x46, ta=0
+Network attach successful. IP: 172.16.0.2
+Software Radio Systems RAN (srsRAN) 20/6/2022 16:41:57 TZ:0
+Stopping ..
+Received RRC Connection Release (releaseCause: other)
+RRC IDLE
+
+11:42:11,37 OAIC-T Actor INFO ------    Action Done!
+11:42:11,37 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:42:11,37 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:42:11,37 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:42:11,37 OAIC-T Actor DEBUG --------------------------StopUE
+11:42:11,37 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:42:11,37 OAIC-T Actor INFO ------    Action Done!
+11:42:11,37 OAIC-T Actor INFO Task Done!task_test id: 1
+11:42:11,37 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running!'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stopped with the following outputs: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \nCouldn\'t open , trying /root/.config/srsran/ue.conf\nCouldn\'t open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\nReading configuration file /etc/srsran/ue.conf...\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\nOpening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"\nSupported RF device list: zmq file\nCHx base_srate=23.04e6"\nCHx id=ue\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCH0 rx_port=tcp://localhost:2000\nCH0 tx_port=tcp://*:2001\nWaiting PHY to initialize ... done!\nAttaching UE...\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n.\nFound Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nFound PLMN:  Id=00101, TAC=7\nRandom Access Transmission: seq=14, tti=181, ra-rnti=0x2\nRRC Connected\nRandom Access Complete.     c-rnti=0x46, ta=0\nNetwork attach successful. IP: 172.16.0.2\nSoftware Radio Systems RAN (srsRAN) 20/6/2022 16:41:57 TZ:0\nStopping ..\nReceived RRC Connection Release (releaseCause: other)\nRRC IDLE\n\n and the following errors: Couldn\'t stop after 5s. Forcing exit.\n'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Fail! The UE to be stopped is not running or does not exist! The UE namespace: ue1'}]}
+23:30:21,273 OAIC-T Actor INFO Clean environment before the actor ends...
+23:30:21,274 OAIC-T Actor INFO The actor ended!
+23:51:11,132 OAIC-T Actor INFO Clean environment before the actor ends...
+23:51:11,132 OAIC-T Actor INFO The actor ended!
+23:51:23,769 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+23:51:31,654 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:51:31,656 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '0.5', 'mem': '0', 'sdr_size': '2'}
+23:51:31,657 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:51:36,664 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+23:51:36,664 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:51:36,665 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:51:36,852 OAIC-T Actor INFO Task running: task_test id: 1
+23:51:36,852 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:51:36,852 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+23:51:36,919 OAIC-T Actor INFO Clean environment before the actor ends...
+23:51:36,920 OAIC-T Actor INFO The actor ended!
+23:52:20,401 OAIC-T Actor INFO Clean environment before the actor ends...
+23:52:20,401 OAIC-T Actor INFO The actor ended!
+23:52:27,315 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+23:52:34,621 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:52:34,624 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '2.7', 'mem': '0', 'sdr_size': '2'}
+23:52:34,625 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:52:39,628 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+23:52:39,628 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:52:39,628 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:52:39,885 OAIC-T Actor INFO Task running: task_test id: 1
+23:52:39,885 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:52:39,885 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+23:52:39,895 OAIC-T Actor INFO ------    Action Done!
+23:52:39,896 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:52:39,896 OAIC-T Actor DEBUG --------------------------ActionRunUE
+23:52:39,896 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+23:52:39,962 OAIC-T Actor INFO Clean environment before the actor ends...
+23:52:39,962 OAIC-T Actor INFO The actor ended!
+23:53:32,862 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+23:53:40,899 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:53:40,901 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '1.0', 'mem': '0', 'sdr_size': '2'}
+23:53:40,902 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:53:45,908 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+23:53:45,908 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:53:45,908 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:53:45,961 OAIC-T Actor INFO Task running: task_test id: 1
+23:53:45,961 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:53:45,961 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+23:53:45,972 OAIC-T Actor INFO ------    Action Done!
+23:53:45,972 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:53:45,972 OAIC-T Actor DEBUG --------------------------ActionRunUE
+23:53:45,972 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+23:53:45,972 OAIC-T Actor INFO ------    Action Done!Fail! UE already exists. Please choose another UE namespace!
+23:53:45,972 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:53:45,972 OAIC-T Actor DEBUG --------------------------ActionRunUE
+23:53:45,972 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+23:53:45,972 OAIC-T Actor DEBUG --------------------------StopUE
+23:53:45,973 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+23:53:45,973 OAIC-T Actor INFO ------    Action Done!
+23:53:45,973 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:53:45,973 OAIC-T Actor DEBUG --------------------------ActionRunUE
+23:53:45,973 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+23:53:45,973 OAIC-T Actor DEBUG --------------------------StopUE
+23:53:45,973 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+23:53:45,973 OAIC-T Actor INFO ------    Action Done!
+23:53:45,973 OAIC-T Actor INFO Task Done!task_test id: 1
+23:53:45,973 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Fail! UE already exists. Please choose another UE namespace!'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Fail! The UE to be stopped is not running or does not exist! The UE namespace: ue1'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Fail! The UE to be stopped is not running or does not exist! The UE namespace: ue1'}]}
+23:53:45,973 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:54:14,148 OAIC-T Actor INFO Server disconnected
+23:54:14,717 OAIC-T Actor INFO Clean environment before the actor ends...
+23:54:14,717 OAIC-T Actor INFO The actor ended!
+23:56:09,755 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+23:56:17,120 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:56:17,122 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '4.7', 'mem': '0', 'sdr_size': '2'}
+23:56:17,123 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:56:22,128 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+23:56:22,128 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:56:22,128 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:56:22,332 OAIC-T Actor INFO Task running: task_test id: 1
+23:56:22,333 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:56:22,333 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+23:56:22,344 OAIC-T Actor INFO ------    Action Done!
+23:56:22,344 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:56:22,344 OAIC-T Actor DEBUG --------------------------ActionRunUE
+23:56:22,344 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+23:56:22,412 OAIC-T Actor INFO Clean environment before the actor ends...
+23:56:22,412 OAIC-T Actor INFO The actor ended!
+23:56:48,0 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+23:56:55,948 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:56:55,950 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '2.4', 'mem': '0', 'sdr_size': '2'}
+23:56:55,951 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:57:00,954 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+23:57:00,954 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:57:00,954 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:57:01,158 OAIC-T Actor INFO Task running: task_test id: 1
+23:57:01,158 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:57:01,158 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+23:57:01,169 OAIC-T Actor INFO ------    Action Done!
+23:57:01,170 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:57:01,170 OAIC-T Actor DEBUG --------------------------ActionRunUE
+23:57:01,170 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+23:57:10,960 OAIC-T Actor INFO Clean environment before the actor ends...
+23:57:10,960 OAIC-T Actor INFO The actor ended!
+23:58:03,322 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+23:58:10,417 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+23:58:10,419 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '0.9', 'mem': '0', 'sdr_size': '2'}
+23:58:10,420 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:58:15,432 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+23:58:15,432 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+23:58:15,433 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+23:58:15,855 OAIC-T Actor INFO Task running: task_test id: 1
+23:58:15,856 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:58:15,856 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+23:58:15,872 OAIC-T Actor INFO ------    Action Done!
+23:58:15,873 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:58:15,873 OAIC-T Actor DEBUG --------------------------ActionRunUE
+23:58:15,873 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+23:58:25,874 OAIC-T Actor INFO ------    Action Done!Fail! UE is not successfully started after 10 seconds with the following output: 
+Active RF plugins: libsrsran_rf_zmq.so
+
+Inactive RF plugins: 
+
+Couldn't open , trying /root/.config/srsran/ue.conf
+
+Couldn't open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf
+
+Reading configuration file /etc/srsran/ue.conf...
+
+
+
+Built in Release mode using commit f2dff0b7a on branch master.
+
+
+
+Opening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"
+
+Supported RF device list: zmq file
+
+CHx base_srate=23.04e6"
+
+CHx id=ue
+
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+
+CH0 rx_port=tcp://localhost:2000
+
+CH0 tx_port=tcp://*:2001
+
+Waiting PHY to initialize ... done!
+
+Attaching UE...
+
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+
+.
+
+Found Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz
+
+Current sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)
+
+Current sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)
+
+Found PLMN:  Id=00101, TAC=7
+
+Random Access Transmission: seq=45, tti=341, ra-rnti=0x2
+
+RRC Connected
+
+Random Access Complete.     c-rnti=0x46, ta=0
+
+Network attach successful. IP: 172.16.0.5
+
+23:58:25,874 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:58:25,874 OAIC-T Actor DEBUG --------------------------ActionRunUE
+23:58:25,874 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+23:58:25,874 OAIC-T Actor DEBUG --------------------------StopUE
+23:58:25,874 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+23:58:25,874 OAIC-T Actor INFO ------    Action Done!
+23:58:25,874 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+23:58:25,874 OAIC-T Actor DEBUG --------------------------ActionRunUE
+23:58:25,875 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+23:58:25,875 OAIC-T Actor DEBUG --------------------------StopUE
+23:58:25,875 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+23:58:25,875 OAIC-T Actor INFO ------    Action Done!
+23:58:25,875 OAIC-T Actor INFO Task Done!task_test id: 1
+23:58:25,875 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Fail! UE is not successfully started after 10 seconds with the following output: \nActive RF plugins: libsrsran_rf_zmq.so\n\nInactive RF plugins: \n\nCouldn\'t open , trying /root/.config/srsran/ue.conf\n\nCouldn\'t open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\n\nReading configuration file /etc/srsran/ue.conf...\n\n\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\n\n\nOpening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"\n\nSupported RF device list: zmq file\n\nCHx base_srate=23.04e6"\n\nCHx id=ue\n\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n\nCH0 rx_port=tcp://localhost:2000\n\nCH0 tx_port=tcp://*:2001\n\nWaiting PHY to initialize ... done!\n\nAttaching UE...\n\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n\n.\n\nFound Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz\n\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\n\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\n\nFound PLMN:  Id=00101, TAC=7\n\nRandom Access Transmission: seq=45, tti=341, ra-rnti=0x2\n\nRRC Connected\n\nRandom Access Complete.     c-rnti=0x46, ta=0\n\nNetwork attach successful. IP: 172.16.0.5\n'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Fail! The UE to be stopped is not running or does not exist! The UE namespace: ue1'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Fail! The UE to be stopped is not running or does not exist! The UE namespace: ue1'}]}
+23:58:30,604 OAIC-T Actor INFO Clean environment before the actor ends...
+23:58:30,604 OAIC-T Actor INFO The actor ended!
+00:00:05,676 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+00:00:10,432 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:00:10,435 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '1.0', 'mem': '0', 'sdr_size': '2'}
+00:00:10,435 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:00:15,434 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+00:00:15,435 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:00:15,437 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:00:15,714 OAIC-T Actor INFO Task running: task_test id: 1
+00:00:15,714 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:00:15,714 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+00:00:15,724 OAIC-T Actor INFO ------    Action Done!
+00:00:15,724 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:00:15,724 OAIC-T Actor DEBUG --------------------------ActionRunUE
+00:00:15,724 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+00:00:25,725 OAIC-T Actor INFO ------    Action Done!Fail! UE is not successfully started after 10 seconds with the following output: Active RF plugins: libsrsran_rf_zmq.so
+Inactive RF plugins: 
+Couldn't open , trying /root/.config/srsran/ue.conf
+Couldn't open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf
+Reading configuration file /etc/srsran/ue.conf...
+
+Built in Release mode using commit f2dff0b7a on branch master.
+
+Opening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"
+Supported RF device list: zmq file
+CHx base_srate=23.04e6"
+CHx id=ue
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+CH0 rx_port=tcp://localhost:2000
+CH0 tx_port=tcp://*:2001
+Waiting PHY to initialize ... done!
+Attaching UE...
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+.
+Found Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz
+Current sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)
+Current sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)
+Found PLMN:  Id=00101, TAC=7
+Random Access Transmission: seq=43, tti=341, ra-rnti=0x2
+RRC Connected
+Random Access Complete.     c-rnti=0x46, ta=0
+Network attach successful. IP: 172.16.0.6
+Software Radio Systems RAN (srsRAN) 22/6/2022 5:0:17 TZ:0
+
+00:00:25,725 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:00:25,725 OAIC-T Actor DEBUG --------------------------ActionRunUE
+00:00:25,725 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+00:00:25,725 OAIC-T Actor DEBUG --------------------------StopUE
+00:00:25,725 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+00:00:25,725 OAIC-T Actor INFO Stops the UE: ue1, pid: 28451...
+00:00:25,743 OAIC-T Actor INFO UE Stopped!
+00:00:30,748 OAIC-T Actor INFO ------    Action Done!
+00:00:30,748 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:00:30,748 OAIC-T Actor DEBUG --------------------------ActionRunUE
+00:00:30,748 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+00:00:30,748 OAIC-T Actor DEBUG --------------------------StopUE
+00:00:30,748 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+00:00:30,748 OAIC-T Actor INFO ------    Action Done!
+00:00:30,748 OAIC-T Actor INFO Task Done!task_test id: 1
+00:00:30,748 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Fail! UE is not successfully started after 10 seconds with the following output: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \nCouldn\'t open , trying /root/.config/srsran/ue.conf\nCouldn\'t open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\nReading configuration file /etc/srsran/ue.conf...\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\nOpening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"\nSupported RF device list: zmq file\nCHx base_srate=23.04e6"\nCHx id=ue\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCH0 rx_port=tcp://localhost:2000\nCH0 tx_port=tcp://*:2001\nWaiting PHY to initialize ... done!\nAttaching UE...\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n.\nFound Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nFound PLMN:  Id=00101, TAC=7\nRandom Access Transmission: seq=43, tti=341, ra-rnti=0x2\nRRC Connected\nRandom Access Complete.     c-rnti=0x46, ta=0\nNetwork attach successful. IP: 172.16.0.6\nSoftware Radio Systems RAN (srsRAN) 22/6/2022 5:0:17 TZ:0\n'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop with the following outputs: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \nCouldn\'t open , trying /root/.config/srsran/ue.conf\nCouldn\'t open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\nReading configuration file /etc/srsran/ue.conf...\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\nOpening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"\nSupported RF device list: zmq file\nCHx base_srate=23.04e6"\nCHx id=ue\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCH0 rx_port=tcp://localhost:2000\nCH0 tx_port=tcp://*:2001\nWaiting PHY to initialize ... done!\nAttaching UE...\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n.\nFound Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nFound PLMN:  Id=00101, TAC=7\nRandom Access Transmission: seq=43, tti=341, ra-rnti=0x2\nRRC Connected\nRandom Access Complete.     c-rnti=0x46, ta=0\nNetwork attach successful. IP: 172.16.0.6\nSoftware Radio Systems RAN (srsRAN) 22/6/2022 5:0:17 TZ:0\nStopping ..\nReceived RRC Connection Release (releaseCause: other)\nRRC IDLE\n'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Fail! The UE to be stopped is not running or does not exist! The UE namespace: ue1'}]}
+00:27:42,839 OAIC-T Actor INFO Clean environment before the actor ends...
+00:27:42,839 OAIC-T Actor INFO The actor ended!
+00:28:17,349 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+00:28:22,758 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:28:22,761 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '2.8', 'mem': '0', 'sdr_size': '2'}
+00:28:22,761 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:28:27,765 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+00:28:27,765 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:28:27,765 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:28:27,954 OAIC-T Actor INFO Task running: task_test id: 1
+00:28:27,954 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:28:27,954 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+00:28:27,964 OAIC-T Actor INFO ------    Action Done!
+00:28:27,964 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:28:27,964 OAIC-T Actor DEBUG --------------------------ActionRunUE
+00:28:27,964 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+00:28:37,972 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with IP: 172.16.0.7
+00:28:37,972 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:28:37,972 OAIC-T Actor DEBUG --------------------------ActionRunUE
+00:28:37,972 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+00:28:37,972 OAIC-T Actor INFO ------    Action to be executed: Generate Traffic ...
+00:28:37,972 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+00:28:38,85 OAIC-T Actor INFO Clean environment before the actor ends...
+00:28:38,85 OAIC-T Actor INFO Stops the UE: ue1, pid: 29030...
+00:28:38,111 OAIC-T Actor INFO UE Stopped!
+10:46:14,516 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+10:46:20,584 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+10:46:20,587 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '2.4', 'mem': '0', 'sdr_size': '2'}
+10:46:20,587 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+10:46:25,590 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+10:46:25,590 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+10:46:25,590 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+10:46:25,639 OAIC-T Actor INFO Task running: task_test id: 1
+10:46:25,639 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:46:25,639 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+10:46:25,649 OAIC-T Actor INFO ------    Action Done!
+10:46:25,650 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:46:25,650 OAIC-T Actor DEBUG --------------------------ActionRunUE
+10:46:25,650 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+10:46:35,660 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with IP: 172.16.0.8
+10:46:35,660 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:46:35,661 OAIC-T Actor DEBUG --------------------------ActionRunUE
+10:46:35,661 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+10:46:35,661 OAIC-T Actor INFO ------    Action to be executed: Generate Traffic ...
+10:46:35,661 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+10:47:43,872 OAIC-T Actor INFO Server disconnected
+10:47:49,991 OAIC-T Actor INFO Clean environment before the actor ends...
+10:47:49,992 OAIC-T Actor INFO Stops the UE: ue1, pid: 32890...
+10:50:10,147 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+10:50:15,816 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+10:50:15,819 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '1.0', 'mem': '0', 'sdr_size': '2'}
+10:50:15,819 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+10:50:20,837 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+10:50:20,837 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+10:50:20,838 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+10:50:21,304 OAIC-T Actor INFO Task running: task_test id: 1
+10:50:21,304 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:50:21,304 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+10:50:21,314 OAIC-T Actor INFO ------    Action Done!
+10:50:21,314 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:50:21,314 OAIC-T Actor DEBUG --------------------------ActionRunUE
+10:50:21,314 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+10:50:31,320 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with IP: 172.16.0.9
+10:50:31,320 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:50:31,321 OAIC-T Actor DEBUG --------------------------ActionRunUE
+10:50:31,321 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+10:50:31,321 OAIC-T Actor INFO ------    Action to be executed: Generate Traffic ...
+10:50:31,321 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+10:50:49,755 OAIC-T Actor INFO ------    Action Done!
+10:50:49,756 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:50:49,756 OAIC-T Actor DEBUG --------------------------ActionRunUE
+10:50:49,756 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+10:50:49,756 OAIC-T Actor DEBUG --------------------------StopUE
+10:50:49,756 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+10:50:49,756 OAIC-T Actor INFO Stops the UE: ue1, pid: 32989...
+10:50:49,778 OAIC-T Actor INFO UE Stopped!
+10:50:54,779 OAIC-T Actor INFO ------    Action Done!
+10:50:54,780 OAIC-T Actor INFO Task Done!task_test id: 1
+10:50:54,780 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.9'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success! Script Output: Success! Ping results: \nPING 172.16.0.1 (172.16.0.1) 56(84) bytes of data.\n64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=0.012 ms\n64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=3 ttl=64 time=0.041 ms\n64 bytes from 172.16.0.1: icmp_seq=4 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=5 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=6 ttl=64 time=0.031 ms\n64 bytes from 172.16.0.1: icmp_seq=7 ttl=64 time=0.020 ms\n64 bytes from 172.16.0.1: icmp_seq=8 ttl=64 time=0.021 ms\n64 bytes from 172.16.0.1: icmp_seq=9 ttl=64 time=0.014 ms\n64 bytes from 172.16.0.1: icmp_seq=10 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=11 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=12 ttl=64 time=0.049 ms\n64 bytes from 172.16.0.1: icmp_seq=13 ttl=64 time=0.220 ms\n64 bytes from 172.16.0.1: icmp_seq=14 ttl=64 time=0.022 ms\n64 bytes from 172.16.0.1: icmp_seq=15 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=16 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=17 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=18 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=19 ttl=64 time=0.016 ms\n'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop with the following outputs: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \nCouldn\'t open , trying /root/.config/srsran/ue.conf\nCouldn\'t open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\nReading configuration file /etc/srsran/ue.conf...\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\nOpening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"\nSupported RF device list: zmq file\nCHx base_srate=23.04e6"\nCHx id=ue\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCH0 rx_port=tcp://localhost:2000\nCH0 tx_port=tcp://*:2001\nWaiting PHY to initialize ... done!\nAttaching UE...\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n.\nFound Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nFound PLMN:  Id=00101, TAC=7\nRandom Access Transmission: seq=29, tti=341, ra-rnti=0x2\nRRC Connected\nRandom Access Complete.     c-rnti=0x46, ta=0\nNetwork attach successful. IP: 172.16.0.9\nSoftware Radio Systems RAN (srsRAN) 22/6/2022 15:50:22 TZ:0\nStopping ..\nReceived RRC Connection Release (releaseCause: other)\nRRC IDLE\n'}]}
+10:51:08,423 OAIC-T Actor INFO Clean environment before the actor ends...
+10:51:08,423 OAIC-T Actor INFO The actor ended!
+10:56:39,858 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "resource update request"}
+10:56:44,864 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+10:56:44,864 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+10:56:44,877 OAIC-T Actor INFO Task running: task_test id: 1
+10:56:44,877 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:56:44,877 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+10:56:44,887 OAIC-T Actor INFO ------    Action Done!
+10:56:44,888 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:56:44,888 OAIC-T Actor DEBUG --------------------------ActionRunUE
+10:56:44,888 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+10:56:54,889 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with IP: 172.16.0.10
+10:56:54,889 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:56:54,889 OAIC-T Actor DEBUG --------------------------ActionRunUE
+10:56:54,889 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+10:56:54,889 OAIC-T Actor INFO ------    Action to be executed: Generate Traffic ...
+10:56:54,889 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+10:57:13,340 OAIC-T Actor INFO ------    Action Done!
+10:57:13,341 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+10:57:13,341 OAIC-T Actor DEBUG --------------------------ActionRunUE
+10:57:13,341 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+10:57:13,341 OAIC-T Actor DEBUG --------------------------StopUE
+10:57:13,341 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+10:57:13,341 OAIC-T Actor INFO Stops the UE: ue1, pid: 33126...
+10:57:13,365 OAIC-T Actor INFO UE Stopped!
+10:57:18,367 OAIC-T Actor INFO ------    Action Done!
+10:57:18,367 OAIC-T Actor INFO Task Done!task_test id: 1
+10:57:18,367 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.10'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success! Script Output: Success! Ping results: \nPING 172.16.0.1 (172.16.0.1) 56(84) bytes of data.\n64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=0.013 ms\n64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=0.019 ms\n64 bytes from 172.16.0.1: icmp_seq=3 ttl=64 time=0.048 ms\n64 bytes from 172.16.0.1: icmp_seq=4 ttl=64 time=0.024 ms\n64 bytes from 172.16.0.1: icmp_seq=5 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=6 ttl=64 time=0.039 ms\n64 bytes from 172.16.0.1: icmp_seq=7 ttl=64 time=0.028 ms\n64 bytes from 172.16.0.1: icmp_seq=8 ttl=64 time=0.019 ms\n64 bytes from 172.16.0.1: icmp_seq=9 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=10 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=11 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=12 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=13 ttl=64 time=0.019 ms\n64 bytes from 172.16.0.1: icmp_seq=14 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=15 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=16 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=17 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=18 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=19 ttl=64 time=0.034 ms\n'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop with the following outputs: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \nCouldn\'t open , trying /root/.config/srsran/ue.conf\nCouldn\'t open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\nReading configuration file /etc/srsran/ue.conf...\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\nOpening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"\nSupported RF device list: zmq file\nCHx base_srate=23.04e6"\nCHx id=ue\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCH0 rx_port=tcp://localhost:2000\nCH0 tx_port=tcp://*:2001\nWaiting PHY to initialize ... done!\nAttaching UE...\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n.\nFound Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nFound PLMN:  Id=00101, TAC=7\nRandom Access Transmission: seq=50, tti=341, ra-rnti=0x2\nRRC Connected\nRandom Access Complete.     c-rnti=0x46, ta=0\nNetwork attach successful. IP: 172.16.0.10\nSoftware Radio Systems RAN (srsRAN) 22/6/2022 15:56:46 TZ:0\nStopping ..\nReceived RRC Connection Release (releaseCause: other)\nRRC IDLE\n'}]}
+10:57:28,487 OAIC-T Actor INFO Clean environment before the actor ends...
+10:57:28,487 OAIC-T Actor INFO The actor ended!
+10:59:52,271 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+10:59:59,848 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+10:59:59,850 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '1.4', 'mem': '0', 'sdr_size': '2'}
+10:59:59,851 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:00:04,853 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+11:00:04,853 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+11:00:04,854 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:00:05,344 OAIC-T Actor INFO Task running: task_test id: 1
+11:00:05,344 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:00:05,344 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+11:00:05,356 OAIC-T Actor INFO ------    Action Done!
+11:00:05,356 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:00:05,356 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:00:05,356 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+11:00:15,357 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with IP: 172.16.0.11
+11:00:15,357 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:00:15,357 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:00:15,358 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:00:15,358 OAIC-T Actor INFO ------    Action to be executed: Generate Traffic ...
+11:00:15,358 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+11:00:33,789 OAIC-T Actor INFO ------    Action Done!
+11:00:33,789 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:00:33,789 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:00:33,789 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:00:33,789 OAIC-T Actor DEBUG --------------------------StopUE
+11:00:33,790 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:00:33,790 OAIC-T Actor INFO Stops the UE: ue1, pid: 33230...
+11:00:33,811 OAIC-T Actor INFO UE Stopped!
+11:00:38,815 OAIC-T Actor INFO ------    Action Done!
+11:00:38,815 OAIC-T Actor INFO Task Done!task_test id: 1
+11:00:38,816 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.11'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success! Script Output: Success! Ping results: \nPING 172.16.0.1 (172.16.0.1) 56(84) bytes of data.\n64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=0.034 ms\n64 bytes from 172.16.0.1: icmp_seq=3 ttl=64 time=0.020 ms\n64 bytes from 172.16.0.1: icmp_seq=4 ttl=64 time=0.032 ms\n64 bytes from 172.16.0.1: icmp_seq=5 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=6 ttl=64 time=0.042 ms\n64 bytes from 172.16.0.1: icmp_seq=7 ttl=64 time=0.021 ms\n64 bytes from 172.16.0.1: icmp_seq=8 ttl=64 time=0.020 ms\n64 bytes from 172.16.0.1: icmp_seq=9 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=10 ttl=64 time=0.019 ms\n64 bytes from 172.16.0.1: icmp_seq=11 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=12 ttl=64 time=0.033 ms\n64 bytes from 172.16.0.1: icmp_seq=13 ttl=64 time=0.025 ms\n64 bytes from 172.16.0.1: icmp_seq=14 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=15 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=16 ttl=64 time=0.034 ms\n64 bytes from 172.16.0.1: icmp_seq=17 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=18 ttl=64 time=0.021 ms\n64 bytes from 172.16.0.1: icmp_seq=19 ttl=64 time=0.016 ms\n'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop with the following outputs: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \nCouldn\'t open , trying /root/.config/srsran/ue.conf\nCouldn\'t open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\nReading configuration file /etc/srsran/ue.conf...\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\nOpening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"\nSupported RF device list: zmq file\nCHx base_srate=23.04e6"\nCHx id=ue\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCH0 rx_port=tcp://localhost:2000\nCH0 tx_port=tcp://*:2001\nWaiting PHY to initialize ... done!\nAttaching UE...\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n.\nFound Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nFound PLMN:  Id=00101, TAC=7\nRandom Access Transmission: seq=51, tti=341, ra-rnti=0x2\nRRC Connected\nRandom Access Complete.     c-rnti=0x46, ta=0\nNetwork attach successful. IP: 172.16.0.11\nSoftware Radio Systems RAN (srsRAN) 22/6/2022 16:0:6 TZ:0\nStopping ..\nReceived RRC Connection Release (releaseCause: other)\nRRC IDLE\n'}]}
+11:00:42,722 OAIC-T Actor INFO Clean environment before the actor ends...
+11:00:42,722 OAIC-T Actor INFO The actor ended!
+11:08:07,640 OAIC-T Actor INFO Clean environment before the actor ends...
+11:08:07,640 OAIC-T Actor INFO The actor ended!
+11:08:21,39 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+11:08:29,260 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+11:08:29,263 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '4.0', 'mem': '0', 'sdr_size': '2'}
+11:08:29,263 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:08:34,265 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+11:08:34,266 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+11:08:34,266 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+11:08:34,572 OAIC-T Actor INFO Task running: task_test id: 1
+11:08:34,572 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:08:34,572 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+11:08:34,582 OAIC-T Actor INFO ------    Action Done!
+11:08:34,582 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:08:34,582 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:08:34,582 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+11:08:44,583 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with IP: 172.16.0.12
+11:08:44,583 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:08:44,583 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:08:44,583 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:08:44,583 OAIC-T Actor INFO ------    Action to be executed: Generate Traffic ...
+11:08:44,583 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+11:09:03,4 OAIC-T Actor INFO ------    Action Done!
+11:09:03,5 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+11:09:03,5 OAIC-T Actor DEBUG --------------------------ActionRunUE
+11:09:03,5 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+11:09:03,5 OAIC-T Actor DEBUG --------------------------StopUE
+11:09:03,5 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+11:09:03,5 OAIC-T Actor INFO Stops the UE: ue1, pid: 33335...
+11:09:03,28 OAIC-T Actor INFO UE Stopped!
+11:09:08,29 OAIC-T Actor INFO ------    Action Done!
+11:09:08,29 OAIC-T Actor INFO Task Done!task_test id: 1
+11:09:08,29 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.12'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success! Script Output: Success! Ping results: \nPING 172.16.0.1 (172.16.0.1) 56(84) bytes of data.\n64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=0.256 ms\n64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=0.019 ms\n64 bytes from 172.16.0.1: icmp_seq=3 ttl=64 time=0.035 ms\n64 bytes from 172.16.0.1: icmp_seq=4 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=5 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=6 ttl=64 time=0.030 ms\n64 bytes from 172.16.0.1: icmp_seq=7 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=8 ttl=64 time=0.070 ms\n64 bytes from 172.16.0.1: icmp_seq=9 ttl=64 time=0.057 ms\n64 bytes from 172.16.0.1: icmp_seq=10 ttl=64 time=0.022 ms\n64 bytes from 172.16.0.1: icmp_seq=11 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=12 ttl=64 time=0.021 ms\n64 bytes from 172.16.0.1: icmp_seq=13 ttl=64 time=0.035 ms\n64 bytes from 172.16.0.1: icmp_seq=14 ttl=64 time=0.024 ms\n64 bytes from 172.16.0.1: icmp_seq=15 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=16 ttl=64 time=0.079 ms\n64 bytes from 172.16.0.1: icmp_seq=17 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=18 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=19 ttl=64 time=0.015 ms\n'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop with the following outputs: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \nCouldn\'t open , trying /root/.config/srsran/ue.conf\nCouldn\'t open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\nReading configuration file /etc/srsran/ue.conf...\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\nOpening 1 channels in RF device=zmq with args="tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6"\nSupported RF device list: zmq file\nCHx base_srate=23.04e6"\nCHx id=ue\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCH0 rx_port=tcp://localhost:2000\nCH0 tx_port=tcp://*:2001\nWaiting PHY to initialize ... done!\nAttaching UE...\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n.\nFound Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nCurrent sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)\nFound PLMN:  Id=00101, TAC=7\nRandom Access Transmission: seq=26, tti=341, ra-rnti=0x2\nRRC Connected\nRandom Access Complete.     c-rnti=0x46, ta=0\nNetwork attach successful. IP: 172.16.0.12\nSoftware Radio Systems RAN (srsRAN) 22/6/2022 16:8:36 TZ:0\nStopping ..\nReceived RRC Connection Release (releaseCause: other)\nRRC IDLE\n'}]}
+11:09:21,102 OAIC-T Actor INFO Clean environment before the actor ends...
+11:09:21,102 OAIC-T Actor INFO The actor ended!
+00:28:59,935 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+00:29:06,757 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+00:29:06,759 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '0.9', 'mem': '0', 'sdr_size': '2'}
+00:29:06,760 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:29:11,761 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+00:29:11,761 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+00:29:11,762 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+00:29:11,979 OAIC-T Actor INFO Task running: task_test id: 1
+00:29:11,980 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:29:11,980 OAIC-T Actor INFO ------    Action to be executed: Create Network Namespace ...
+00:29:11,990 OAIC-T Actor INFO ------    Action Done!
+00:29:11,990 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:29:11,990 OAIC-T Actor DEBUG --------------------------ActionRunUE
+00:29:11,990 OAIC-T Actor INFO ------    Action to be executed: Run UE ...
+00:29:21,991 OAIC-T Actor INFO ------    Action Done!Success! UE is initially running with IP: 172.16.0.13
+00:29:21,991 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:29:21,991 OAIC-T Actor DEBUG --------------------------ActionRunUE
+00:29:21,992 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+00:29:21,992 OAIC-T Actor INFO ------    Action to be executed: Generate Traffic ...
+00:29:21,992 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+00:29:40,412 OAIC-T Actor INFO ------    Action Done!
+00:29:40,413 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+00:29:40,413 OAIC-T Actor DEBUG --------------------------ActionRunUE
+00:29:40,413 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+00:29:40,413 OAIC-T Actor DEBUG --------------------------StopUE
+00:29:40,413 OAIC-T Actor INFO ------    Action to be executed: Stop UE ...
+00:29:40,413 OAIC-T Actor INFO Stops the UE: ue1, pid: 36342...
+00:29:40,434 OAIC-T Actor INFO UE Stopped!
+00:29:45,439 OAIC-T Actor INFO ------    Action Done!
+00:29:45,440 OAIC-T Actor INFO Task Done!task_test id: 1
+00:29:45,440 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success! Script Output: ue1\n'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.13'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success! Script Output: Success! Ping results: \nPING 172.16.0.1 (172.16.0.1) 56(84) bytes of data.\n64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=0.012 ms\n64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=0.045 ms\n64 bytes from 172.16.0.1: icmp_seq=3 ttl=64 time=0.057 ms\n64 bytes from 172.16.0.1: icmp_seq=4 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=5 ttl=64 time=0.033 ms\n64 bytes from 172.16.0.1: icmp_seq=6 ttl=64 time=0.030 ms\n64 bytes from 172.16.0.1: icmp_seq=7 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=8 ttl=64 time=0.020 ms\n64 bytes from 172.16.0.1: icmp_seq=9 ttl=64 time=0.039 ms\n64 bytes from 172.16.0.1: icmp_seq=10 ttl=64 time=0.027 ms\n64 bytes from 172.16.0.1: icmp_seq=11 ttl=64 time=0.036 ms\n64 bytes from 172.16.0.1: icmp_seq=12 ttl=64 time=0.019 ms\n64 bytes from 172.16.0.1: icmp_seq=13 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=14 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=15 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=16 ttl=64 time=0.020 ms\n64 bytes from 172.16.0.1: icmp_seq=17 ttl=64 time=0.019 ms\n64 bytes from 172.16.0.1: icmp_seq=18 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=19 ttl=64 time=0.025 ms\n'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop.'}]}
+00:29:50,13 OAIC-T Actor INFO Clean environment before the actor ends...
+00:29:50,14 OAIC-T Actor INFO The actor ended!
+21:45:02,212 OAIC-T Actor INFO Clean environment before the actor ends...
+21:46:19,977 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+21:46:28,144 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+21:46:28,277 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '0.9', 'mem': '0', 'sdr_size': '2'}
+21:46:28,277 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+21:46:33,147 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+21:46:33,147 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+21:46:33,148 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+21:46:33,529 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+21:46:33,615 OAIC-T Actor INFO Clean environment before the actor ends...
+21:54:31,197 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+21:54:39,107 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+21:54:39,110 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '3.0', 'mem': '0', 'sdr_size': '2'}
+21:54:39,110 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+21:54:44,108 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+21:54:44,108 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+21:54:44,108 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+21:54:44,236 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+21:54:44,247 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+21:54:44,247 OAIC-T Actor DEBUG --------------------------ActionRunUE
+21:54:54,248 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+21:54:54,248 OAIC-T Actor DEBUG --------------------------ActionRunUE
+21:54:54,248 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+21:54:54,249 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+21:55:13,68 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+21:55:13,69 OAIC-T Actor DEBUG --------------------------ActionRunUE
+21:55:13,69 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+21:55:13,69 OAIC-T Actor DEBUG --------------------------StopUE
+21:55:13,69 OAIC-T Actor INFO Stops the UE: ue1, pid: 7150...
+21:55:13,120 OAIC-T Actor INFO UE Stopped!
+21:55:18,124 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.2'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop.'}]}
+21:55:18,124 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+21:56:33,133 OAIC-T Actor INFO Clean environment before the actor ends...
+22:08:01,452 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+22:08:08,579 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+22:08:08,582 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '1.7', 'mem': '0', 'sdr_size': '2'}
+22:08:13,585 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+22:08:13,586 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+22:08:14,36 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:08:14,53 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:08:14,53 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:08:24,54 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:08:24,54 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:08:24,54 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+22:08:24,54 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+22:08:42,476 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:08:42,476 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:08:42,477 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+22:08:42,477 OAIC-T Actor DEBUG --------------------------StopUE
+22:08:42,477 OAIC-T Actor INFO Stops the UE: ue1, pid: 7477...
+22:08:42,494 OAIC-T Actor INFO UE Stopped!
+22:08:47,500 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.3'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop.'}]}
+22:10:39,271 OAIC-T Actor INFO Clean environment before the actor ends...
+22:11:22,650 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+22:11:30,793 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+22:11:30,796 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '0.5', 'mem': '0', 'sdr_size': '2'}
+22:11:35,796 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+22:11:35,797 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+22:11:36,242 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:11:36,253 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:11:36,253 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:11:46,260 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:11:46,261 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:11:46,261 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+22:11:46,261 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+22:12:04,684 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:12:04,684 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:12:04,684 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+22:12:04,684 OAIC-T Actor DEBUG --------------------------StopUE
+22:12:04,684 OAIC-T Actor INFO Stops the UE: ue1, pid: 7569...
+22:12:04,703 OAIC-T Actor INFO UE Stopped!
+22:12:09,707 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.4'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop.'}]}
+22:12:51,589 OAIC-T Actor INFO Clean environment before the actor ends...
+22:13:18,795 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+22:13:26,841 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+22:13:26,844 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '4.2', 'mem': '0', 'sdr_size': '2'}
+22:13:26,845 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update confirmed"}
+22:13:31,848 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+22:13:31,849 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+22:13:31,849 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+22:13:31,856 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:13:31,868 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:13:31,868 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:13:41,868 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:13:41,868 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:13:41,869 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+22:13:41,869 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+22:14:00,300 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:14:00,300 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:14:00,300 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+22:14:00,301 OAIC-T Actor DEBUG --------------------------StopUE
+22:14:00,301 OAIC-T Actor INFO Stops the UE: ue1, pid: 7671...
+22:14:00,320 OAIC-T Actor INFO UE Stopped!
+22:14:05,323 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.5'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop.'}]}
+22:14:49,12 OAIC-T Actor INFO Clean environment before the actor ends...
+22:16:03,845 OAIC-T Actor INFO -->> Receive a message from the server : {"type": "registration confirmed"}
+22:16:11,886 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update request"}
+22:16:11,888 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'resource update', 'cpu': '1.9', 'mem': '0', 'sdr_size': '2'}
+22:16:11,889 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "resource update confirmed"}
+22:16:16,892 OAIC-T Actor INFO <<-- Receive a message from the server : {"name": "task_test", "id": "1", "mode": "virtual radio", "actions": [{"name": "Create Network Namespace", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Run UE", "paras": {"namespace": "ue1"}, "type": "running"}, {"name": "Generate Traffic", "paras": {"namespace": "ue1", "direction": "uplink", "ping_time": 20}, "type": "running"}, {"name": "Stop UE", "paras": {"namespace": "ue1"}, "type": "running"}], "type": "new task request"}
+22:16:16,892 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'new task received and pending to run'}
+22:16:16,893 OAIC-T Actor INFO <<-- Receive a message from the server : {"type": "confirmed"}
+22:16:16,926 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:16:16,939 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:16:16,939 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:16:26,940 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:16:26,941 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:16:26,941 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+22:16:26,941 OAIC-T Actor INFO IP to be pinged: 172.16.0.1
+22:16:45,388 OAIC-T Actor DEBUG --------------------------ActionCreateNS
+22:16:45,388 OAIC-T Actor DEBUG --------------------------ActionRunUE
+22:16:45,388 OAIC-T Actor DEBUG --------------------------ActionGenTraffic
+22:16:45,388 OAIC-T Actor DEBUG --------------------------StopUE
+22:16:45,388 OAIC-T Actor INFO Stops the UE: ue1, pid: 7763...
+22:16:45,409 OAIC-T Actor INFO UE Stopped!
+22:16:50,411 OAIC-T Actor INFO -->> Send a message to the server: {'type': 'task completed', 'id': '1', 'results': [{'name': 'Create Network Namespace', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Run UE', 'status': 'Succeed', 'description': 'Success! UE is initially running with IP: 172.16.0.6'}, {'name': 'Generate Traffic', 'status': 'Succeed', 'description': 'Success!'}, {'name': 'Stop UE', 'status': 'Succeed', 'description': 'Success! The UE is forced to stop.'}]}
+22:17:11,699 OAIC-T Actor INFO Clean environment before the actor ends...
+15:39:59,563 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+15:42:56,685 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+15:43:38,521 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:00:24,10 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:08:11,967 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:11:05,101 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:14:23,758 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:28:58,359 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:31:52,910 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:33:05,71 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:34:12,372 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:36:06,480 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:38:24,520 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:38:55,631 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:01:16,367 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:19:11,890 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:23:53,702 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:26:37,389 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:26:49,940 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+16:45:38,720 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:23:42,225 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:26:46,314 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:28:55,961 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:31:08,337 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+17:42:44,673 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+18:02:38,822 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+18:07:10,955 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+18:11:52,242 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+22:44:26,912 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+23:28:19,449 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+00:02:27,761 OAIC-T Actor ERROR Cannot find the action executor: Start Iperf Server
+14:14:51,37 OAIC-T Actor ERROR Cannot find the action executor: Start SRSUE
