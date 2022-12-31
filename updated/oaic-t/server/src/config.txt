@@ -1,4 +1,0 @@
-[server_config]
-server_port = 12345
-GUI = true
-

@@ -35,26 +35,29 @@ class XAPPConnection:
     def waiting_server_thread(self, socket):
         # msg_handler = MessageHandler(self)
         print("Just send some fake data......")
-        for i in range(100):
-            time.sleep(2)
-            message_sent = {"type": "KPI xApp", "timestamp": str(i),
-                            "kpi1": str(i+100), "kpi2": str(i+200), "kpi3": str(i+300)}
-            self.server_connection.send_msg(message_sent)
-        return
+        #for i in range(100):
+        #    time.sleep(2)
+        #    message_sent = {"type": "KPI xApp", "timestamp": str(i),
+        #                    "kpi1": str(i+100), "kpi2": str(i+200), "kpi3": str(i+300)}
+        #    self.server_connection.send_msg(message_sent)
+        #return
 
         while True:
             # this thread is created to wait new message received from server
             data = socket.recv(1024)
-            data = data.decode("utf-8")
+            #data = data.decode("utf-8")
 
             if not data:
                 break
 
             logger.info('<<-- Receive a message from the server : {}'.format(data))
-
-            #message = json.loads(data)
+            
+            message = data.decode("utf-8")
+            message = json.loads(message)
+            print("Received a KPI data from test xApp: ")
+            print(message)
             # message_handler.handle(message)
-            self.server_connection.send_msg(data)  ## forward this message to the oaic-t server
+            self.server_connection.send_msg(message)  ## forward this message to the oaic-t server
 
         # close the connection
         print('Server disconnected!')
