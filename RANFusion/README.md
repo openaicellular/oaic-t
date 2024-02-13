@@ -8,7 +8,7 @@ Welcome to the RANFusion (RAN) Simulator, a simple tool that simulates the behav
 
 ![Example Image](images/log.png)
 
-![Example Image](images/log.png)
+![Example Image](images/InfluxDB GUI.png)
 ## Features
 
 - **Realistic RAN Simulation:** Experience accurate modeling of 5G network elements and protocols.
