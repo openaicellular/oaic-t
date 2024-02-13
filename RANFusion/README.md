@@ -2,7 +2,8 @@
 ****v1.0.0 - Baseline***
 ## Overview
 
-Welcome to the RANFusion, RAN Simulator, a simple tool that simulates the behavior and performance of 5G, 6G networks, such as handover activities. Our simulator provides a detailed framework for testing and analyzing various components of 5G technology. Here's a sample result from running 10 UE and viewing the logs:
+Welcome to the RANFusion, RAN Simulator, a simple tool that simulates the behavior and performance of 5G, and 6G networks, such as handover activities. Our simulator provides a detailed framework for testing and analyzing various components of 5G technology. 
+Here's a sample result from running 10 UE and viewing the logs:
 
 ![Example Image](images/init-ue.png)
 
