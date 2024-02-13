@@ -25,7 +25,7 @@ Welcome to the RANFusion (RAN) Simulator, a simple tool that simulates the behav
 Before you start, make sure you have the following installed:
 - Windows, Linux, or macOS
 - Python 3.x
-- Git
+- Install Dependencies via pip install -r requirements.txt
 
 ### Installation
 
@@ -33,13 +33,11 @@ Follow these steps to set up the RANFusion Simulator:
 
 1. **Clone the Repository**
 2. **Navigate to the Directory**
-3. **Install Dependencies**
-   via pip install -r requirements.txt
-5. **RUN the setup.py and wait**
-6. **Install InfluxDB**
-7. **Get the API token of the Influxdb via GUI (http://localhost:8086/)**
-8. **past Token into setup.py**
-9. **run main.py**
+3. **RUN the setup.py and wait**
+4. **Install InfluxDB**
+5. **Get the API token of the Influxdb via GUI (http://localhost:8086/)**
+6. **past Token into setup.py**
+7. **run main.py**
    
    
 
