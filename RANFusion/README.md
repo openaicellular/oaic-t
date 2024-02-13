@@ -14,7 +14,7 @@ Welcome to the RANFusion (RAN) Simulator, a simple tool that simulates the behav
 - **Support Multiple gNodeB, Cell, Sector, UE**
 - **API Enable**
 - **Customizable Scenarios:** Easily configure different network scenarios.
-- **Performance Metrics via InfluxDB:** Gain insights with a range of metrics like throughput, latency, and packet loss.
+- **Performance Metrics via InfluxDB:** Performance Metrics: The simulator provides a comprehensive set of metrics, including throughput, latency, and packet loss. These metrics enable users to gain valuable insights into the performance and behavior of 5G networks under different conditions.
 
 ## Getting Started
 
