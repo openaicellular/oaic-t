@@ -16,7 +16,7 @@ Here's a sample result from running 10 UE and viewing the logs:
 - **Support Multiple gNodeB, Cell, Sector, UE**
 - **API Enable** To add, Remove, and update each UE with its parameters
 - **Customizable Scenarios:** Easily configure different network scenarios.
-- **Supported Scenarios in this version:** Generate traffic for each UE per service type and soft handover inside the cell.
+- **Supported Scenarios in this version:** Generate traffic for each UE per service type and soft handover inside the GnodeB(Intra-gNodeB Intra-Frequency Handover).
 - **Performance Metrics via InfluxDB:** Performance Metrics: The simulator provides a comprehensive set of metrics, including throughput, latency, and packet loss. These metrics enable users to gain valuable insights into the performance and behavior of 5G networks under different conditions.
 
 ## Getting Started
