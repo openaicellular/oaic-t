@@ -1,48 +1,56 @@
-# Welcome to RAN Fusion
-****v1.0.0 - Baseline***
+# Welcome to RAN Fusion ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg)
+
 ## Overview
 
-Welcome to the RANFusion, RAN Simulator, a simple tool that simulates the behavior and performance of 5G, and 6G networks, such as handover activities. Our simulator provides a detailed framework for testing and analyzing various components of 5G technology. 
-Here's a sample result from running 10 UE and viewing the logs:
+**RANFusion RAN Simulator** simulates the behavior and performance of 5G and 6G networks, focusing on handover processes. It provides a detailed framework for testing and analyzing 5G technology components.
 
-![Example Image](images/init-ue.png)
+### Sample Results
 
-![Example Image](images/log.png)
+- **Initial UE Configuration**
 
-![Example Image](images/InfluxDB-GUI.png)
+  ![Initial UE Configuration](images/init-ue.png)
+
+- **Simulation Logs**
+
+  ![Simulation Logs](images/log.png)
+
+- **InfluxDB GUI for Performance Metrics**
+
+  ![InfluxDB GUI](images/InfluxDB-GUI.png)
+
 ## Features
 
-- **Realistic RAN Simulation:** Experience accurately modeling 5G network elements and protocols.
-- **Support Multiple gNodeB, Cell, Sector, UE**
-- **API Enable** To add, Remove, and update each UE with its parameters
-- **Customizable Scenarios:** Easily configure different network scenarios.
-- **Supported Scenarios in this version:** Generate traffic for each UE per service type and soft handover inside the GnodeB(Intra-gNodeB Intra-Frequency Handover).
-- **Performance Metrics via InfluxDB:** Performance Metrics: The simulator provides a comprehensive set of metrics, including throughput, latency, and packet loss. These metrics enable users to gain valuable insights into the performance and behavior of 5G networks under different conditions.
+- **Realistic RAN Simulation:** Models 5G network elements and protocols accurately.
+- **Multi-Support:** For multiple gNodeB, Cells, Sectors, and UEs.
+- **API Enabled:** To add, remove, and update UEs with parameters.
+- **Customizable Scenarios:** For configuring various network scenarios.
+- **Supported Scenarios:** Traffic generation for UEs and soft handover within GnodeB.
+- **Performance Metrics via InfluxDB:** Comprehensive metrics for insightful 5G network analysis.
 
 ## Getting Started
 
 ### Prerequisites
 
-Before you start, make sure you have the following installed:
-- Windows, Linux, or macOS
-- Python 3.x
-- Install Dependencies via pip install -r requirements.txt
+- **Operating System:** Windows, Linux, or macOS.
+- **Python:** Version 3.x.
+- **Dependencies:** Install via `pip install -r requirements.txt`.
 
-### Installation
+### Installation Guide
 
-Follow these steps to set up the RANFusion Simulator:
+1. **Clone the Repository:** Obtain the project on your machine.
+2. **Navigate:** Move to the project directory.
+3. **Setup:** Execute `setup.py` and wait.
+4. **InfluxDB:** Install and setup on your machine.
+5. **API Token:** Get the API token from InfluxDB GUI (`http://localhost:8086/`).
+6. **Configure:** Insert the token into `setup.py`.
+7. **Run:** Start the simulation with `main.py`.
 
-1. **Clone the Repository**
-2. **Navigate to the Directory**
-3. **RUN the setup.py and wait**
-4. **Install InfluxDB**
-5. **Get the API token of the Influxdb via GUI (http://localhost:8086/)**
-6. **past Token into setup.py**
-7. **run main.py**
-   
-   
 ### API Sample
-Remove ue: Invoke-RestMethod -Uri 'http://localhost:5000/remove_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "UE10",     "sector_id": "AX1112-A1"}'
+
+To remove a UE:
+```powershell
+Invoke-RestMethod -Uri 'http://localhost:5000/remove_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "UE10", "sector_id": "AX1112-A1"}'
+
 
 ## Documentation
 Our project's documentation is available at [Link to Documentation](https://RANFusion.com/doc).
