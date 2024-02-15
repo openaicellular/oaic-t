@@ -25,7 +25,7 @@
 - **Multi-Support:** For multiple gNodeB, Cells, Sectors, and UEs.
 - **API Enabled:** To add, remove, and update UEs with parameters.
 - **Customizable Scenarios:** For configuring various network scenarios.
-- **Supported Scenarios:** Traffic generation for UEs and soft handover within GnodeB.
+- **Supported Scenarios:** Traffic generation for UEs and soft handover within gNodeB.
 - **Performance Metrics via InfluxDB:** Comprehensive metrics for insightful 5G network analysis.
 
 ## Getting Started
