@@ -53,7 +53,7 @@ Invoke-RestMethod -Uri 'http://localhost:5000/remove_ue' -Method Post -ContentTy
 
 
 ## Documentation
-Our project's documentation is available at [Link to Documentation](https://RANFusion.com/doc).
+Explore RANFusion further in our documentation.(https://RANFusion.com/doc).
 
 
 
