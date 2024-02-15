@@ -1,4 +1,4 @@
-# Welcome to RAN Fusion ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg)
+# ![RAN Fusion Logo](images/logo.png) Welcome to RAN Fusion ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ## Overview
 
