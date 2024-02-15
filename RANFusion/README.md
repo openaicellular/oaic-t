@@ -3,8 +3,7 @@
 
 
 ## Overview
-
-**RANFusion RAN Simulator** simulates the behavior and performance of 5G and 6G networks, focusing on handover processes. It provides a detailed framework for testing and analyzing 5G technology components.
+  **Welcome to the Next Generation Radio Access Network (RAN) Simulator** This simple tool is designed to simulate the behavior and performance of 5G networks. Our simulator offers a detailed framework to test and analyze various components of 5G technology, including      the RAN functionalities and end-to-end communication protocols. simulates the behavior and performance of 5G and 6G networks, focusing on handover processes. It provides a detailed framework for testing and analyzing 5G technology components.
 
 ### Sample Results
 
