@@ -45,7 +45,8 @@
 5. **API Token:** Get the API token from InfluxDB GUI (`http://localhost:8086/`).
 6. **Configure:** Insert the token into `setup.py`.
 7. **Run:** Start the simulation with `main.py`.
-8. **Run API:** Start the `API.py` in separate terminal
+8. **Run API:** Start the `API.py` in a separate terminal
+9. **Send command:** Start a new terminal and past a sample API like add or remove ue.
  
 ## Documentation
 Explore RANFusion further in our documentation.(https://RANFusion.com/doc).
