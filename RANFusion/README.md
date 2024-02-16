@@ -61,7 +61,7 @@ Invoke-RestMethod -Uri 'http://localhost:5000/remove_ue' -Method Post -ContentTy
 To add a UE for example add "UE11" to sector "AX1112-A1" :
 ```powershell
 Invoke-RestMethod -Uri 'http://localhost:5000/add_ue' -Method Post -ContentType 'application/json' -Body '{
-  "ue_id": "ue42",
+  "ue_id": "42",
   "service_type": "data",
   "sector_id": "AX1112-A1",
   "gnodeb_id": "",
