@@ -98,9 +98,9 @@ Invoke-RestMethod -Uri 'http://localhost:5000/add_ue' -Method Post -ContentType 
   "hoMargin": 6,
   "n310": 1,
   "n311": 5,
-  "model": "ModelX",
-  "screensize": "6.5 inches",
-  "batterylevel": 20,
+  "model": "Iphon14 pro",
+  "screensize": "6.12",
+  "batterylevel": 80,
   "datasize": ""
 }'
 ```
