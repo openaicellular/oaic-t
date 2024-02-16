@@ -55,7 +55,7 @@ Explore RANFusion further in our documentation.(https://RANFusion.com/doc).
 
 To remove a UE, for example remove "UE10" from sector "AX1112-A1" :
 ```powershell
-Invoke-RestMethod -Uri 'http://localhost:5000/remove_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "UE10"}'
+Invoke-RestMethod -Uri 'http://localhost:5000/remove_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "10"}'
 ```
 
 To add a UE for example add "UE11" to sector "AX1112-A1" :
