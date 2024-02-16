@@ -51,6 +51,6 @@ Explore RANFusion further in our documentation.(https://RANFusion.com/doc).
 
 ### API Sample
 
-To remove a UE:
+To remove a UE, for example remove "UE10" from sector "AX1112-A1" :
 ```powershell
 Invoke-RestMethod -Uri 'http://localhost:5000/remove_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "UE10", "sector_id": "AX1112-A1"}'
