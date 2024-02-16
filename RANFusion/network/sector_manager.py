@@ -10,12 +10,20 @@ from logs.logger_config import cell_logger, gnodeb_logger, ue_logger, sector_log
 import threading
 
 class SectorManager:
+    _instance = None
+
     def __init__(self, db_manager):
         self.sectors = all_sectors  # Use the global all_sectors dictionary to track sectors
         self.db_manager = db_manager  # Instance of DatabaseManager for DB operations
         self.lock = threading.Lock()  # Lock for thread-safe operations on sectors
         self.gnodeb_sectors_map = {}  # New attribute to track gNodeB to sectors association
-
+    
+    @classmethod
+    def get_instance(cls, db_manager=None):
+        if cls._instance is None:
+            cls._instance = cls(db_manager)
+        return cls._instance
+    
     def initialize_sectors(self, sectors_config, gnodeb_manager, cell_manager):
         print("Initializing sectors...")
         initialized_sectors = {}
@@ -169,6 +177,12 @@ class SectorManager:
             return []
         sorted_ues = sorted(sector.ues.values(), key=lambda ue: ue.throughput, reverse=True)
         return sorted_ues
+    
+    def find_sector_by_ue_id(self, ue_id):
+        for sector_id, sector in self.sectors.items():
+            if ue_id in sector.connected_ues:
+                return sector_id
+        return None
     
     def move_ue_to_sector(self, ue_id, target_sector_id):
         # Fetch the UE instance by its ID

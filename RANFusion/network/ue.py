@@ -99,14 +99,29 @@ class UE:
     
     @classmethod
     def get_ue_instance_by_id(cls, ue_id):
-        """
-        Retrieve a UE instance by its ID.
-        
-        :param ue_id: The ID of the UE to retrieve.
-        :return: The UE instance with the given ID, or None if not found.
-        """
-        return cls.ue_instances.get(ue_id, None)
+        # Convert the input UE ID to lowercase (or uppercase) for case-insensitive comparison
+        ue_id_lower = ue_id.lower()
+        # Find the UE instance by comparing lowercase versions of stored IDs
+        for stored_ue_id, ue_instance in cls.ue_instances.items():
+            if stored_ue_id.lower() == ue_id_lower:
+                return ue_instance
+        return None
     
+    @classmethod
+    def deregister_ue(cls, ue_id):
+        ue_id_lower = ue_id.lower()
+        for stored_ue_id in list(cls.existing_ue_ids):  # Create a list to avoid modifying the set during iteration
+            if stored_ue_id.lower() == ue_id_lower:
+                cls.existing_ue_ids.remove(stored_ue_id)
+                ue_logger.info(f"UE ID {stored_ue_id} removed from existing_ue_ids.")
+                break  # Assuming UE IDs are unique, break after finding and removing the ID
+
+        for stored_ue_id in list(cls.ue_instances.keys()):
+            if stored_ue_id.lower() == ue_id_lower:
+                del cls.ue_instances[stored_ue_id]
+                ue_logger.info(f"UE instance {stored_ue_id} removed from ue_instances.")
+                break  # Assuming UE IDs are unique, break after finding and removing the instance
+
     def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
             .tag("ue_id", str(self.ID)) \
@@ -148,6 +163,11 @@ class UE:
     def update_parameters(self, **kwargs):
         for key, value in kwargs.items():
             if hasattr(self, key):
+                # Example validation for txPower
+                if key == "txPower" and not (0 <= value <= 100):
+                    ue_logger.warning(f"Attempted to set invalid txPower {value} for UE {self.ID}")
+                    continue  # Skip updating this attribute
+            
                 setattr(self, key, value)
                 ue_logger.info(f"Updated {key} for UE {self.ID} to {value}")
             else:
