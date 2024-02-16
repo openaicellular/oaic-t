@@ -57,3 +57,48 @@ To remove a UE, for example remove "UE10" from sector "AX1112-A1" :
 ```powershell
 Invoke-RestMethod -Uri 'http://localhost:5000/remove_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "UE10"}'
 
+To add a UE for example add "UE11" to sector "AX1112-A1" :
+```powershell
+Invoke-RestMethod -Uri 'http://localhost:5000/add_ue' -Method Post -ContentType 'application/json' -Body '{
+  "ue_id": "ue42",
+  "service_type": "data",
+  "sector_id": "AX1112-A1",
+  "gnodeb_id": "",
+  "IMEI": "",
+  "location": {
+    "latitude": 42.2745,
+    "longitude": -71.8064
+  },
+  "connectedCellID": "",
+  "isMobile": "",
+  "initialSignalStrength": 0.75,
+  "rat": "NR",
+  "maxBandwidth": 200,
+  "duplexMode": "TDD",
+  "txPower": 23,
+  "modulation": [
+    "QPSK"
+  ],
+  "coding": "LDPC",
+  "mimo": "2x2",
+  "processing": "Category 4",
+  "bandwidthParts": [
+    50
+  ],
+  "channelModel": "TDL-C",
+  "velocity": 50,
+  "direction": 135,
+  "trafficModel": "Full Buffer",
+  "schedulingRequests": true,
+  "rlcMode": "AM",
+  "snrThresholds": [
+    18
+  ],
+  "hoMargin": 6,
+  "n310": 1,
+  "n311": 5,
+  "model": "ModelX",
+  "screensize": "6.5 inches",
+  "batterylevel": 20,
+  "datasize": ""
+}'
