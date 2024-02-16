@@ -10,15 +10,23 @@ import traceback
 import threading
 import json
 from network.sector_manager import all_sectors
-from database.database_manager import DatabaseManager
 from flask import Response
+from logs.logger_config import  sector_logger
 from dotenv import load_dotenv
+from network.sector_manager import SectorManager
+from database.database_manager import DatabaseManager
+
+# Assuming DatabaseManager is already instantiated as db_manager
+db_manager = DatabaseManager()
+# Instantiate SectorManager
+sector_manager = SectorManager(db_manager)
+
 load_dotenv()
 
 app = Flask(__name__)
 lock = Lock()
 
-db_manager = DatabaseManager()
+
 all_sectors = {}
 
 sectors_from_db = db_manager.get_sectors()
@@ -108,42 +116,38 @@ def add_ue():
 def remove_ue():
     data = request.json
     print("Received request to remove UE:", data)
-    
+
     required_fields = ['ue_id', 'sector_id']
     missing_fields = [field for field in required_fields if field not in data]
     if missing_fields:
         return jsonify({'error': f'Missing required fields: {", ".join(missing_fields)}'}), 400
-    
+
     ue_id = data['ue_id']
     sector_id = data['sector_id']
-    
+
     # Validate sector_id and ue_id formats (example validation, adjust as needed)
     if not isinstance(sector_id, str) or len(sector_id) < 5:
         return jsonify({'error': 'Invalid sector_id format'}), 400
     if not isinstance(ue_id, str) or len(ue_id) < 3:
         return jsonify({'error': 'Invalid ue_id format'}), 400
-    
-    db_manager = DatabaseManager()  # Instantiate your DatabaseManager Singleton
-    
+
     try:
         # Ensure thread safety
         with lock:
-            # Attempt to retrieve the sector and remove the UE
-            # Note: You need to adjust this part according to how sectors are managed in your application
-            # This example assumes there's a method to get a sector and remove a UE from it
             print(f"Attempting to find sector with ID: {sector_id} and remove UE: {ue_id}")
             
-            # Assuming Sector class has a method remove_ue that returns True if removal was successful
-            # And assuming there's a way to get a sector object. Adjust this logic as per your application's design
-            # success = sector.remove_ue(ue_id)
+            # Retrieve the sector instance from the sector manager
+            sector = sector_manager.get_sector_by_id(sector_id)
+            if sector is None:
+                return jsonify({'error': f'Sector with ID {sector_id} not found'}), 404
             
-            # For demonstration, let's assume the removal was successful and focus on removing UE state from DB
-            success = True  # Placeholder for actual sector and UE removal logic
+            # Attempt to remove the UE from the sector
+            success = sector.remove_ue(ue_id)
             
             if success:
                 # Additionally, remove the UE's state from InfluxDB
-                db_manager.remove_ue_state(ue_id, sector_id)  # Ensure this method is implemented in DatabaseManager
-                # log_ue_update(f"UE ID: {ue_id} removed from Sector ID: {sector_id}")  # Adjust logging as needed
+                db_manager.remove_ue_state(ue_id, sector_id)
+                sector_logger.info(f"UE ID: {ue_id} removed from Sector ID: {sector_id}")
                 return jsonify({'message': f'UE {ue_id} removed successfully from sector {sector_id}'}), 200
             else:
                 return jsonify({'error': 'Failed to remove UE from sector'}), 500
