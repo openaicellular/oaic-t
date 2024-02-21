@@ -7,12 +7,32 @@ from database.database_manager import DatabaseManager
 from network.cell import Cell 
 
 class CellManager:
-    def __init__(self, gNodeBs, db_manager: DatabaseManager):
-        self.cells = {}
-        self.gNodeBs = gNodeBs
-        self.db_manager = db_manager
+    _instance = None
 
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super(CellManager, cls).__new__(cls)
+        return cls._instance
+
+    @classmethod
+    def get_instance(cls, gNodeBs=None, db_manager=None):
+        if cls._instance is None:
+            cls._instance = CellManager(gNodeBs, db_manager)
+        return cls._instance
+    
+    def __init__(self, gNodeBs, db_manager):
+        if not hasattr(self, 'initialized'):  # This ensures __init__ is only called once
+            print(f"Creating CellManager instance: {self}")
+            self.cells = {}
+            self.gNodeBs = gNodeBs
+            self.db_manager = db_manager
+            self.initialized = True
+            
     def initialize_cells(self, cells_config):
+        
+        if self.cells:  # Check if cells already initialized
+            print("Cells already initialized.")
+            return
         """
         Initialize cells based on the provided configuration and associate them with gNodeBs.
         
@@ -48,6 +68,7 @@ class CellManager:
             self.db_manager.insert_data(point)
 
         cell_logger.info("Cells initialization completed.")
+        print(f"Initialized cells print for test the issue: {self.cells}")  # Add this line to print out the cells
         return self.cells  # Return the dictionary of initialized cells
 
     def add_cell(self, cell_data):
@@ -114,3 +135,12 @@ class CellManager:
                 neighbor_cells.append(cell.ID)
 
         return neighbor_cells
+    
+    def list_all_cells_detailed(self):
+        cell_details_list = []
+        for cell_id, cell in self.cells.items():
+            cell_details_list.append({
+                'id': cell.ID,
+                # Add more details as needed
+            })
+        return cell_details_list

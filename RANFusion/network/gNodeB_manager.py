@@ -1,3 +1,4 @@
+#gNodeBManager.py inside the network folder
 import os
 from network.gNodeB import gNodeB, load_gNodeB_config
 from database.database_manager import DatabaseManager
@@ -5,18 +6,32 @@ from logs.logger_config import cell_logger, gnodeb_logger
 from network.utils import calculate_distance
 
 class gNodeBManager:
+    _instance = None
 
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(gNodeBManager, cls).__new__(cls)
+            # Initialize the object here, if necessary
+        return cls._instance
+    
+    @classmethod
+    def get_instance(cls, base_dir=None):
+        if cls._instance is None:
+            cls._instance = gNodeBManager(base_dir)
+        return cls._instance
+    
     def __init__(self, base_dir):
-        self.gNodeBs = {}
-        self.db_manager = DatabaseManager() 
-        self.base_dir = base_dir
-        self.gNodeBs_config = load_gNodeB_config()
+        if not hasattr(self, 'initialized'):
+            self.gNodeBs = {}
+            self.db_manager = DatabaseManager() 
+            self.base_dir = base_dir
+            self.gNodeBs_config = load_gNodeB_config()
 
         # Check if gNodeBs_config contains gNodeBs data
         if 'gNodeBs' not in self.gNodeBs_config or not self.gNodeBs_config['gNodeBs']:
             gnodeb_logger.error("gNodeBs configuration is missing or empty.")
             raise ValueError("gNodeBs configuration is missing or empty.")
-
+        self.initialized = True
 
     def initialize_gNodeBs(self):
         """
@@ -32,9 +47,24 @@ class gNodeBManager:
             self.db_manager.insert_data(point)  # Insert the Point object directly
         return self.gNodeBs
     
-    def list_all_gNodeBs(self):
-        """List all gNodeBs managed by this manager."""
-        return list(self.gNodeBs.keys())
+    def list_all_gNodeBs_detailed(self):
+        """List all gNodeBs managed by this manager with detailed information."""
+        gNodeBs_detailed_list = []
+        for gnodeb_id, gnodeb in self.gNodeBs.items():
+            gNodeBs_detailed_list.append({
+                'id': gnodeb.ID,
+                'latitude': gnodeb.Latitude,
+                'longitude': gnodeb.Longitude,
+                'coverage_radius': gnodeb.CoverageRadius,
+                'transmission_power': gnodeb.TransmissionPower,
+                'frequency': gnodeb.Frequency,
+                'bandwidth': gnodeb.Bandwidth,
+                'max_ues': gnodeb.MaxUEs,
+                'cell_count': gnodeb.CellCount,
+                'sector_count': gnodeb.SectorCount,
+                # Add more fields as needed
+            })
+        return gNodeBs_detailed_list
 
     def add_gNodeB(self, gNodeB_data):
         """

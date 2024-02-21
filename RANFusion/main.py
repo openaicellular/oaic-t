@@ -1,5 +1,6 @@
 import os
 import logging
+import time
 from Config_files.config import Config
 from logo import create_logo
 from database.database_manager import DatabaseManager
@@ -9,91 +10,75 @@ from network.ue_manager import UEManager
 from network.gNodeB_manager import gNodeBManager
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
-from network.NetworkLoadManager import NetworkLoadManager
-from logs.logger_config import gnodbe_load_logger
+from network.NetworkLoadManager import NetworkLoadManager  
+from logs.logger_config import gnodbe_load_logger, ue_logger
 from network.network_delay import NetworkDelay
-import time
-import threading
+from simulator_cli import SimulatorCLI
+from threading import Thread
 
-def monitor_ue_updates():
-    log_file_path = 'ue_updates.log'
-    # Ensure the file exists, create if it doesn't
-    open(log_file_path, 'a').close()
-    with open(log_file_path, 'r') as file:
-        # Move to the end of the file
-        file.seek(0,2)
-        while True:
-            line = file.readline()
-            if not line:
-                time.sleep(0.1)  # Sleep briefly to avoid busy waiting
-                continue
-            print(line.strip(), flush=True)
-
-def log_traffic(ues, network_load_manager, db_manager):
-    # Adjusted to pass db_manager as an argument
-    traffic_controller = TrafficController()
-    network_delay_calculator = NetworkDelay()
+def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, network_delay_calculator, db_manager):
     while True:
-        for ue in ues:
+        for ue in ue_list:
+            # Calculate throughput for each UE
             throughput_data = traffic_controller.calculate_throughput(ue)
+            # Calculate network load
             network_load = network_load_manager.calculate_network_load()
+            # Calculate network delay based on the current network load
             network_delay = network_delay_calculator.calculate_delay(network_load)
-            logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {throughput_data['throughput'] / (8 * 1024 * 1024):.2f}MB, Interval: {throughput_data['interval']:.2f}s, Delay: {throughput_data['jitter']}ms, Jitter: {throughput_data['packet_loss_rate']}%, Packet Loss Rate: {throughput_data['packet_loss_rate']}%")
-            
-            # Use db_manager to write network measurement
+            # Log the calculated metrics
+            # Optionally, use db_manager to write network measurement
             db_manager.write_network_measurement(network_load, network_delay)
-        time.sleep(1)
-
+        time.sleep(1)  # Adjust sleep time as needed
 
 def main():
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
-
     logo_text = create_logo()
     print(logo_text)
-
     db_manager = DatabaseManager()
     time.sleep(1)
 
-    gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=10)
+    # Use get_instance to ensure singleton pattern compliance
+    gNodeB_manager = gNodeBManager.get_instance(base_dir=base_dir)
+    gNodeBs, cells, sectors, ues, cell_manager = initialize_network(base_dir, num_ues_to_launch=10)
     print("Network Initialization Complete")
-    print(f" this is for debug and so Initialized sectors: {sectors}")
+    print(f"Initialized sectors: {sectors}")
 
-    # Correctly initialize CellManager
-    cell_manager = CellManager(gNodeBs=gNodeBs, db_manager=db_manager)
+    # Note: No need to re-instantiate CellManager here as it's already done in initialize_network
+    print(f"Cells in cell_manager after initialization: {cell_manager.cells}")
 
-    # Correctly initialize SectorManager without the 'sectors' keyword argument
-    sector_manager = SectorManager(db_manager=db_manager)
+    # Note: SectorManager should also be instantiated using get_instance if it's not already done in initialize_network
+    sector_manager = SectorManager.get_instance(db_manager=db_manager)
 
-    # Initialize NetworkLoadManager with the cell and sector managers
-    network_load_manager = NetworkLoadManager(cell_manager, sector_manager)
-
-    # Calculate and log the network load
+    # Correctly instantiate NetworkLoadManager using get_instance
+    network_load_manager = NetworkLoadManager.get_instance(cell_manager, sector_manager)
     network_load_manager.log_and_write_loads()
 
-    # Initialize NetworkDelay
+    # UEManager should be accessed via get_instance, already done in initialize_network
+    ue_manager = UEManager.get_instance(base_dir)
+
     network_delay_calculator = NetworkDelay()
 
-    # Calculate and log the gNodeB loads
     gNodeB_loads = network_load_manager.calculate_gNodeB_load()
     for gNodeB_id, load in gNodeB_loads.items():
         gnodbe_load_logger.info(f"gNodeB {gNodeB_id} Load: {load:.2f}%")
 
-    # New code to calculate cell load and serialize for InfluxDB
     for cell_id, cell in cell_manager.cells.items():
-        cell_load = network_load_manager.calculate_cell_load(cell)  # Calculate the cell's load
-        serialized_data = cell.serialize_for_influxdb(cell_load)  # Serialize cell data with load for InfluxDB
-        # Here you would typically send serialized_data to InfluxDB or log it
+        cell_load = network_load_manager.calculate_cell_load(cell)
+        serialized_data = cell.serialize_for_influxdb(cell_load)
         print(f"Serialized data for cell {cell_id}: {serialized_data.to_line_protocol()}")
 
-    threading.Thread(target=log_traffic, args=(ues, network_load_manager, db_manager), daemon=True).start()
+    print(f"CellManager instance before CLI: {cell_manager}")
 
-    # Keep the main program running until manually stopped
-    try:
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        print("Program terminated by user.")
+    traffic_controller_instance = TrafficController()
+
+    # Start the traffic generation loop with the additional parameters
+    traffic_thread = Thread(target=generate_traffic_loop, args=(traffic_controller_instance, ues, network_load_manager, network_delay_calculator, db_manager))
+    traffic_thread.start()
+
+    # Start the CLI with the correctly instantiated managers
+    cli = SimulatorCLI(gNodeB_manager=gNodeB_manager, cell_manager=cell_manager, sector_manager=sector_manager, ue_manager=ue_manager)
+    cli.cmdloop()
 
 if __name__ == "__main__":
     main()
