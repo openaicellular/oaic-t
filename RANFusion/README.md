@@ -24,6 +24,7 @@
 - **Realistic RAN Simulation:** Models 5G network elements and protocols accurately.
 - **Multi-Support:** For multiple gNodeB, Cells, Sectors, and UEs.
 - **API Enabled:** To add, remove, and update UEs with parameters.
+- **CLI/CD Enabled:** To see the state of each entity.
 - **Customizable Scenarios:** For configuring various network scenarios.
 - **Supported Scenarios:** Traffic generation for UEs and soft handover within gNodeB.
 - **Performance Metrics via InfluxDB:** Comprehensive metrics for insightful 5G network analysis.
