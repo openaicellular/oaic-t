@@ -10,10 +10,20 @@ from network.sector_manager import SectorManager
 from prettytable import PrettyTable
 from network.sector import Sector
 from network.NetworkLoadManager import NetworkLoadManager
-
+from traffic.traffic_generator import TrafficController
+from network.ue_manager import UEManager
+from threading import Thread, Event
+from ue_table_display import UETableDisplay
+import threading
+import os
+from network.ue import UE
 class SimulatorCLI(cmd.Cmd):
-    def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, *args, **kwargs):
+    def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, base_dir, *args, **kwargs):
+        # Removed the incorrect UEManager initialization
+        self.traffic_controller = TrafficController()
         super().__init__(*args, **kwargs, completekey='tab')
+        self.display_thread = None
+        self.running = False  # Flag to control the display thread
         self.aliases = {
             'gnb': 'gnb_list',
             'cell': 'cell_list',
@@ -21,47 +31,38 @@ class SimulatorCLI(cmd.Cmd):
             'ue': 'ue_list',
             'ulog': 'ue_log',
             'help': 'help',
-            'del': 'delete_ue',
+            'del': 'del_ue',
+            'add': 'add_ue',
         }
-        # This is an efficient way to use the predefined relationships between commands and aliases
-        # Map the function executions directly through alias input
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
         self.ue_manager = ue_manager
+        self.stop_event = Event()
 
     intro = "Welcome to the RAN Fusion Simulator CLI.\nType --help to list commands.\n"
     prompt = '\033[1;32m(Root)\033[0m '
 
     def precmd(self, line):
         line = line.strip()
+        if line == 'exit':
+            return 'exit'  # Ensures that 'exit' command is recognized and processed
         if line in self.aliases:
             return self.aliases.get(line, line)
         else:
             return line
-        
-    def precmd(self, line):
-        line = line.strip()
-        if line == 'exit':
-            return 'exit'  # Directly return 'exit' to trigger do_exit
-        if line in self.aliases:
-            return self.aliases[line]
-        else:
-            return line
 ################################################################################################################################ 
     def do_ue_list(self, arg):
-        """List all UEs: ue_list"""
-        ue_ids = self.ue_manager.list_all_ues()
-        if not ue_ids:
-            print("No UEs found.")
-            return
         table = PrettyTable()
-        table.field_names = ["UE ID", "Service Type"]
-        for ue_id in ue_ids:
-            ue = self.ue_manager.get_ue_by_id(ue_id)
-            table.add_row([ue.ID, ue.ServiceType])
+        table.field_names = ["UE ID", "Service Type", "Throughput"]
+    
+        # Use the new class method get_ues() to retrieve UE instances
+        for ue in UE.get_ues():
+            # Make sure to access the correct attributes as defined in the UE class
+            table.add_row([ue.ID, ue.ServiceType, ue.throughput])
+    
         print(table)
-############################################################################################################################### 
+############################################################################################################################## 
     def do_ue_log(self, arg):
         """Display UE (User Equipment) traffic logs."""
         print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
@@ -127,34 +128,28 @@ class SimulatorCLI(cmd.Cmd):
         if not cell_details_list:
             print("No cells found.")
             return
-    
-        # Create a PrettyTable instance
         table = PrettyTable()
-    
-        # Define the table columns
-        # Assuming you want to include more details such as 'Technology', 'Status', etc.
-        # Adjust the field names based on your actual data structure and what you wish to display
         table.field_names = ["Cell ID", "Technology", "Status", "Active UEs"]
-    
-        # Adding rows to the table
         for cell in cell_details_list:
-            # Here, I'm using placeholders for additional cell details. Replace these with actual data fields.
-            technology = cell.get('technology', 'N/A')  # Example placeholder
-            status = cell.get('status', 'N/A')  # Example placeholder
-            active_ues = cell.get('active_ues', 'N/A')  # Example placeholder
-        
+            technology = cell.get('technology','5GNR')  
+            active_ues = self.calculate_active_ues_for_cell(cell['id'])  # Calculate active UEs for each cell
+            status_text = "\033[92mActive\033[0m" if cell.get('Active', True) else "\033[91mInactive\033[0m"
             table.add_row([
-                cell['id'], 
-                technology, 
-                status, 
-                active_ues
+                cell['id'],
+                technology,
+                status_text,
+                active_ues  # Use the calculated active UEs count
             ])
-    
-        # Optional: Set alignment for each column if needed
-        table.align = "l"  # Left align the text
-    
-        # Print the table
+        table.align = "l"
         print(table)
+
+    def calculate_active_ues_for_cell(self, cell_id):
+        # Retrieve the cell object by its ID using the correct method name
+        cell = self.cell_manager.get_cell(cell_id)
+        if cell is None:
+            return 0  # Return 0 if the cell is not found
+        # Return the count of active UEs for the cell
+        return len(cell.ConnectedUEs)
 ################################################################################################################################ 
     def do_sector_list(self, arg):
         """List all sectors"""
@@ -162,19 +157,21 @@ class SimulatorCLI(cmd.Cmd):
         if not sector_list:
             print("No sectors found.")
             return
-
         # Create a PrettyTable instance
         table = PrettyTable()
-
         # Define the table columns including Current Load (%)
         table.field_names = ["Sector ID", "Cell ID", "Max UEs", "Active UEs", "Max Throughput", "Current Load (%)"]
-
         # Adding rows to the table
         for sector_info in sector_list:
-            sector = Sector(**sector_info)  # Assuming sector_info can be unpacked into a Sector
-            current_load = NetworkLoadManager.calculate_sector_load(sector)  # Calculate current load
-            table.add_row([sector_info['sector_id'], sector_info['cell_id'], sector_info['capacity'], sector_info['current_load'], sector_info['max_throughput'], f"{current_load:.2f}%"])
-
+            # No need to create a Sector instance, just use the sector_info directly
+            table.add_row([
+                sector_info['sector_id'],
+                sector_info['cell_id'],
+                sector_info['capacity'],
+                sector_info['current_load'],
+                sector_info['max_throughput'],
+                f"{sector_info['current_load']:.2f}%"  # Assuming 'current_load' is a percentage
+            ])
         # Optional: Set alignment for each column
         table.align["Sector ID"] = "l"
         table.align["Cell ID"] = "l"
@@ -182,24 +179,35 @@ class SimulatorCLI(cmd.Cmd):
         table.align["Active UEs"] = "r"
         table.align["Max Throughput"] = "r"
         table.align["Current Load (%)"] = "r"  # Align the new column to the right
-
         # Print the table
         print(table)
+
 ################################################################################################################################            
-    #def do_delete_ue(self, arg):
-      #  """Delete a UE by its ID: delete_ue <ue_id>"""
-      #  if not arg:
-      #      print("Please specify the UE ID.")
-     #   return
-  #  try:
-        # Assuming your UEManager has a method `delete_ue` for deleting a UE by its ID
-     #   success = self.ue_manager.delete_ue(arg)
-     #   if success:
-     #       print(f"UE with ID {arg} deleted successfully.")
-     #   else:
-  #          print(f"Failed to delete UE with ID {arg}.")
-  #  except Exception as e:
-    #    print(f"Error deleting UE with ID {arg}: {e}")
+    def do_del_ue(self, ue_id):
+        """
+        Removes a UE from the simulation and updates the sector and database.
+        Usage: del_ue <ue_id>
+        """
+        if not ue_id:
+            print("Please provide a UE ID.")
+            return
+
+        # Assuming you have a way to access the SectorManager instance
+        # If SectorManager is not a singleton, you might need to adjust how you access it
+        sector_manager = self.sector_manager
+
+        # Find the sector ID for the given UE ID
+        sector_id = sector_manager.find_sector_by_ue_id(ue_id)
+        if sector_id is None:
+            print(f"UE with ID {ue_id} not found in any sector.")
+            return
+
+        # Remove the UE from the sector
+        removed = sector_manager.remove_ue_from_sector(sector_id, ue_id)
+        if removed:
+            print(f"UE {ue_id} has been successfully removed from sector {sector_id}.")
+        else:
+            print(f"Failed to remove UE {ue_id} from sector {sector_id}.")
 ################################################################################################################################ 
     def print_global_help(self):
         """Prints help for global options."""
@@ -217,6 +225,8 @@ class SimulatorCLI(cmd.Cmd):
             ('sector_list', 'List all sectors in the network.'),
             ('ue_list', 'List all UEs (User Equipments) in the network.'),
             ('ue_log', 'Display UE traffic logs.'),
+            ('del_ue', 'delete ue from sector and database'),
+            ('add_ue', 'add new ue based on current config file to the spesefic sector',),
             ('exit', 'Exit the Simulator.')
         ]:
             print(f"  {cyan}{command}{reset} - {description}")
@@ -274,4 +284,9 @@ class SimulatorCLI(cmd.Cmd):
             self.print_global_help()
         else:
             print("*** Unknown syntax:", line)
+
+    def do_exit(self, arg):
+        """Exit the Simulator."""
+        print("Exiting the simulator...")
+        return True  # Returning True breaks out of the cmd loop and exits the application.
     
