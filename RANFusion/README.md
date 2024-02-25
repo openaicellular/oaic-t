@@ -54,9 +54,14 @@ Explore RANFusion further in our documentation.(https://RANFusion.com/doc).
 
 ### API Sample
 
-To remove a UE, for example remove "UE10" from sector "AX1112-A1" :
+To remove a UE, for example, remove "UE10" from sector "AX1112-A1" :
 ```powershell
 Invoke-RestMethod -Uri 'http://localhost:5000/del_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "10"}'
+```
+
+To receive a UE metric, for example, "UE10" :
+```powershell
+Invoke-RestMethod -Uri 'http://localhost:5000/ue_metrics' -Method Post -ContentType 'application/json' -Body '{"ue_id": "10"}'
 ```
 
 To add a UE for example add "UE11" to sector "AX1112-A1" :
