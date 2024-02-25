@@ -61,7 +61,7 @@ Invoke-RestMethod -Uri 'http://localhost:5000/del_ue' -Method Post -ContentType 
 
 To receive a UE metric, for example, "UE10" :
 ```powershell
-Invoke-RestMethod -Uri 'http://localhost:5000/ue_metrics' -Method Post -ContentType 'application/json' -Body '{"ue_id": "10"}'
+Invoke-RestMethod -Uri 'http://localhost:5000/ue_metrics?ue_id=10' -Method Get
 ```
 
 To add a UE for example add "UE11" to sector "AX1112-A1" :
