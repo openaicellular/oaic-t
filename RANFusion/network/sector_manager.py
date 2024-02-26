@@ -14,7 +14,7 @@ class SectorManager:
 
     def __init__(self, db_manager):
         self.sectors = all_sectors  # Use the global all_sectors dictionary to track sectors
-        self.db_manager = db_manager  # Instance of DatabaseManager for DB operations
+        self.db_manager = DatabaseManager.get_instance() # Instance of DatabaseManager for DB operations
         self.lock = threading.Lock()  # Lock for thread-safe operations on sectors
         self.gnodeb_sectors_map = {}  # New attribute to track gNodeB to sectors association
     
@@ -99,16 +99,21 @@ class SectorManager:
         with self.lock:  # Use the SectorManager's lock for thread safety
             sector = self.sectors.get(sector_id)
             if sector and ue_id in sector.connected_ues:
+                print(f"Before removal, sector {sector_id} connected UEs: {sector.connected_ues}")
                 sector.connected_ues.remove(ue_id)  # Correctly remove the ID string
                 sector.current_load -= 1  # Decrement the current load
                 global_ue_ids.discard(ue_id)  # Correctly discard the ID string
                 sector.remaining_capacity = sector.capacity - len(sector.connected_ues)  # Update remaining_capacity
-                del sector.ues[ue_id]  # Correctly delete the UE from the dictionary
+                if ue_id in sector.ues:  # Check if the UE is in the sector's UE dictionary before attempting to delete
+                    del sector.ues[ue_id]  # Correctly delete the UE from the dictionary
                 point = sector.serialize_for_influxdb()
                 self.db_manager.insert_data(point)  # Use SectorManager's db_manager to insert data
+                print(f"After removal, sector {sector_id} connected UEs: {sector.connected_ues}")
                 sector_logger.info(f"UE with ID {ue_id} has been removed from the sector {sector_id}. Current load: {sector.current_load}")
+                return True  # Return True to indicate successful removal
             else:
                 sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector {sector_id}.")
+                return False  # Return False to indicate failure or that the UE was not found in the sector
 
     def update_sector(self, sector_id, updates):
         """

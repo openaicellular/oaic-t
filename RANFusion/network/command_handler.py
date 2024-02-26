@@ -1,56 +1,132 @@
-#command_handler.py inside the network folder and owner of a command-based approach for adding, removing, or updating UEs or ... 
+#command_handler.py inside the network folder and owner of a command-based approach for adding, removing, or updating UEs or ...in fact: the CommandHandler class acts as middleware that can be utilized by both API.py and simulator_cli.py for executing commands such as add_ue. This design allows for a unified command processing mechanism across different interfaces of the system, ensuring consistency and reducing code duplication. 
 from .ue import UE
 from database.database_manager import DatabaseManager
 from network.sector_manager import SectorManager
 from logs.logger_config import API_logger
 from flask import jsonify
+from network.ue_manager import UEManager
+from traffic.traffic_generator import TrafficController
 
 class CommandHandler:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(CommandHandler, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
 
     @staticmethod
     def handle_command(command_type, data):
         if command_type == 'add_ue':
-            CommandHandler._add_ue(data)
-        elif command_type == 'remove_ue':
-            CommandHandler._remove_ue(data)
+            return CommandHandler._add_ue(data)
+        elif command_type == 'del_ue':
+            return CommandHandler._del_ue(data)
         elif command_type == 'update_ue':
-            CommandHandler._update_ue(data)
+            return CommandHandler._update_ue(data)
+        elif command_type == 'start_ue_traffic':
+            return CommandHandler._start_ue_traffic(data)
+        elif command_type == 'stop_ue_traffic':
+            return CommandHandler._stop_ue_traffic(data)
         else:
             raise ValueError("Unsupported command type")
 
     @staticmethod
-    def _remove_ue(data):
+    def _del_ue(data):
         ue_id = data['ue_id']
-        
-        # Attempt to find the sector_id dynamically
-        sector_manager = SectorManager.get_instance()
-        sector_id = sector_manager.find_sector_by_ue_id(ue_id)
-        
-        if sector_id is None:
-            API_logger.error(f"UE {ue_id} not found in any sector")
-            return jsonify({'error': f"UE {ue_id} not found"}), 404
-        
-        # Proceed with the removal process
-        removed = sector_manager.remove_ue_from_sector(sector_id, ue_id)
-        
+    
+        # Use UEManager to handle UE removal comprehensively
+        ue_manager = UEManager.get_instance()
+    
+        # First, check if the UE exists in the system
+        if ue_manager.get_ue_by_id(ue_id) is None:
+            API_logger.error(f"UE {ue_id} not found in any sector or system")
+            return jsonify({'error': f"UE {ue_id} not found in any sector or system"}), 404
+    
+        # Proceed with the removal process using UEManager's delete_ue method
+        removed = ue_manager.delete_ue(ue_id)
+    
         if removed:
-            # Assuming the database manager is also accessible globally or via singleton
-            db_manager = DatabaseManager.get_instance()
-            db_manager.remove_ue_state(ue_id, sector_id)
-            API_logger.info(f"UE {ue_id} removed successfully from sector {sector_id}.")
-            return jsonify({'message': f"UE {ue_id} removed successfully from sector {sector_id}."}), 200
+            API_logger.info(f"UE {ue_id} removed successfully.")
+            return jsonify({'message': f"UE {ue_id} removed successfully."}), 200
         else:
-            API_logger.error(f"Failed to remove UE {ue_id} from sector {sector_id} or sector/UE not found.")
-            return jsonify({'error': f"Failed to remove UE {ue_id} from sector {sector_id} or sector/UE not found."}), 500
+            API_logger.error(f"Failed to remove UE {ue_id}.")
+            return jsonify({'error': f"Failed to remove UE {ue_id}."}), 500
     
     @staticmethod
     def _add_ue(data):
-        # Assuming data contains all necessary UE parameters
-        ue = UE(config={}, **data)
-        # Add UE to database or in-memory storage as needed
-        # This is a placeholder for actual logic
-        print(f"UE {ue.ID} added successfully.")
+        # Create the UE instance
+        ue = UE(
+            ue_id=data['ue_id'],
+            imei=data['IMEI'],
+            location=data['location'],
+            connected_cell_id=data['connectedCellID'],
+            gNodeB_id=data['gnodeb_id'],
+            signal_strength=data['initialSignalStrength'],
+            rat=data['rat'],
+            max_bandwidth=data['maxBandwidth'],
+            duplex_mode=data['duplexMode'],
+            # Add other parameters as needed
+            service_class=data.get('service_type'),  # Assuming service_class is equivalent to service_type
+            tx_power=data['txPower'],
+            modulation=data['modulation'],
+            coding=data['coding'],
+            mimo=data['mimo'],
+            processing=data['processing'],
+            bandwidth_parts=data['bandwidthParts'],
+            channel_model=data['channelModel'],
+            velocity=data['velocity'],
+            direction=data['direction'],
+            traffic_model=data['trafficModel'],
+            scheduling_requests=data['schedulingRequests'],
+            rlc_mode=data['rlcMode'],
+            snr_thresholds=data['snrThresholds'],
+            ho_margin=data['hoMargin'],
+            n310=data['n310'],
+            n311=data['n311'],
+            model=data['model'],
+            screensize=data['screensize'],
+            batterylevel=data['batterylevel'],
+            datasize=data['datasize']
+        )
 
+        # Assuming SectorManager and UEManager have methods to handle UE addition
+        sector_manager = SectorManager.get_instance()
+        ue_manager = UEManager.get_instance()
+
+        # Add the UE to the sector
+        success = sector_manager.add_ue_to_sector(data['sector_id'], ue)
+        if success:
+            # Optionally, start traffic generation for the newly added UE
+            traffic_controller = TrafficController.get_instance()
+            traffic_controller.start_ue_traffic(ue.ue_id)
+            return jsonify({'message': 'UE successfully added'}), 200
+        else:
+            return jsonify({'error': 'Failed to add UE'}), 400
+        
+    @staticmethod
+    def _start_ue_traffic(data):
+        ue_id = data['ue_id']
+        traffic_controller = TrafficController.get_instance()
+        started = traffic_controller.start_ue_traffic(ue_id)
+        if started:
+            API_logger.info(f"Traffic generation for UE {ue_id} has been started.")
+            return True, f"Traffic generation for UE {ue_id} has been started."
+        else:
+            API_logger.error(f"Failed to start traffic for UE {ue_id}.")
+            return False, f"Failed to start traffic for UE {ue_id}."
+
+    @staticmethod
+    def _stop_ue_traffic(data):
+        ue_id = data['ue_id']
+        traffic_controller = TrafficController.get_instance()
+        stopped = traffic_controller.stop_ue_traffic(ue_id)
+        if stopped:
+            API_logger.info(f"Traffic generation for UE {ue_id} has been stopped.")
+            return True, f"Traffic generation for UE {ue_id} has been stopped."
+        else:
+            API_logger.error(f"Failed to stop traffic for UE {ue_id}.")
+            return False, f"Failed to stop traffic for UE {ue_id}."
+    
     @staticmethod
     def _update_ue(data):
         ue_id = data['ue_id']

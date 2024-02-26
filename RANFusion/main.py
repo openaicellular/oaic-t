@@ -33,9 +33,17 @@ def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, net
 def main():
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
+    
     logo_text = create_logo()
     print(logo_text)
-    db_manager = DatabaseManager()
+    db_manager = DatabaseManager.get_instance()
+    # Test database connection
+    if db_manager.test_connection():
+        print("Miladddddd____Connection to InfluxDB successful.")
+    else:
+        print("Failed to connect to InfluxDB. Exiting...")
+        return  # Exit the application if the database connection fails
+    
     time.sleep(1)
 
     # Use get_instance to ensure singleton pattern compliance
@@ -55,7 +63,7 @@ def main():
     network_load_manager.log_and_write_loads()
 
     # UEManager should be accessed via get_instance, already done in initialize_network
-    ue_manager = UEManager.get_instance(base_dir)
+    ue_manager = UEManager.get_instance(base_dir)  
 
     network_delay_calculator = NetworkDelay()
 
@@ -77,7 +85,7 @@ def main():
     traffic_thread.start()
 
     # Start the CLI with the correctly instantiated managers
-    cli = SimulatorCLI(gNodeB_manager=gNodeB_manager, cell_manager=cell_manager, sector_manager=sector_manager, ue_manager=ue_manager, base_dir=base_dir)
+    cli = SimulatorCLI(gNodeB_manager=gNodeB_manager, cell_manager=cell_manager, sector_manager=sector_manager, ue_manager=ue_manager, network_load_manager=network_load_manager, base_dir=base_dir)
     cli.cmdloop()
 
 if __name__ == "__main__":

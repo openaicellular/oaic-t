@@ -11,37 +11,52 @@ from prettytable import PrettyTable
 from network.sector import Sector
 from network.NetworkLoadManager import NetworkLoadManager
 from traffic.traffic_generator import TrafficController
-from network.ue_manager import UEManager
 from threading import Thread, Event
 from ue_table_display import UETableDisplay
 import threading
 import os
 from network.ue import UE
+from network.command_handler import CommandHandler
+from colorama import Fore, Style, init
+
+init(autoreset=True) 
+# Define your aliases and commands in a more flexible structure
+# For the purpose of this example, it's defined within the code, but it could be external
+alias_config = {
+    'aliases': [
+        {'alias': 'gnb', 'command': 'gnb_list'},
+        {'alias': 'cell', 'command': 'cell_list'},
+        {'alias': 'sector', 'command': 'sector_list'},
+        {'alias': 'ue', 'command': 'ue_list'},
+        {'alias': 'ulog', 'command': 'ue_log'},
+        # Add more aliases as needed
+    ]
+}
+
 class SimulatorCLI(cmd.Cmd):
-    def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, base_dir, *args, **kwargs):
-        # Removed the incorrect UEManager initialization
+    def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, network_load_manager, base_dir, *args, **kwargs):
         self.traffic_controller = TrafficController()
         super().__init__(*args, **kwargs, completekey='tab')
         self.display_thread = None
         self.running = False  # Flag to control the display thread
-        self.aliases = {
-            'gnb': 'gnb_list',
-            'cell': 'cell_list',
-            'sector': 'sector_list',
-            'ue': 'ue_list',
-            'ulog': 'ue_log',
-            'help': 'help',
-            'del': 'del_ue',
-            'add': 'add_ue',
-        }
+        self.aliases = self.generate_alias_mappings(alias_config)
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
         self.ue_manager = ue_manager
+        self.network_load_manager = network_load_manager
         self.stop_event = Event()
 
+    @staticmethod
+    def generate_alias_mappings(config):
+        """Generates a dictionary mapping aliases to commands."""
+        mappings = {}
+        for item in config['aliases']:
+            mappings[item['alias']] = item['command']
+        return mappings
+
     intro = "Welcome to the RAN Fusion Simulator CLI.\nType --help to list commands.\n"
-    prompt = '\033[1;32m(Root)\033[0m '
+    prompt = '\033[1;32m(Cli-host)\033[0m '
 
     def precmd(self, line):
         line = line.strip()
@@ -53,15 +68,33 @@ class SimulatorCLI(cmd.Cmd):
             return line
 ################################################################################################################################ 
     def do_ue_list(self, arg):
+        args = arg.split()
+        page = 1
+        page_size = 10  # Default number of items per page
+        if len(args) == 2:
+            try:
+                page = int(args[0])
+                page_size = int(args[1])
+            except ValueError:
+                print("Invalid page or page_size. Using defaults.")
+        start_index = (page - 1) * page_size
+        end_index = start_index + page_size
+        total_ues = len(UE.get_ues())
+        ues = UE.get_ues()[start_index:end_index]
         table = PrettyTable()
-        table.field_names = ["UE ID", "Service Type", "Throughput"]
-    
-        # Use the new class method get_ues() to retrieve UE instances
-        for ue in UE.get_ues():
-            # Make sure to access the correct attributes as defined in the UE class
-            table.add_row([ue.ID, ue.ServiceType, ue.throughput])
-    
+        table.field_names = ["UE ID", "Service Type", "Throughput(MB)"]
+        table.align = "l"  # Left-align table contents
+        table.border = True  # Ensure borders are enabled for clarity
+        table.header = True  # Ensure the header is displayed
+        table.header_style = "title"  # Capitalize header titles for emphasis
+
+        for ue in ues:
+            throughput_mbps = ue.throughput / 1e6  # Convert throughput to Mbps
+            table.add_row([ue.ID, ue.ServiceType, f"{throughput_mbps:.2f}"])  # Format throughput for consistency
+
         print(table)
+        total_pages = total_ues // page_size + (1 if total_ues % page_size > 0 else 0)
+        print(f"Page {page} of {total_pages}")
 ############################################################################################################################## 
     def do_ue_log(self, arg):
         """Display UE (User Equipment) traffic logs."""
@@ -88,32 +121,32 @@ class SimulatorCLI(cmd.Cmd):
     def do_gnb_list(self, arg):
         """List all gNodeBs with details."""
         gNodeB_details_list = self.gNodeB_manager.list_all_gNodeBs_detailed()
+        gNodeB_loads = self.network_load_manager.calculate_gNodeB_load()
         if not gNodeB_details_list:
             print("No gNodeBs found.")
             return
-    
+
         # Create a PrettyTable instance
         table = PrettyTable()
-    
+
         # Define the table columns
-        # Assuming 'etc...' includes fields like 'CoverageRadius', 'TransmissionPower', etc.
-        # Adjust the field names based on your actual data structure
-        table.field_names = ["gNodeB ID", "Latitude", "Longitude", "Coverage Radius", "Transmission Power", "Bandwidth"]
-    
+        table.field_names = ["gNodeB ID", "Latitude", "Longitude", "Coverage Radius", "Transmission Power", "Bandwidth", "Load %"]
+
         # Adding rows to the table
         for gNodeB in gNodeB_details_list:
             # Example of accessing other details assuming they exist in your data structure
             coverage_radius = gNodeB.get('coverage_radius', 'N/A')
             transmission_power = gNodeB.get('transmission_power', 'N/A')
             bandwidth = gNodeB.get('bandwidth', 'N/A')
-        
+            load_percentage = gNodeB_loads.get(gNodeB['id'], 0)
             table.add_row([
                 gNodeB['id'], 
                 gNodeB['latitude'], 
                 gNodeB['longitude'], 
                 coverage_radius, 
                 transmission_power, 
-                bandwidth
+                bandwidth,
+                f"{load_percentage:.2f}%" 
             ])
     
         # Optional: Set alignment for each column if needed
@@ -123,23 +156,36 @@ class SimulatorCLI(cmd.Cmd):
         print(table) 
 ################################################################################################################################ 
     def do_cell_list(self, arg):
-        """List all cells"""
+        """List all cells with their load percentage."""
         cell_details_list = self.cell_manager.list_all_cells_detailed()
         if not cell_details_list:
             print("No cells found.")
             return
+
         table = PrettyTable()
-        table.field_names = ["Cell ID", "Technology", "Status", "Active UEs"]
-        for cell in cell_details_list:
-            technology = cell.get('technology','5GNR')  
-            active_ues = self.calculate_active_ues_for_cell(cell['id'])  # Calculate active UEs for each cell
-            status_text = "\033[92mActive\033[0m" if cell.get('Active', True) else "\033[91mInactive\033[0m"
+        table.field_names = ["Cell ID", "Technology", "Status", "Active UEs", "Cell Load (%)"]
+
+        for cell_detail in cell_details_list:
+            cell_id = cell_detail['id']
+            cell = self.cell_manager.get_cell(cell_id)  # Retrieve the cell object by its ID
+            if cell is None:
+                continue  # Skip if the cell is not found
+
+            technology = cell_detail.get('technology', '5GNR')
+            status_text = "\033[92mActive\033[0m" if cell_detail.get('Active', True) else "\033[91mInactive\033[0m"
+            active_ues = self.calculate_active_ues_for_cell(cell_id)  # Calculate active UEs for each cell
+
+            # Calculate the load of the cell using the NetworkLoadManager
+            cell_load_percentage = self.network_load_manager.calculate_cell_load(cell)
+            
             table.add_row([
-                cell['id'],
+                cell_id,
                 technology,
                 status_text,
-                active_ues  # Use the calculated active UEs count
+                active_ues,
+                f"{cell_load_percentage:.2f}%"  # Format the cell load as a percentage
             ])
+
         table.align = "l"
         print(table)
 
@@ -184,41 +230,55 @@ class SimulatorCLI(cmd.Cmd):
 
 ################################################################################################################################            
     def do_del_ue(self, ue_id):
-        """
-        Removes a UE from the simulation and updates the sector and database.
-        Usage: del_ue <ue_id>
-        """
         if not ue_id:
             print("Please provide a UE ID.")
             return
+        try:
+            # Assuming CommandHandler is imported and available
+            CommandHandler.handle_command('del_ue', {'ue_id': ue_id})
+        except Exception as e:
+            print(f"Error removing UE: {e}")
+################################################################################################################################
+    def handle_command(command):
+        # Assuming the command format is "add_ue ue <UE_ID>,<Sector_ID>,<Service_Type>"
+            _, ue_id, sector_id, service_type = command.split()
+            add_ue(ue_id, sector_id, service_type)
 
-        # Assuming you have a way to access the SectorManager instance
-        # If SectorManager is not a singleton, you might need to adjust how you access it
-        sector_manager = self.sector_manager
+    def add_ue(ue_id, sector_id, service_type):
+        # You would call a method here to handle the addition of the UE.
+        # This method would need to be defined in a suitable class, such as UeManager.
+        # It would involve creating a new UE instance with the specified parameters
+        # and adding it to the specified sector.
+        ue_config = {
+            "ue_id": ue_id,
+            "connected_sector": sector_id,
+            "service_type": service_type
+        }
+        # Assuming UEManager is already instantiated and accessible
+        ue_manager.create_ue(ue_config)
+################################################################################################################################ 
+    def do_kpis(self, arg):
+        """
+        Display KPIs for the network.
+        This method is triggered by typing 'kpis' in the CLI.
+        """
+        # Implement the logic to display KPIs as table.
 
-        # Find the sector ID for the given UE ID
-        sector_id = sector_manager.find_sector_by_ue_id(ue_id)
-        if sector_id is None:
-            print(f"UE with ID {ue_id} not found in any sector.")
-            return
+        print("Displaying network KPIs...")
 
-        # Remove the UE from the sector
-        removed = sector_manager.remove_ue_from_sector(sector_id, ue_id)
-        if removed:
-            print(f"UE {ue_id} has been successfully removed from sector {sector_id}.")
-        else:
-            print(f"Failed to remove UE {ue_id} from sector {sector_id}.")
+    def do_loadbalancing(self, arg):
+        """
+        call loadbalancing manually triggered by typing 'loadbalancing' in the CLI.the optimze the load of the each cell/sector
+        """
+        # Implement the logic call display load balancing information here.
+        print("Displaying load balancing massagage...")
+
 ################################################################################################################################ 
     def print_global_help(self):
-        """Prints help for global options."""
-        bold = '\033[1m'
-        reset = '\033[0m'
-        green = '\033[32m'
-        cyan = '\033[36m'
 
-        print(f"\n{bold}Global options:{reset}")
-        print(f"  {green}--help{reset}\tShow this help message and exit")
-        print(f"\n{bold}Available commands:{reset}")
+        print(f"\n{Style.BRIGHT}Global options:{Style.RESET_ALL}")
+        print(f"  {Fore.GREEN}--help{Fore.RESET}        Show this help message and exit")
+        print(f"\n{Style.BRIGHT}Available commands:{Style.RESET_ALL}")
         for command, description in [
             ('cell_list', 'List all cells in the network.'),
             ('gnb_list', 'List all gNodeBs in the network.'),
@@ -227,11 +287,45 @@ class SimulatorCLI(cmd.Cmd):
             ('ue_log', 'Display UE traffic logs.'),
             ('del_ue', 'delete ue from sector and database'),
             ('add_ue', 'add new ue based on current config file to the spesefic sector',),
+            ('kpis', 'Display KPIs for the network.'),
+            ('loadbalancing', 'Display load balancing information for the network.'),
+            ('start_ue', 'Start the ue traffic.'),
+            ('stop_ue', 'Stop the ue traffic.'),
             ('exit', 'Exit the Simulator.')
         ]:
-            print(f"  {cyan}{command}{reset} - {description}")
+            print(f"  {Fore.CYAN}{command}{Fore.RESET} - {description}")
         print()
-################################################################################################################################            
+################################################################################################################################ 
+    def do_stop_ue(self, arg):
+        """Stop traffic generation for a specific UE."""
+        if not arg:
+            print("Please provide a UE ID.")
+            return
+        try:
+            ue_id = int(arg)
+            #call the stop_ue_traffic method from the TrafficController instance
+            self.traffic_controller.stop_ue_traffic(ue_id)
+            print(f"Traffic generation for UE {ue_id} has been stopped.")
+        except ValueError:
+            print("Invalid UE ID. Please provide a numeric UE ID.")
+        except Exception as e:
+            print(f"Error stopping traffic for UE: {e}")
+
+    def do_start_ue(self, arg):
+        """Start traffic generation for a specific UE."""
+        if not arg:
+            print("Please provide a UE ID.")
+            return
+        try:
+            ue_id = int(arg)
+            # Call the start_ue_traffic method from the TrafficController instance
+            self.traffic_controller.start_ue_traffic(ue_id)
+            print(f"Traffic generation for UE {ue_id} has been started.")
+        except ValueError:
+            print("Invalid UE ID. Please provide a numeric UE ID.")
+        except Exception as e:
+            print(f"Error starting traffic for UE: {e}")
+################################################################################################################################
     def complete(self, text, state):
         if state == 0:
             origline = self._orig_line

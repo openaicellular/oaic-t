@@ -9,7 +9,7 @@ import json
 
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
-INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN', 'your-default-token')
+INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN', 'U9PObCD-RJCX-nzLzSLpKA7jOZcXdkKEE7hT6TFGPH3w6s90XR015YIvKHnYcIfH6AqOVPrs2vAthpQjdoMJDA==')
 INFLUXDB_ORG = os.getenv('INFLUXDB_ORG', 'ranfusion')
 INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 
@@ -204,4 +204,17 @@ class DatabaseManager:
             .field("Network_delay", network_delay) \
             .time(datetime.utcnow(), WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
+##################################################################################################################################
+    def get_ue_metrics(self, ue_id):
+        # Example query, adjust according to your database schema and the metrics you store
+        query = f'SELECT * FROM ue_metrics WHERE ue_id = \'{ue_id}\''
+        result = self.query_api.query(query)
+        metrics = []
+        for record in result:
+            metrics.append({
+                'metric_name': record['metric_name'],
+                'value': record['value'],
+                # Add other relevant fields
+            })
+        return metrics
             

@@ -7,6 +7,7 @@ from logs.logger_config import traffic_update
 from network.ue import UE
 from database.database_manager import DatabaseManager
 import threading
+from network.ue_manager import UEManager
 
 class TrafficController:
     _instance = None
@@ -49,6 +50,19 @@ class TrafficController:
 
     def generate_traffic(self, ue):
         # Determine the type of traffic to generate based on the UE's service type
+        # Check if traffic generation is enabled for this UE
+        if not ue.generating_traffic:
+            print(f"Traffic generation for UE {ue.ID} is stopped.")
+            # Return a traffic data structure with data_size set to 0
+            return {
+                'data_size': 0,  # Zero bytes
+                'start_timestamp': datetime.now(),
+                'end_timestamp': datetime.now(),
+                'interval': 1,  # Default interval, can be adjusted as needed
+                'ue_delay': 0,
+                'ue_jitter': 0,
+                'ue_packet_loss_rate': 0
+            }
         if ue.ServiceType.lower() == 'voice':
             return self.generate_voice_traffic()
         elif ue.ServiceType.lower() == 'video':
@@ -60,7 +74,7 @@ class TrafficController:
         elif ue.ServiceType.lower() == 'data':
             return self.generate_data_traffic()
         else:
-            raise ValueError(f"Unknown service type: {ue.ServiceType}")  
+            raise ValueError(f"Unknown service type: {ue.ServiceType}")
     
 ##############################################################################################################################
     # Traffic generation methods with conditional application of jitter, delay, and packet loss
@@ -229,6 +243,38 @@ class TrafficController:
         }
         self.traffic_logs.append(traffic_data)
         return traffic_data
+############################################################################################
+    def stop_ue_traffic(self, ue_id):
+        # Assuming UEManager is accessible and has a method to get a UE by ID
+        ue_manager = UEManager.get_instance()
+        ue = ue_manager.get_ue_by_id(ue_id)
+        if ue:
+            ue.generating_traffic = False
+            print(f"Traffic generation for UE {ue_id} has been stopped.")
+        else:
+            print(f"UE {ue_id} is not currently generating traffic or does not exist.")
+    
+    def start_ue_traffic(self, ue_id):
+        # Assuming UEManager is accessible and has a method to get a UE by ID
+        ue_manager = UEManager.get_instance()
+        ue = ue_manager.get_ue_by_id(ue_id)
+        if ue:
+            ue.generating_traffic = True
+            print(f"Traffic generation for UE {ue_id} has been started.")
+        else:
+            print(f"UE {ue_id} does not exist.")
+############################################################################################
+    def set_custom_traffic(self, ue_id, traffic_params):
+        # Find the UE instance by ue_id
+        ue = self.find_ue_by_id(ue_id)
+        if not ue:
+            print(f"UE with ID {ue_id} not found.")
+            return
+
+        # Apply the custom traffic parameters
+        # This is a simplified example. The actual implementation would depend on how traffic is managed.
+        ue.traffic_volume = traffic_params.get('traffic_volume', 0)
+        print(f"Set custom traffic for UE {ue_id}: {ue.traffic_volume}MB")
 ############################################################################################
     def calculate_throughput(self, ue):
         # Parameter validation
