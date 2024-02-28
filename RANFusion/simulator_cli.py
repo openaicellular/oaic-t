@@ -36,6 +36,7 @@ alias_config = {
 class SimulatorCLI(cmd.Cmd):
     def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, network_load_manager, base_dir, *args, **kwargs):
         self.traffic_controller = TrafficController()
+        self.base_dir = base_dir
         super().__init__(*args, **kwargs, completekey='tab')
         self.display_thread = None
         self.running = False  # Flag to control the display thread
@@ -43,7 +44,7 @@ class SimulatorCLI(cmd.Cmd):
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
-        self.ue_manager = ue_manager
+        self.ue_manager = UEManager.get_instance(base_dir=self.base_dir)
         self.network_load_manager = network_load_manager
         self.stop_event = Event()
 
@@ -234,8 +235,14 @@ class SimulatorCLI(cmd.Cmd):
             print("Please provide a UE ID.")
             return
         try:
-            # Assuming CommandHandler is imported and available
-            CommandHandler.handle_command('del_ue', {'ue_id': ue_id})
+            # Ensure the UE ID is in the correct format (e.g., "UE10")
+            formatted_ue_id = f"UE{ue_id}".upper()  # Adjust based on your UE ID format
+
+            # Use the existing ue_manager instance to delete the UE
+            if self.ue_manager.delete_ue(formatted_ue_id):
+                print(f"UE {formatted_ue_id} has been successfully removed.")
+            else:
+                print(f"Error removing UE: UE with ID {formatted_ue_id} not found or could not be removed.")
         except Exception as e:
             print(f"Error removing UE: {e}")
 ################################################################################################################################
@@ -302,12 +309,16 @@ class SimulatorCLI(cmd.Cmd):
             print("Please provide a UE ID.")
             return
         try:
-            ue_id = int(arg)
-            #call the stop_ue_traffic method from the TrafficController instance
-            self.traffic_controller.stop_ue_traffic(ue_id)
-            print(f"Traffic generation for UE {ue_id} has been stopped.")
-        except ValueError:
-            print("Invalid UE ID. Please provide a numeric UE ID.")
+            # Ensure the UE ID is in the correct format (e.g., "UE10")
+            ue_id = f"UE{arg}"
+            # Retrieve the UE object using the UE ID
+            ue = UE.get_ue_instance_by_id(ue_id)
+            if not ue:
+                print(f"UE with ID {ue_id} not found.")
+                return
+            # Assuming there's a method in ue_manager to stop traffic for a UE
+            self.traffic_controller.stop_ue_traffic(ue)
+            print(f"Traffic generation for UE {ue.ID} has been stopped.")
         except Exception as e:
             print(f"Error stopping traffic for UE: {e}")
 
@@ -317,12 +328,16 @@ class SimulatorCLI(cmd.Cmd):
             print("Please provide a UE ID.")
             return
         try:
-            ue_id = int(arg)
-            # Call the start_ue_traffic method from the TrafficController instance
-            self.traffic_controller.start_ue_traffic(ue_id)
-            print(f"Traffic generation for UE {ue_id} has been started.")
-        except ValueError:
-            print("Invalid UE ID. Please provide a numeric UE ID.")
+            # Ensure the UE ID is in the correct format (e.g., "UE10")
+            ue_id = f"UE{arg}"
+            # Retrieve the UE object using the UE ID
+            ue = UE.get_ue_instance_by_id(ue_id)
+            if not ue:
+                print(f"UE with ID {ue_id} not found.")
+                return
+            # Call the start_ue_traffic method with the UE object
+            self.traffic_controller.start_ue_traffic(ue)
+            print(f"Traffic generation for UE {ue.ID} has been started.")
         except Exception as e:
             print(f"Error starting traffic for UE: {e}")
 ################################################################################################################################
