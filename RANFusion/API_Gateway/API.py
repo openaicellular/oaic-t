@@ -2,13 +2,16 @@
 from dotenv import load_dotenv
 import os
 import sys
+from multiprocessing import Queue
+import threading
+import time
 
 # Build the path to the .env file in the root directory of your project
 dotenv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
 
 # Load the .env file
 load_dotenv(dotenv_path)
-print(dotenv_path)
+#print(dotenv_path)
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
 from network.command_handler import CommandHandler
 from logs.logger_config import API_logger
@@ -20,12 +23,38 @@ import re
 from influxdb_client import InfluxDBClient
 
 app = Flask(__name__)
-()
+
 INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN')
 INFLUXDB_ORG = os.getenv('INFLUXDB_ORG')
 INFLUXDB_URL = os.getenv('INFLUXDB_URL') 
 client = InfluxDBClient(url=INFLUXDB_URL,token=INFLUXDB_TOKEN,org=INFLUXDB_ORG)
 
+def check_for_shutdown_command(queue):
+    """
+    Periodically checks the queue for the shutdown command.
+    If found, stops the Flask application.
+    """
+    while True:
+        if not queue.empty():
+            message = queue.get()
+            if message == "SHUTDOWN":
+                # Implement your shutdown logic here
+                # For development server, you might set a global flag
+                # For production with a server like Gunicorn, you would send a signal to shut down
+                print("Shutdown command received. Implement shutdown logic here.")
+                break
+        time.sleep(1)  # Check every second
+
+def run_api(queue):
+    """
+    Starts the API server and begins checking the queue for messages.
+    """
+    shutdown_thread = threading.Thread(target=check_for_shutdown_command, args=(queue,))
+    shutdown_thread.start()
+    
+    # Start the Flask application
+    app.run(debug=True, use_reloader=False)  # use_reloader=False is important to not spawn child processes
+    
 #########################################################################################################
 @app.route('/del_ue', methods=['POST'])
 def del_ue():
@@ -142,6 +171,32 @@ def stop_ue_traffic():
     else:
         return jsonify({'error': message}), 400
 #########################################################################################################
-if __name__ == '__main__':
-    print("Starting API server...")
-    app.run(debug=True)
+@app.route('/sector_load', methods=['GET'])
+def sector_load():
+    sector_id = request.args.get('sector_id')
+
+    if not sector_id:
+        return jsonify({'error': "Missing 'sector_id' parameter"}), 400
+    # Additional validation can be added here
+
+    try:
+        db_manager = DatabaseManager.get_instance()
+        load_metrics = db_manager.get_sector_load(sector_id)
+        if load_metrics:
+            return jsonify({'load_metrics': load_metrics}), 200
+        else:
+            return jsonify({'message': f'No load metrics found for sector {sector_id}'}), 404
+    except Exception as e:
+        API_logger.error(f"An error occurred while retrieving load metrics for sector {sector_id}: {e}")
+        return jsonify({'error': 'An error occurred while retrieving load metrics'}), 500
+######################################################################################################### 
+@app.route('/set_traffic', methods=['POST'])
+def set_traffic():
+    data = request.json
+    command_result, message = CommandHandler.handle_command('set_custom_traffic', data)
+    if command_result:
+        return jsonify({'message': message}), 200
+    else:
+        return jsonify({'error': message}), 500
+
+
