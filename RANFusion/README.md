@@ -63,6 +63,10 @@ To receive a UE metric, for example, "UE10" :
 ```powershell
 Invoke-RestMethod -Uri 'http://localhost:5000/ue_metrics?ue_id=10' -Method Get
 ```
+To change a UE traffic, for example, "UE10" :
+```powershell
+Invoke-RestMethod -Uri 'http://localhost:5000/set_traffic' -Method Post -ContentType 'application/json' -Body '{"ue_id": "5", "traffic_params": {"throughput": 30}}'
+```
 
 To add a UE for example add "UE11" to sector "AX1112-A1" :
 ```powershell
