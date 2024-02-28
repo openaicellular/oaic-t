@@ -5,6 +5,7 @@ from network.utils import allocate_ues, create_ue
 from Config_files.config import Config
 from logs.logger_config import ue_logger
 from network.sector_manager import SectorManager
+from traffic.traffic_generator import TrafficController
 
 # Get base path
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -54,13 +55,11 @@ class UEManager:
         return new_ue
 ##################################################################################
     def get_ue_by_id(self, ue_id):
-        """
-        Retrieve a UE instance by its ID.
-        
-        :param ue_id: The ID of the UE to retrieve.
-        :return: The UE instance with the given ID, or None if not found.
-        """
-        return self.ues.get(ue_id)
+        # Assuming ue_id is an integer and UEs are stored with their ID as the key
+        ue = self.ues.get(ue_id)
+        if ue is None:
+            print(f"UE with ID {ue_id} not found.")  # Example print message for debugging
+        return ue
 ##################################################################################
     def update_ue(self, ue_id, **kwargs):
         """
@@ -93,11 +92,10 @@ class UEManager:
             return False
 
         # Assuming you have a way to access the SectorManager instance
-        # This might involve importing SectorManager and getting its instance
         sector_manager = SectorManager.get_instance()
 
         # Remove the UE from its connected sector
-        sector_id = ue.ConnectedSectorID  # Assuming UE has attribute ConnectedSectorID
+        sector_id = ue.ConnectedSector  # Use the correct attribute here
         if sector_manager.remove_ue_from_sector(sector_id, ue_id):
             print(f"UE {ue_id} successfully removed from sector {sector_id}.")
             # Now, delete the UE instance from UEManager's ues dictionary
@@ -107,4 +105,20 @@ class UEManager:
         else:
             print(f"Failed to remove UE {ue_id} from sector {sector_id}.")
             return False
-
+#################################################################################
+    def stop_ue_traffic(self, ue_id):
+        """Stop traffic generation for the given UE"""
+        ue = self.get_ue_by_id(ue_id)
+        
+        if not ue:
+            print(f"UE {ue_id} not found")
+            return
+        # Get reference to traffic generator 
+        traffic_controller = TrafficController.get_instance()
+        if ue.generating_traffic:
+            traffic_controller.stop_ue_traffic(ue)
+            ue.generating_traffic = False
+            ue.throughput = 0
+            print(f"Traffic stopped for UE {ue_id}")
+        else:
+            print(f"UE {ue_id} does not have active traffic generation")
