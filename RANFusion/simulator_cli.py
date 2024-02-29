@@ -12,12 +12,12 @@ from network.sector import Sector
 from network.NetworkLoadManager import NetworkLoadManager
 from traffic.traffic_generator import TrafficController
 from threading import Thread, Event
-from ue_table_display import UETableDisplay
 import threading
 import os
 from network.ue import UE
 from network.command_handler import CommandHandler
 from colorama import Fore, Style, init
+from network.sector import global_ue_ids
 
 init(autoreset=True) 
 # Define your aliases and commands in a more flexible structure
@@ -47,7 +47,8 @@ class SimulatorCLI(cmd.Cmd):
         self.ue_manager = UEManager.get_instance(base_dir=self.base_dir)
         self.network_load_manager = network_load_manager
         self.stop_event = Event()
-
+        self.sector_manager = SectorManager.get_instance() 
+        
     @staticmethod
     def generate_alias_mappings(config):
         """Generates a dictionary mapping aliases to commands."""
@@ -230,19 +231,25 @@ class SimulatorCLI(cmd.Cmd):
         print(table)
 
 ################################################################################################################################            
-    def do_del_ue(self, ue_id):
-        if not ue_id:
-            print("Please provide a UE ID.")
-            return
-        try:
-            # Ensure the UE ID is in the correct format (e.g., "UE10")
-            formatted_ue_id = f"UE{ue_id}".upper()  # Adjust based on your UE ID format
+    def do_del_ue(self, line):
+        from network.sector import global_ue_ids
 
-            # Use the existing ue_manager instance to delete the UE
-            if self.ue_manager.delete_ue(formatted_ue_id):
-                print(f"UE {formatted_ue_id} has been successfully removed.")
+        ue_id = line.strip().lower()  # Convert UE ID to lowercase for case-insensitive processing
+        if not ue_id:
+            print("Usage: del_ue <ue_id>")
+            return
+
+        print(f"Trying to delete UE {ue_id}")
+
+        # Use UEManager to get the UE instance in a case-insensitive manner
+        ue_manager = UEManager.get_instance(self.base_dir)
+
+        # Use UEManager's delete_ue method to encapsulate the deletion logic
+        try:
+            if ue_manager.delete_ue(ue_id):
+                print(f"UE {ue_id} has been successfully removed.")
             else:
-                print(f"Error removing UE: UE with ID {formatted_ue_id} not found or could not be removed.")
+                print(f"Failed to remove UE {ue_id}.")
         except Exception as e:
             print(f"Error removing UE: {e}")
 ################################################################################################################################
