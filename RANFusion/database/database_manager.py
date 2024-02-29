@@ -9,7 +9,9 @@ import json
 
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
-INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN', 'U9PObCD-RJCX-nzLzSLpKA7jOZcXdkKEE7hT6TFGPH3w6s90XR015YIvKHnYcIfH6AqOVPrs2vAthpQjdoMJDA==')
+INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN')
+if not INFLUXDB_TOKEN:
+    raise ValueError("INFLUXDB_TOKEN environment variable is not set.")
 INFLUXDB_ORG = os.getenv('INFLUXDB_ORG', 'ranfusion')
 INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 
@@ -206,15 +208,40 @@ class DatabaseManager:
         self.write_api.write(bucket=self.bucket, record=point)
 ##################################################################################################################################
     def get_ue_metrics(self, ue_id):
-        # Example query, adjust according to your database schema and the metrics you store
-        query = f'SELECT * FROM ue_metrics WHERE ue_id = \'{ue_id}\''
-        result = self.query_api.query(query)
+        # Flux query syntax for InfluxDB 2.x
+        query = f'''
+        from(bucket: "{self.bucket}")
+            |> range(start: -1d)
+            |> filter(fn: (r) => r["_measurement"] == "ue_metrics" and r["ue_id"] == "{ue_id}")
+        '''
+        result = self.query_api.query(query=query)
         metrics = []
-        for record in result:
-            metrics.append({
-                'metric_name': record['metric_name'],
-                'value': record['value'],
-                # Add other relevant fields
-            })
+        for table in result:
+            for record in table.records:
+                # Adjust according to the structure of your data
+                metrics.append({
+                    'metric_name': record.get_field(),
+                    'value': record.get_value(),
+                    'time': record.get_time()
+                })
         return metrics
-            
+##################################################################################################################################
+    def get_sector_load(self, sector_id):
+        # Flux query syntax for InfluxDB 2.x
+        query = f'''
+        from(bucket: "{self.bucket}")
+            |> range(start: -1d)
+            |> filter(fn: (r) => r["_measurement"] == "sector" and r["sector_id"] == "{sector_id}")
+            |> filter(fn: (r) => r["_field"] == "load")  # Assuming 'load' is a field in your data
+        '''
+        result = self.query_api.query(query=query)
+        load_metrics = []
+        for table in result:
+            for record in table.records:
+                # Adjust according to the structure of your data
+                load_metrics.append({
+                    'load': record.get_value(),
+                    'time': record.get_time()
+                })
+        return load_metrics
+##################################################################################################################################
