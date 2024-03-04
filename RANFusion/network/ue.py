@@ -11,7 +11,7 @@ from logs.logger_config import ue_logger
 import uuid
 import threading
 from threading import Lock
-
+from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 class UE:
     existing_ue_ids = set()  # Keep track of all existing UE IDs to avoid duplicates
     ue_instances = {}  #keep ue instanse
@@ -66,9 +66,11 @@ class UE:
             self.Model = kwargs.get('model')        # Model of the UE
             self.ScreenSize = kwargs.get('screensize', f"{random.uniform(5.0, 7.0):.1f} inches")        # Screen size of the UE
             self.BatteryLevel = kwargs.get('batterylevel', random.randint(10, 100))        # Battery level of the UE
-            self.TrafficVolume = 0        # Traffic volume handled by the UE (initialized to 0)
+            self.traffic_volume = 0       # Traffic volume handled by the UE (initialized to 0)
             self.DataSize = kwargs.get('datasize')        # Data size transmitted/received by the UE
             self.generating_traffic = True               #link to initialize the traffic generation flag
+            self.IP = kwargs.get('ip') or UE.allocate_ip() # Allocate an IP if not provided
+            self.MAC = kwargs.get('mac') or UE.allocate_mac() # Allocate a MAC if not provided
             ue_logger.info(f"UE initialized with ID {self.ID} at {datetime.now()}")
     
     @classmethod
@@ -90,6 +92,25 @@ class UE:
             imei = start + str(UE.calc_check_digit(start))
             break
         return imei
+    @staticmethod
+
+    def allocate_ip():
+        # Generate a random IP address within the private range 192.168.0.0 to 192.168.255.255
+        octets = [192, 168, random.randint(0, 255), random.randint(1, 254)]
+        return '.'.join(str(octet) for octet in octets)
+    @staticmethod
+
+    def allocate_mac():
+        # Generate a random MAC address in the format 00:00:00:00:00:00
+        # The first half of the MAC address (first three octets) can be a manufacturer's identifier. Here we use a private range (x2:xx:xx).
+        # The second half (last three octets) is randomly generated.
+        mac = [0x02, random.randint(0x00, 0x7f), random.randint(0x00, 0xff), 
+                random.randint(0x00, 0xff), random.randint(0x00, 0xff), random.randint(0x00, 0xff)]
+        return ':'.join(f'{octet:02x}' for octet in mac)
+    
+    # Method to update data volume
+    def update_traffic_volume(self, data_size):
+        self.traffic_volume += data_size
 
     @staticmethod
     def calc_check_digit(number):
@@ -136,6 +157,9 @@ class UE:
                 break  # Assuming UE IDs are unique, break after finding and removing the instance
 
     def serialize_for_influxdb(self):
+        # Convert current UTC time to a UNIX timestamp in seconds
+        unix_timestamp_seconds = int(datetime.utcnow().timestamp())
+    
         point = Point("ue_metrics") \
             .tag("ue_id", str(self.ID)) \
             .tag("connected_cell_id", str(self.ConnectedCellID)) \
@@ -169,8 +193,9 @@ class UE:
             .field("model", str(self.Model)) \
             .field("screen_size", str(self.ScreenSize)) \
             .field("battery_level", int(self.BatteryLevel)) \
-            .time(datetime.utcnow())
-        #print(f"Serialized UE point: {point}")
+            .field("ip_address", str(self.IP)) \
+            .field("mac_address", str(self.MAC)) \
+            .time(unix_timestamp_seconds, WritePrecision.S)  # Use UNIX timestamp in seconds
         return point
     
     def update_parameters(self, **kwargs):

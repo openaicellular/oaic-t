@@ -88,7 +88,7 @@ class SectorManager:
 
                     self.sectors[new_sector.sector_id] = new_sector
                     initialized_sectors[new_sector.sector_id] = new_sector
-                    point = new_sector.serialize_for_influxdb()
+                    point = new_sector.serialize_for_influxdb(new_sector.current_load)
                     self.db_manager.insert_data(point)
                     print(f"Sector {new_sector.sector_id} initialized and associated with gNodeB {gnodeb_id} and Cell {cell_id}.")
                 else:
@@ -198,6 +198,9 @@ class SectorManager:
                 return sector_id
         return None
     
+    def get_sector_by_id(self, sector_id):
+    # Assuming self.sectors is a dictionary mapping sector IDs to Sector objects
+        return self.sectors.get(sector_id)
     def list_all_sectors(self):
         """
         Lists all sectors managed by the SectorManager.
