@@ -15,7 +15,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 import time
 import uuid
 import threading
-from logs.logger_config import sector_logger
+from logs.logger_config import sector_logger,database_logger
 from database.database_manager import DatabaseManager
 from network.ue import UE
 sector_lock = threading.Lock()
@@ -52,6 +52,8 @@ class Sector:
         self.ssb_periodicity = ssb_periodicity
         self.ssb_offset = ssb_offset
         self.is_active = is_active
+        self.sector_load_attribute = 0 # Update the sector's load attribute
+
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = int(current_load)  # Integer, as load is a count which is shoe that how many use hosted in this sector.
@@ -73,31 +75,39 @@ class Sector:
 
         return cls(**data)
     
-    def serialize_for_influxdb(self, cell_load):
-        # Convert current UTC time to a UNIX timestamp in seconds
-        unix_timestamp_seconds = int(datetime.utcnow().timestamp())
-        ssb_periodicity_value = self.ssb_periodicity if self.ssb_periodicity is not None else 0
-        point = Point("cell_metrics") \
-            .tag("cell_id", str(self.cell_id)) \
-            .tag("gnodeb_id", str(self.cell.gNodeB_ID)) \
-            .tag("entity_type", "cell") \
-            .tag("instance_id", str(self.instance_id)) \
-            .field("frequencyBand", str(self.frequency)) \
-            .field("duplexMode", str(self.duplex_mode)) \
-            .field("tx_power", int(self.tx_power)) \
-            .field("bandwidth", int(self.bandwidth)) \
-            .field("ssb_periodicity", int(ssb_periodicity_value)) \
-            .field("ssb_offset", int(self.ssb_offset)) \
-            .field("max_connect_ues", int(self.capacity)) \
-            .field("max_throughput", int(self.max_throughput)) \
-            .field("channel_model", str(self.channel_model)) \
-            .field("CellisActive", bool(self.is_active)) \
-            .field("sector_count", int(self.sector_count)) \
-            .field("is_active", bool(self.is_active)) \
-            .field("cell_load", float(cell_load)) \
-            .time(unix_timestamp_seconds, WritePrecision.S)  # Set the timestamp in seconds
+    def serialize_for_influxdb(self):
+        try:
+            unix_timestamp_seconds = int(datetime.utcnow().timestamp())
+            ssb_periodicity_value = self.ssb_periodicity if self.ssb_periodicity is not None else 0
+            point = Point("sector_metrics") \
+                .tag("sector_id", str(self.sector_id)) \
+                .tag("cell_id", str(self.cell_id)) \
+                .tag("gnodeb_id", str(self.cell.gNodeB_ID)) \
+                .tag("entity_type", "sector") \
+                .tag("instance_id", str(self.instance_id)) \
+                .field("frequency", float(self.frequency)) \
+                .field("duplex_mode", str(self.duplex_mode)) \
+                .field("tx_power", int(self.tx_power)) \
+                .field("bandwidth", int(self.bandwidth)) \
+                .field("mimo_layers", int(self.mimo_layers)) \
+                .field("beamforming", bool(self.beamforming)) \
+                .field("ho_margin", int(self.ho_margin)) \
+                .field("load_balancing", int(self.load_balancing)) \
+                .field("max_ues", int(self.capacity)) \
+                .field("max_throughput", int(self.max_throughput)) \
+                .field("channel_model", str(self.channel_model)) \
+                .field("sector_is_active", bool(self.is_active)) \
+                .field("sector_count", int(self.sector_count)) \
+                .field("is_active", bool(self.is_active)) \
+                .field("sector_load", float(self.sector_load_attribute)) \
+                .time(unix_timestamp_seconds, WritePrecision.S)
 
-        return point
+            return point
+        except Exception as e:
+            database_logger.error(f"Error serializing sector data for InfluxDB: {e}")
+            # Depending on your error handling policy, you might want to re-raise the exception or return None
+            raise
+
     def add_ue(self, ue):
         with sector_lock:  # Assuming sector_lock is correctly defined and accessible
             # Check if the sector is at its maximum capacity
@@ -124,7 +134,7 @@ class Sector:
             # Note: The global_ue_ids.add(ue.ID) call is duplicated in original code. It should only be necessary once.
 
             # Serialize the sector for InfluxDB and insert the data
-            point = self.serialize_for_influxdb(float(self.current_load))  # Ensure this method correctly serializes the sector's data
+            point = self.serialize_for_influxdb()  # Ensure this method correctly serializes the sector's data
             DatabaseManager().insert_data(point)  # Ensure DatabaseManager is correctly implemented and accessible
 
             sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current UE Load count: {self.current_load}")

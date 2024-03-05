@@ -8,12 +8,14 @@
 from network.cell import Cell
 from network.sector import Sector
 from network.network_delay import NetworkDelay
+from network.gNodeB_manager import gNodeBManager
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
 from database.database_manager import DatabaseManager
 from network.loadbalancer import LoadBalancer
 from logs.logger_config import cell_load_logger, sector_load_logger, gnodbe_load_logger, sector_logger
 import time
+
 class NetworkLoadManager:
     _instance = None
 
@@ -23,16 +25,17 @@ class NetworkLoadManager:
         return cls._instance
 
     @classmethod
-    def get_instance(cls, cell_manager: CellManager, sector_manager: SectorManager):
+    def get_instance(cls, cell_manager: CellManager, sector_manager: SectorManager, gNodeB_manager: gNodeBManager):
         if cls._instance is None:
             cls._instance = cls.__new__(cls)
             # Initialize the instance only once
-            cls._instance._initialize(cell_manager, sector_manager)
+            cls._instance._initialize(cell_manager, sector_manager, gNodeB_manager)
         return cls._instance
 
-    def _initialize(self, cell_manager: CellManager, sector_manager: SectorManager):
+    def _initialize(self, cell_manager: CellManager, sector_manager: SectorManager, gNodeB_manager: gNodeBManager):
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
+        self.gNodeB_manager = gNodeB_manager
         self.db_manager = DatabaseManager.get_instance()
         self.load_balancer = LoadBalancer()
         
@@ -57,7 +60,7 @@ class NetworkLoadManager:
         COUNT_WEIGHT = 0.7
         TP_WEIGHT = 0.3
         sector_load = COUNT_WEIGHT * ue_count_load + TP_WEIGHT * throughput_load
-
+        sector_load_attribute = sector_load  # Update the sector's load attribute
         return sector_load
 
     def calculate_capped_throughput(self, sector: Sector):
@@ -142,14 +145,18 @@ class NetworkLoadManager:
     def network_measurement(self):
         network_load = self.calculate_network_load()
         #print(f"Network Load: {network_load:.2f}%")
-
+        network_load = self.calculate_network_load()
         # Calculate network delay
         network_delay_calculator = NetworkDelay()
         network_delay = network_delay_calculator.calculate_delay(network_load)
         #print(f"Network Delay: {network_delay} ms")
 
-        # Write network measurement (both load and delay) to the database
-        self.db_manager.write_network_measurement(network_load, network_delay)
+        # Get the total handover success count and failure count
+        total_handover_success_count = sum(gnb.handover_success_count for gnb in self.gNodeB_manager.gNodeBs.values())
+        total_handover_failure_count = sum(gnb.handover_failure_count for gnb in self.gNodeB_manager.gNodeBs.values())
+
+        # Write network measurement (load, delay, handover counts) to the database
+        self.db_manager.write_network_measurement(network_load, network_delay, total_handover_success_count, total_handover_failure_count)
         
 ##################################################################################################################     
     def monitoring(self):
