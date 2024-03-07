@@ -17,7 +17,7 @@ import os
 import threading
 from network.ue import UE
 from blessed import Terminal
-
+from database.database_manager import DatabaseManager
 # Assuming these are your custom modules for managing various aspects of the network simulator
 from network.ue_manager import UEManager
 from network.gNodeB_manager import gNodeBManager
@@ -43,6 +43,8 @@ alias_config = {
         {'alias': 'ue', 'command': 'ue_list'},
         {'alias': 'ulog', 'command': 'ue_log'},
         {'alias': 'ukpi', 'command': 'ue_kpis'},
+        {'alias': 'uespecs', 'command': 'ue_specs'},
+        {'alias': 'Flu', 'command': 'flush_db'},
         # Add more aliases as needed
     ]
 }
@@ -126,7 +128,6 @@ class SimulatorCLI(cmd.Cmd):
         def display_page(page, page_size):
             start_index = (page - 1) * page_size
             end_index = start_index + page_size
-            # Fetch all UE IDs using UEManager
             ue_ids = self.ue_manager.list_all_ues()
             total_ues = len(ue_ids)
             ues_to_display = ue_ids[start_index:end_index]
@@ -141,41 +142,33 @@ class SimulatorCLI(cmd.Cmd):
             for ue_id in ues_to_display:
                 ue = self.ue_manager.get_ue_by_id(ue_id)
                 if ue:
-                    throughput_mbps = ue.throughput / 1e6  # Convert throughput to Mbps
+                    throughput_mbps = ue.throughput / 1e6
                     table.add_row([ue.ID, ue.ServiceType, f"{throughput_mbps:.2f}"])
 
             print(table)
-            total_pages = total_ues // page_size + (1 if total_ues % page_size > 0 else 0)
+            total_pages = (total_ues // page_size) + (1 if total_ues % page_size > 0 else 0)
             print(f"Page {page} of {total_pages}")
 
-        def refresh_data():
-            while not self.stop_event.is_set():
+        def refresh_data(stop_event):
+            while not stop_event.is_set():
                 os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console
                 display_page(page, page_size)  # Display the current page
-                time.sleep(1)  # Wait for a second before refreshing
+                stop_event.wait(timeout=1)  # Refresh every 5 seconds
 
-            self.stop_event = threading.Event()
-            display_thread = threading.Thread(target=refresh_data)
-            display_thread.start()
+        # Initialize stop_event and display_thread
+        stop_event = threading.Event()
+        display_thread = threading.Thread(target=refresh_data, args=(stop_event,))
+
+        try:
+            display_thread.start()  # Start the refreshing thread
 
             input("Press Enter to stop refreshing...")  # Wait for user input to stop refreshing
-            self.stop_event.set()
-            display_thread.join()
+        finally:
+            stop_event.set()  # Signal the thread to stop
+            display_thread.join()  # Wait for the thread to finish
 
-        # Handling pagination manually after stopping the refresh
-        while True:
-            next_action = input("Enter 'n' for next page, 'p' for previous page, or 'q' to quit: ").lower()
-            if next_action == 'n':
-                page += 1
-            elif next_action == 'p' and page > 1:
-                page -= 1
-            elif next_action == 'q':
-                break
-            else:
-                print("Invalid input. Please try again.")
+        # After stopping the refresh, you can implement further actions or exit the command
 
-            os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console
-            display_page(page, page_size)  # Display the updated page
 
 ############################################################################################################################## 
     def do_ue_log(self, arg):
@@ -358,6 +351,17 @@ class SimulatorCLI(cmd.Cmd):
         self.stop_event.set()
         display_thread.join()
         print(self.term.clear)  # This line will clear the screen after stopping the thread
+################################################################################################################################
+    def do_ue_specs(self, arg):
+        """Displays specifications of all UEs."""
+        ue_specs_list = self.ue_manager.list_all_ue_specs()  # Assuming such a method exists
+
+        table = PrettyTable()
+        table.field_names = ["UE ID", "Connected Cell ID", "Service Type", "Signal Quality", "Battery Status"]
+        for specs in ue_specs_list:
+            table.add_row([specs['ue_id'], specs['cell_id'], specs['service_type'], specs['signal_quality'], specs['battery_status']])
+    
+        print(table) 
 ################################################################################################################################            
     def do_del_ue(self, line):
         from network.sector import global_ue_ids
@@ -430,12 +434,14 @@ class SimulatorCLI(cmd.Cmd):
                 ('sector_list', 'List all sectors in the network.'),
                 ('ue_list', 'List all UEs (User Equipments) in the network.'),
                 ('ue_log', 'Display UE traffic logs.'),
+                ('ue_specs', 'Display UE specifications of ue in the network.'),
                 ('del_ue', 'delete ue from sector and database'),
                 ('add_ue', 'add new ue based on current config file to the specific sector'),
                 ('kpis', 'Display KPIs for the network.'),
                 ('loadbalancing', 'Display load balancing information for the network.'),
                 ('start_ue', 'Start the ue traffic.'),
                 ('stop_ue', 'Stop the ue traffic.'),
+                ('Flush Database', 'Delete all the information inside the InfluxDB database.'),
                 ('exit', 'Exit the Simulator.')
             ]:
                 print(f"  {Fore.CYAN}{command}{Fore.RESET} - {description}")
@@ -557,3 +563,17 @@ class SimulatorCLI(cmd.Cmd):
     
         # Display KPIs
         print("Displaying UE KPIs...")
+#############################################################################################################
+    def do_flush_db(self, arg):
+        """Flush Database: Delete all the information inside the InfluxDB database."""
+        response = input("Are you sure you want to delete all the data in the database? (yes/no): ")
+        if response.lower() == 'yes':
+            db_manager = DatabaseManager.get_instance()
+            success = db_manager.flush_all_data()  # This now returns True on success, False on failure
+            if success:
+                print("Database successfully flushed. Please run again!")
+            else:
+                print("Failed to flush the database.")  # Only print this if flushing fails
+        else:
+            print("Database flush canceled.")
+#############################################################################################################

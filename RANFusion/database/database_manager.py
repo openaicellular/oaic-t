@@ -8,6 +8,7 @@
 #########################################################################################################
 import os
 from influxdb_client import InfluxDBClient, WritePrecision, Point, QueryApi
+from influxdb_client.client.delete_api import DeleteApi
 from influxdb_client.client.write_api import SYNCHRONOUS
 from logs.logger_config import database_logger  # Import the configured logger
 from datetime import datetime
@@ -48,7 +49,7 @@ class DatabaseManager:
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.query_api = self.client.query_api()
         self.bucket = INFLUXDB_BUCKET
-    
+        self.org = INFLUXDB_ORG
 ##################################################################################################################################
     def get_sector_by_id(self, sector_id):
         query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "sector_metrics" and r.sector_id == "{sector_id}")'
@@ -118,31 +119,41 @@ class DatabaseManager:
             database_logger.error(f"Failed to insert batch data into InfluxDB: {e}")
 ##################################################################################################################################
     def insert_data(self, measurement_or_point, tags=None, fields=None, timestamp=None):
-        """Inserts data into InfluxDB. Can handle both Point objects and separate parameters."""
+        #print('------------------inside insert -------------------')
+        """Inserts or updates data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
             if isinstance(measurement_or_point, Point):
-                # If a Point object is provided
                 point = measurement_or_point
-                if timestamp:
-                    point.time(timestamp)
+                # For debugging: print throughput if it's a field in the Point object
+                if 'throughput' in point._fields:
+                    point._fields['throughput'] = float(point._fields['throughput'])
+
+                    #print(f"Throughput (Point object): {throughput_value}, Type: {type(throughput_value)}")
             else:
-                # If separate parameters are provided
+                # If separate parameters are provided, create a new Point
                 measurement = measurement_or_point
                 point = Point(measurement)
+                # For debugging: specifically check and print throughput and its type
+                if fields and 'throughput' in fields:
+                    fields['throughput'] = float(fields['throughput'])
+                    #print(f"Throughput (field): {throughput_value}, Type: {type(throughput_value)}")
+                # Add tags and fields to the Point
                 for tag_key, tag_value in (tags or {}).items():
                     point.tag(tag_key, tag_value)
                 for field_key, field_value in (fields or {}).items():
                     point.field(field_key, field_value)
-                # Convert the timestamp to the correct format for InfluxDB
+                # Use the provided timestamp or the current time
+                if timestamp is None:
+                    timestamp = datetime.utcnow()
                 point.time(timestamp, WritePrecision.S)
-
+            
+            # Write the point to the database
             self.write_api.write(bucket=self.bucket, record=point)
-            # Log the measurement and the tags for context
-            tags_description = ", ".join([f"{k}={v}" for k, v in point._tags.items()])
-            #database_logger.info(f"Data inserted for measurement {point._name} with tags {tags_description}")
+            #print('Data write is done')
 
         except Exception as e:
-            database_logger.error(f"Failed to insert data into InfluxDB: {e}")
+            print(f"Failed to insert data into InfluxDB: {e}")
+
 ##################################################################################################################################
     def close_connection(self):
         """Closes the database connection."""
@@ -206,7 +217,7 @@ class DatabaseManager:
             .time(datetime.utcnow(), WritePrecision.S)
         self.write_api.write(bucket=self.bucket, record=point)
 
-##################################################################################################################################
+###################################################################################################################################
     def write_network_measurement(self, network_load, network_delay, total_handover_success_count, total_handover_failure_count):
         point = Point("network_metrics") \
             .field("load", float(network_load)) \
@@ -221,20 +232,30 @@ class DatabaseManager:
             from(bucket: "{self.bucket}")
                 |> range(start: -1d)
                 |> filter(fn: (r) => r._measurement == "ue_metrics" and r.ue_id == "{ue_id}")
+                // Check the output here to ensure fields are present
                 |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
-                |> last()
-        '''
+                // Then check the output here to ensure the pivot is as expected
+                '''
         result = self.query_api.query(query=query)
+        #print('result:', result)
         metrics = []
-        for table in result:
-            for record in table.records:
-                metrics.append({
-                    'timestamp': record.get_time(),
-                    'throughput': record.get_value(),
-                    'jitter': record.values['jitter'],
-                    'packet_loss': record.values['packet_loss'],
-                    'delay': record.values['delay']
-                })
+        if result:
+            for table in result:
+                #print('--------inside for loop DB Manager----table:', table)
+                for record in table.records:
+                    #print('----DB Manager-------record:', record)
+                    #print('--------------throughput:', record.values.get('throughput', None))
+                    #print('-------------------time:', record.get_time())
+                    # Ensure you are safely accessing fields, assuming 'throughput', 'jitter', 'packet_loss', 'delay' might not always be present
+                    metrics.append({
+                        'timestamp': record.get_time(),
+                        'throughput': record.values.get('throughput', None),
+                        'ue_jitter': record.values.get('jitter', None),
+                        'ue_packet_loss_rate': record.values.get('packet_loss', None),
+                        'ue_delay': record.values.get('delay', None)
+                    })
+        else:
+            print("No results found for the query.")
         return metrics
 ##################################################################################################################################
     def get_sector_load(self, sector_id):
@@ -256,3 +277,46 @@ class DatabaseManager:
                 })
         return load_metrics
 ##################################################################################################################################
+    def flush_all_data(self):
+        from datetime import datetime, timezone
+        import requests
+
+        try:
+            if not hasattr(self, 'client'):
+                self.client_init()
+
+            bucket_to_clear = self.bucket
+            start = "1970-01-01T00:00:00Z"
+            # Using datetime.now() with timezone.utc to get current UTC time
+            # Formatting manually to include milliseconds, ensuring compliance with RFC3339
+            stop = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
+
+            url = f"{self.client.url}/api/v2/delete?org={self.org}&bucket={bucket_to_clear}"
+            headers = {
+                'Authorization': f'Token {self.client.token}',
+                'Content-Type': 'application/json',
+            }
+            data = {
+                "start": start,
+                "stop": stop,
+            }
+
+            response = requests.post(url, headers=headers, json=data, timeout=10)
+
+            if response.status_code == 204:
+                print(f"All data in the bucket {bucket_to_clear} has been deleted successfully.")
+                return True
+            else:
+                print(f"Failed to delete data from bucket {bucket_to_clear}: {response.status_code} - {response.text}")
+                return False
+        except requests.exceptions.RequestException as e:
+            print(f"Request exception occurred: {e}")
+            return False
+        except Exception as e:
+            print(f"General exception occurred: {e}")
+            return False
+
+
+
+
+
