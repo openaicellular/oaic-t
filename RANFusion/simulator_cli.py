@@ -67,6 +67,7 @@ class SimulatorCLI(cmd.Cmd):
         self.sector_manager = sector_manager
         self.ue_manager = ue_manager  # If UEManager.get_instance() is necessary, make sure it's called correctly
         self.network_load_manager = network_load_manager
+        self.traffic_controller = TrafficController.get_instance() # # Assuming there's a way to get a TrafficController instance
         self.stop_event = Event()
         self.in_kpis_mode = False
 
@@ -172,26 +173,53 @@ class SimulatorCLI(cmd.Cmd):
 
 ############################################################################################################################## 
     def do_ue_log(self, arg):
-        """Display UE (User Equipment) traffic logs."""
+        """Display UE (User Equipment) traffic logs with live updates."""
         print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
+
+        def refresh_data(stop_event):
+            while not stop_event.is_set():
+                try:
+                    # Clear the console for a fresh display
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
+                    
+                    # Initialize PrettyTable with column headers
+                    table = PrettyTable(["UE ID", "Service Type", "Throughput (MB)", "Delay (ms)", "Jitter (%)", "Packet Loss Rate (%)"])
+                    
+                    # Fetch current UE instances
+                    ue_instances = UE.get_ues()
+                    
+                    # Iterate over each UE instance to extract and display its attributes
+                    for ue in ue_instances:
+                        # Convert throughput from bytes to MB
+                        throughput_mbps = ue.throughput / 1e6
+                        
+                        # Add a row to the table for each UE's traffic data
+                        table.add_row([
+                            ue.ID,  # UE ID
+                            ue.ServiceType,  # Service Type
+                            f"{throughput_mbps:.4f}",  # Throughput in MB
+                            f"{ue.ue_delay}",  # Delay in ms
+                            f"{ue.ue_jitter}%",  # Jitter in %
+                            f"{ue.ue_packet_loss_rate*100}%"  # Packet Loss Rate in %
+                        ])
+                    print(table)
+                    time.sleep(1)  # Refresh every 1 second
+                except Exception as e:
+                    print(f"Error displaying UE traffic logs: {e}")
+                    break
+
+        # Initialize stop_event and display_thread
+        stop_event = threading.Event()
+        display_thread = threading.Thread(target=refresh_data, args=(stop_event,))
+
         try:
-            # Initialize PrettyTable with column headers based on your log structure
-            table = PrettyTable(["UE ID", "Service Type", "Throughput (MB)", "Interval (s)", "Delay (ms)", "Jitter (%)", "Packet Loss Rate (%)"])
-            with open('traffic_logs.txt', 'r') as log_file:
-                for line in log_file:
-                    # Assuming each log entry is a comma-separated value line
-                    # You'll need to adjust parsing based on your actual log format
-                    parts = line.split(',')  # This is an example; adjust based on your actual log format
-                    if len(parts) < 7:
-                        continue  # Skip malformed lines
-                    # Add a row to the table for each log entry
-                    # Adjust index and parsing as necessary based on the actual log format
-                    table.add_row(parts)
-            print(table)
-        except FileNotFoundError:
-            print("Log file not found. Ensure traffic logging is enabled.")
-        except KeyboardInterrupt:
-            print("\nReturning to CLI...")
+            display_thread.start()  # Start the refreshing thread
+
+            input("Press Enter to stop refreshing...")  # Wait for user input to stop refreshing
+        finally:
+            stop_event.set()  # Signal the thread to stop
+            display_thread.join()  # Wait for the thread to finish
 ################################################################################################################################ 
     # Adjusted display_gnb_list method
     def display_gnb_list(self):
@@ -283,7 +311,7 @@ class SimulatorCLI(cmd.Cmd):
     
                 print(table)
                 time.sleep(1)
-
+    
     def do_cell_list(self, arg):
         """Displays the cell list with live updates."""
         print('Displaying cell list. Press any key to stop...')
