@@ -61,8 +61,8 @@ def run(server_connection):
 
                 # A factory of actions is used to get the associated action executor based on the action name.
                 action_exec = action_factory.get_action_executor(action)
-                action_exec.set_server_connection(server_connection)
                 if action_exec is not None:
+                    action_exec.set_server_connection(server_connection)
                     action_output_summary, action_output = action_exec.run()
                     report_msg = action.action_completed(task.id, action_output_summary, action_output)
                 else:
