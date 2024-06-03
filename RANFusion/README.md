@@ -26,7 +26,7 @@ If you find our work useful, please consider citing our paper:
 
 
 
-### Sample Results
+## Sample Results
 
 - **Initial UE Configuration**
 
