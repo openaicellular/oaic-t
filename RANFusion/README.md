@@ -8,7 +8,7 @@
 ## Development and Bug Fixes
 We are continuously developing and improving RANFusion. Your feedback and contributions are invaluable to us. If you encounter any bugs or have suggestions for new features, please open an issue or submit a pull request. Together, we can make RANFusion even better!
 
-## Citation
+## Paper
 
 If you find our work useful, please consider citing our paper:
 
