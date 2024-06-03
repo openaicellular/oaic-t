@@ -4,6 +4,7 @@
 
 ## Overview
   **RANFusion Simulator** is a tool designed to simulate the behavior and performance of 5G network components. Our simulator offers a detailed framework to test and analyze various components of 5G technology, including the RAN functionalities, behavior, and performance of 5G networks, This version (1.0.0) focuses on handover processes.
+
 ## Citation
 
 If you find our work useful, please consider citing our paper:
