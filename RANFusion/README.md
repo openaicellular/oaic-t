@@ -1,6 +1,13 @@
 # Welcome to RANFusion ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg)
 # <img src="images/logo.png" width="200" alt="RAN Fusion Logo"> 
 
+## Overview
+  **RANFusion Simulator** is a tool designed to simulate the behavior and performance of 5G network components. Our simulator offers a detailed framework to test and analyze various components of 5G technology, including the RAN functionalities, behavior, and performance of 5G networks, This version (1.0.0) focuses on handover processes.
+
+
+## Development and Bug Fixes
+We are continuously developing and improving RANFusion. Your feedback and contributions are invaluable to us. If you encounter any bugs or have suggestions for new features, please open an issue or submit a pull request. Together, we can make RANFusion even better!
+
 ## Citation
 
 If you find our work useful, please consider citing our paper:
@@ -14,16 +21,6 @@ If you find our work useful, please consider citing our paper:
       archivePrefix={arXiv},
       primaryClass={cs.NI}
 }
-
-
-## Overview
-  **RANFusion Simulator** is a tool designed to simulate the behavior and performance of 5G network components. Our simulator offers a detailed framework to test and analyze various components of 5G technology, including the RAN functionalities, behavior, and performance of 5G networks, This version (1.0.0) focuses on handover processes.
-
-
-## Development and Bug Fixes
-We are continuously developing and improving RANFusion. Your feedback and contributions are invaluable to us. If you encounter any bugs or have suggestions for new features, please open an issue or submit a pull request. Together, we can make RANFusion even better!
-
-
 
 ## Sample Results
 
