@@ -9,19 +9,7 @@
 ## Development and Bug Fixes
 We are continuously developing and improving RANFusion. Your feedback and contributions are invaluable to us. If you encounter any bugs or have suggestions for new features, please open an issue or submit a pull request. Together, we can make RANFusion even better!
 
-## Citation
 
-If you find our work useful, please consider citing our paper:
-
-```bibtex
-@misc{natanzi2024ranfusion,
-      title={RANFusion: A Comprehensive Tool for Simulating Handover In Next-G RAN}, 
-      author={Seyed Bagher Hashemi Natanzi and Bo Tang},
-      year={2024},
-      eprint={2405.19480},
-      archivePrefix={arXiv},
-      primaryClass={cs.NI}
-}
 
 ## Sample Results
 
