@@ -10,7 +10,7 @@ We are continuously developing and improving RANFusion. Your feedback and contri
 
 ## Paper
 
-If you find our work useful, please consider citing our paper:
+If you find our work useful, please consider to read citing our paper:
 
 ```bibtex
 @misc{natanzi2024ranfusion,
