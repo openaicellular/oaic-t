@@ -33,6 +33,7 @@ class UE:
             self.ID = ue_id
             print(f"Creating UE instance {self.ID}")
             self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the ue
+            ue_logger.debug(f"Created UE instance with ID: {self.instance_id}")
             UE.existing_ue_ids.add(ue_id)
             UE.ue_instances[ue_id] = self  # Store the instance in the dictionary
             self.IMEI = kwargs.get('imei') or self.allocate_imei()         # International Mobile Equipment Identity
@@ -141,7 +142,7 @@ class UE:
     @classmethod
     def get_ue_instance_by_id(cls, ue_id):
         ue_id_processed = ue_id.strip().lower()
-        for stored_ue_id, ue_instance in cls.ue_instances.items():
+        for stored_ue_id, ue_instance in cls.ues.items():  # Use the correct attribute 'ues'
             if stored_ue_id.lower() == ue_id_processed:
                 return ue_instance
         return None
@@ -155,10 +156,10 @@ class UE:
                 ue_logger.info(f"UE ID {stored_ue_id} removed from existing_ue_ids.")
                 break  # Assuming UE IDs are unique, break after finding and removing the ID
 
-        for stored_ue_id in list(cls.ue_instances.keys()):
+        for stored_ue_id in list(cls.ues.keys()):  # Use the correct attribute 'ues'
             if stored_ue_id.lower() == ue_id_lower:
-                del cls.ue_instances[stored_ue_id]
-                ue_logger.info(f"UE instance {stored_ue_id} removed from ue_instances.")
+                del cls.ues[stored_ue_id]  # Use the correct attribute 'ues'
+                ue_logger.info(f"UE instance {stored_ue_id} removed from ues.")
                 break  # Assuming UE IDs are unique, break after finding and removing the instance
 
     def serialize_for_influxdb(self):
@@ -223,3 +224,9 @@ class UE:
                 ue_logger.info(f"Updated {key} for UE {self.ID} to {value}")
             else:
                 ue_logger.warning(f"Attempted to update non-existent attribute {key} for UE {self.ID}")
+                
+    def start_traffic(self):
+        self.generating_traffic = True
+
+    def stop_traffic(self):
+        self.generating_traffic = False

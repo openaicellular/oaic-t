@@ -192,13 +192,14 @@ def start_ue_traffic():
 
 #########################################################################################################
 #This is a API for Stop the traffic of the each UE
-@app.route('/stop_ue_traffic', methods=['POST'])
+@app.route('/api/stop_ue_traffic', methods=['POST'])
 def stop_ue_traffic():
     data = request.json
     if 'ue_id' not in data:
         API_logger.error("Missing 'ue_id' in request data")
         return jsonify({'error': "Missing 'ue_id'"}), 400
-
+    
+    API_logger.info(f"Received request to stop traffic for UE: {data['ue_id']}")  # Debug logging
     result, message = CommandHandler.handle_command('stop_ue_traffic', data)
     if result:
         return jsonify({'message': message}), 200
@@ -230,12 +231,34 @@ def sector_load():
 @app.route('/set_traffic', methods=['POST'])
 def set_traffic():
     data = request.json
-    command_result, message = CommandHandler.handle_command('set_custom_traffic', data)
-    if command_result:
-        return jsonify({'message': message}), 200
-    else:
-        API_logger.error(f"Failed to set custom traffic: {message}")
-        return jsonify({'error': message}), 500
+    API_logger.info(f"Received request to set custom traffic: {data}")
+
+    if not data:
+        API_logger.error("No JSON data received in the request")
+        return jsonify({'error': 'No data provided'}), 400
+
+    required_fields = ['ue_id', 'traffic_factor']
+    for field in required_fields:
+        if field not in data:
+            API_logger.error(f"Missing required field: {field}")
+            return jsonify({'error': f"Missing required field: {field}"}), 400
+
+    try:
+        command_result, message = CommandHandler.handle_command('set_custom_traffic', data)
+        if command_result:  
+            API_logger.info(f"Successfully set custom traffic for UE {data['ue_id']}")
+            return jsonify({
+                'success': True,
+                'message': message,
+                'ue_id': data['ue_id'],
+                'traffic_factor': data['traffic_factor']
+            }), 200
+        else:
+            API_logger.error(f"Failed to set custom traffic: {message}")
+            return jsonify({'error': message}), 400
+    except Exception as e:
+        API_logger.error(f"An error occurred while setting custom traffic: {str(e)}")
+        return jsonify({'error': 'An internal error occurred', 'details': str(e)}), 500
 #########################################################################################################
 # This is an API for delete all information inside the databse.
 @app.route('/flush_database', methods=['POST'])
@@ -290,3 +313,25 @@ def get_ues():
 # else:
         #return jsonify({'error': 'Failed to move UE'}), 500
 ###########################################################################################################
+@app.route('/set_handover_algorithm', methods=['POST'])
+def set_handover_algorithm():
+    data = request.json
+    algorithm_name = data.get('algorithm')
+    if algorithm_name == 'rssi':
+        LoadBalancer.get_instance().set_handover_algorithm(RSSIBasedHandover())
+    elif algorithm_name == 'load_balancing':
+        LoadBalancer.get_instance().set_handover_algorithm(LoadBalancingHandover())
+    # Add more algorithms as needed
+    return jsonify({'message': f'Handover algorithm set to {algorithm_name}'}), 200
+
+@app.route('/set_mobility_model', methods=['POST'])
+def set_mobility_model():
+    data = request.json
+    model_name = data.get('model')
+    if model_name == 'random_walk':
+        LoadBalancer.get_instance().set_mobility_model(RandomWalkModel())
+    elif model_name == 'linear':
+        direction = data.get('direction', 0)
+        LoadBalancer.get_instance().set_mobility_model(LinearModel(direction))
+    # Add more models as needed
+    return jsonify({'message': f'Mobility model set to {model_name}'}), 200

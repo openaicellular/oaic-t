@@ -128,6 +128,13 @@ class CommandHandler:
         if not ue_id.startswith("ue"):
             ue_id = "ue" + ue_id
 
+        # Get an instance of the UEManager to check if the UE exists
+        ue_manager = UEManager.get_instance()
+        if not ue_manager.get_ue_by_id(ue_id):
+            API_logger.error(f"UE {ue_id} not found.")
+            return False, f"UE {ue_id} not found."
+
+        # Proceed with starting the traffic since the UE exists
         traffic_controller = TrafficController.get_instance()
         started = traffic_controller.start_ue_traffic(ue_id)
         if started:
@@ -145,6 +152,18 @@ class CommandHandler:
         if not ue_id.startswith("ue"):
             ue_id = "ue" + ue_id
 
+        # Get an instance of the UEManager to check if the UE exists
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))    
+        ue_manager = UEManager.get_instance(base_dir)
+        ue = ue_manager.get_ue_by_id(ue_id)
+        if not ue:
+            API_logger.error(f"UE {ue_id} not found.")
+            return False, f"UE {ue_id} not found."
+        
+        API_logger.debug(f"UE instance found: {ue}")  # Debug logging
+        API_logger.debug(f"UE instance ID: {id(ue)}")  # Debug logging
+
+        # Proceed with stopping the traffic since the UE exists
         traffic_controller = TrafficController.get_instance()
         stopped = traffic_controller.stop_ue_traffic(ue_id)
         if stopped:
@@ -181,20 +200,19 @@ class CommandHandler:
             API_logger.error(f"An error occurred while updating UE {ue_id}: {str(e)}")
 #########################################################################################################
     @staticmethod
-    def _set_custom_traffic(data):  
+    def _set_custom_traffic(data):
         ue_id = data['ue_id']
-        factor = data['factor']
-    
-    # TrafficController has a method to set custom traffic
+        traffic_factor = data['traffic_factor']
+
         traffic_controller = TrafficController.get_instance()
-        result = traffic_controller.set_custom_traffic(ue_id, factor)
-    
-        if result:
-            API_logger.info(f"Custom traffic set for UE {ue_id}.")
-            return jsonify({'message': f"Custom traffic set for UE {ue_id}."}), 200
+        result = traffic_controller.set_custom_traffic(ue_id, traffic_factor)
+
+        if result is not None:
+            API_logger.info(f"Custom traffic set for UE {ue_id}. New traffic factor: {result}")
+            return True, f"Custom traffic set for UE {ue_id}. New traffic factor: {result}"
         else:
             API_logger.error(f"Failed to set custom traffic for UE {ue_id}.")
-            return jsonify({'error': f"Failed to set custom traffic for UE {ue_id}."}), 500
+            return False, f"Failed to set custom traffic for UE {ue_id}."
 #########################################################################################################
     @staticmethod
     def _flush_all_data(data=None):  # Make data optional

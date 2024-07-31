@@ -14,6 +14,9 @@ from database.database_manager import DatabaseManager
 import threading
 from network.ue_manager import UEManager
 import os
+from logs.logger_config import ue_logger
+from network.sector_manager import SectorManager
+
 class TrafficController:
     _instance = None
     _lock = threading.Lock()  # Ensure thread-safe singleton access
@@ -402,52 +405,108 @@ class TrafficController:
             print(f"UE {ue_id} removed.")  # Example print message for debugging
 ############################################################################################
     def start_ue_traffic(self, ue_or_id):
-        # Check if the input is an UE ID instead of an object and retrieve the UE object
+        """Starts traffic generation for the given UE"""
+        # Check if the input is a UE ID instead of an object and retrieve the UE object
         if isinstance(ue_or_id, int):
-            ue = self.ues.get(ue_or_id)
+            ue = self.ConnectedUEs.get(ue_or_id)  # Changed from self.ues to self.ConnectedUEs
             if not ue:
-                print(f"UE with ID {ue_or_id} not found.")
-                return
+                ue_logger.warning(f"UE with ID {ue_or_id} not found in connected UEs.")
+                return False
         else:
             ue = ue_or_id
 
-        # Check if traffic is already running for this UE
-        if ue.generating_traffic:
-            traffic_update_logger(f"Traffic already on for UE {ue.ID}")
-            return
+        if not isinstance(ue, UE):
+            ue_logger.error(f"Invalid UE object provided: {ue}")
+            return False
 
-        # If not generating traffic, start traffic generation
-        with self._lock:  # Ensure thread-safe access to ue.generating_traffic
-            ue.generating_traffic = True
+        ue_logger.info(f"Attempting to start traffic for UE: {ue.ID}")
+        ue_logger.debug(f"Current traffic generation status: {ue.generating_traffic}")
 
         try:
-            # Additional setup for starting traffic (if needed)
-            # ...
-            print(f"Traffic generation started for UE {ue.ID}")
+            with self._lock:  # Ensure thread-safe access to UE attributes
+                if not ue.generating_traffic:
+                    ue.start_traffic()  # Use the new method from UE class
+                    ue_logger.info(f"Traffic generation started for UE {ue.ID}")
+                    
+                    # Additional setup for starting traffic
+                    self._perform_additional_setup(ue)
+                    
+                    # Update the UE in the sector
+                    sector_manager = SectorManager.get_instance()
+                    sector_manager.update_ue_in_sector(ue.ConnectedSector, ue.ID)
+                    
+                    return True
+                else:
+                    ue_logger.info(f"UE {ue.ID} is already generating traffic")
+                    return False
+
         except Exception as e:
-            traffic_update_logger.error(f"Failed to start traffic for UE {ue.ID}: {e}")
+            ue_logger.error(f"Unexpected error while starting traffic for UE {ue.ID}: {str(e)}")
+            return False
+
+        except Exception as e:
+            ue_logger.error(f"Unexpected error while starting traffic for UE {ue.ID}: {str(e)}")
+        return False
+
+    def _perform_additional_setup(self, ue):
+        """Perform any additional setup required for starting UE traffic"""
+        try:
+            # Add any necessary setup logic here
+            # For example, initializing throughput, setting up QoS parameters, etc.
+            ue.throughput = 0  # Reset throughput
+            ue_logger.debug(f"Additional setup completed for UE {ue.ID}")
+        except Exception as setup_error:
+            ue_logger.error(f"Error during additional setup for UE {ue.ID}: {setup_error}")
 
 ############################################################################################
     def stop_ue_traffic(self, ue):
         """Stops traffic generation for the given UE"""
-        if ue.ID in self.ues and ue.generating_traffic:
-            with self._lock:  # Ensure thread-safe access to ue.generating_traffic
-                ue.generating_traffic = False
-                ue.throughput = 0
+        if not isinstance(ue, UE):
+            ue_logger.error(f"Invalid UE object provided: {ue}")
+            return False
 
-            try:
-                # Additional cleanup (if needed)
-                # For example, you might need to:
-                # - Stop any threads or processes related to traffic generation for this UE.
-                # - Close any open sockets or connections.
-                # - Release any resources associated with the UE's traffic.
-                pass  # Replace this with your actual cleanup logic
-            except Exception as e:
-                traffic_update_logger.error(f"Error during cleanup for UE {ue.ID}: {e}")
-                # Handle the error (e.g., log the error and continue)
+        ue_logger.info(f"Attempting to stop traffic for UE: {ue.ID}")
+        ue_logger.debug(f"Current traffic generation status: {ue.generating_traffic}")
 
-            traffic_update_logger.info(f"Traffic stopped for {ue.ID}")
-            self.remove_ue(ue.ID)
+        try:
+            if ue.ID in self.ConnectedUEs:
+                with self._lock:  # Ensure thread-safe access to UE attributes
+                    if ue.generating_traffic:
+                        ue.stop_traffic()  # Use the new method from UE class
+                        ue.throughput = 0
+                        ue_logger.info(f"Traffic generation stopped for UE {ue.ID}")
+                    else:
+                        ue_logger.info(f"UE {ue.ID} was not generating traffic")
+
+                try:
+                    # Additional cleanup logic
+                    self._perform_additional_cleanup(ue)
+                except Exception as cleanup_error:
+                    ue_logger.error(f"Error during cleanup for UE {ue.ID}: {cleanup_error}")
+                
+                return True
+            else:
+                ue_logger.warning(f"UE {ue.ID} not found in the connected UEs list")
+                return False
+
+        except Exception as e:
+            ue_logger.error(f"Unexpected error while stopping traffic for UE {ue.ID}: {str(e)}")
+            return False
+
+        finally:
+            if ue.ID in self.ConnectedUEs:
+                self.remove_ue(ue.ID)
+                ue_logger.info(f"UE {ue.ID} removed from traffic controller")
+                #self.last_update = get_current_time_ntp()  # Update the last_update timestamp
+
+    def _perform_additional_cleanup(self, ue):
+        """Perform any additional cleanup tasks for the UE"""
+        # Add your specific cleanup logic here
+        # For example:
+        # - Clear any queued packets
+        # - Reset any UE-specific traffic parameters
+        # - Update any related network components
+        pass
 
 #########################################################################################################################
     # Note:Throughput measures the rate at which data is successfully transmitted over the network,typically expressed  #
@@ -458,16 +517,63 @@ class TrafficController:
     # This metric is vital for assessing network load, data consumption patterns, and for planning network capacity.    #
 #########################################################################################################################
     def set_custom_traffic(self, ue_id, traffic_factor):
-        # Assuming self.ue_manager is an instance of UEManager
-        ue = self.ue_manager.get_ue_by_id(ue_id)
-        if not ue:
-            print(f"UE with ID {ue_id} not found.")
-            return
+        """
+        Set or adjust custom traffic for a specific UE.
+        
+        :param ue_id: The ID of the UE to adjust
+        :param traffic_factor: The new traffic factor or adjustment value
+        :return: The updated traffic factor or None if the operation failed
+        """
+        try:
+            ue = self.ue_manager.get_ue_by_id(ue_id)
+            if not ue:
+                ue_logger.warning(f"UE with ID {ue_id} not found.")
+                return None
 
-        # Apply the custom traffic parameters
-        ue.traffic_factor = traffic_factor
-        print(f"Set custom traffic factor for UE {ue_id}: {traffic_factor}")
-############################################################################################
+            # Check if we're adjusting or setting a new value
+            if isinstance(traffic_factor, float) and traffic_factor > 0:
+                if traffic_factor != 1.0:
+                    # Adjust the existing traffic factor
+                    ue.traffic_factor *= traffic_factor
+                    ue_logger.info(f"Adjusted traffic factor for UE {ue_id} by {traffic_factor}. New factor: {ue.traffic_factor}")
+                else:
+                    ue_logger.info(f"Traffic factor for UE {ue_id} remains unchanged at {ue.traffic_factor}")
+            else:
+                # Set a new traffic factor
+                ue.traffic_factor = traffic_factor
+                ue_logger.info(f"Set new traffic factor for UE {ue_id}: {traffic_factor}")
+
+            # Update the UE's traffic model
+            self.update_ue_traffic_model(ue)
+
+            return ue.traffic_factor
+
+        except Exception as e:
+            ue_logger.error(f"Error setting custom traffic for UE {ue_id}: {str(e)}")
+            return None
+
+    def update_ue_traffic_model(self, ue):
+        """
+        Update the UE's traffic model based on the new traffic factor.
+        """
+        try:
+            # Generate new traffic data based on the updated traffic factor
+            new_traffic_data = self.generate_traffic(ue)
+            
+            # Update the UE's traffic model
+            ue.update_traffic_model(new_traffic_data)
+            
+            ue_logger.info(f"Updated traffic model for UE {ue.ID} with new parameters: {new_traffic_data}")
+        except Exception as e:
+            ue_logger.error(f"Error updating traffic model for UE {ue.ID}: {str(e)}")
+#########################################################################################################################
+    def is_ue_generating_traffic(self, ue_id):
+        ue = self.ConnectedUEs.get(ue_id)
+        if not ue:
+            ue_logger.warning(f"UE with ID {ue_id} not found in connected UEs.")
+            return False
+        return ue.generating_traffic
+##########################################################################################################################
     def find_ue_by_id(self, ue_id):
         """
         Finds a UE by its ID.
@@ -548,4 +654,25 @@ class TrafficController:
             "ue_delay": ue_delay,  
             'interval': interval
         }
+############################################################################################
+    def toggle_ue_traffic(self, ue_or_id):
+        """Toggles the traffic generation state for the given UE"""
+        if isinstance(ue_or_id, int):
+            ue = self.ConnectedUEs.get(ue_or_id)
+            if not ue:
+                ue_logger.warning(f"UE with ID {ue_or_id} not found in connected UEs.")
+                return False
+        else:
+            ue = ue_or_id
+
+        if not isinstance(ue, UE):
+            ue_logger.error(f"Invalid UE object provided: {ue}")
+            return False
+
+        with self._lock:
+            if ue.generating_traffic:
+                return self.stop_ue_traffic(ue)
+            else:
+                return self.start_ue_traffic(ue)
+
 ############################################################################################
