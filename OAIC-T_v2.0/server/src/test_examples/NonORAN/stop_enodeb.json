@@ -1,0 +1,11 @@
+{
+    "test_name": "configure enodeb",
+    "mode": "virtual radio",
+    "actions":
+    [
+        {
+            "name": "Stop ENodeB",
+            "paras": {}
+        }
+    ]
+}

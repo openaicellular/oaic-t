@@ -1,0 +1,20 @@
+{
+    "test_name": "test_virtual_traffics_example",
+    "mode": "virtual radio",
+    "actions":
+    [
+        {
+            "name": "Start RANFusion Simulator",
+            "paras": {}
+        },
+        
+        {
+            "name": "AIF Traffic Generation",
+            "paras": {
+                "num_max_gen": 20,
+            	"num_pop": 10,
+            	"aif_method": "GA"
+            }
+        }        
+    ]
+}

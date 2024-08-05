@@ -1,0 +1,685 @@
+22:49:36,448 OAIC-T Server INFO Server socket binded to port 12345
+22:49:36,448 OAIC-T Server INFO Server socket is listening... 
+22:50:11,698 OAIC-T Server INFO Server socket binded to port 12345
+22:50:11,698 OAIC-T Server INFO Server socket is listening... 
+23:06:55,381 OAIC-T Server INFO Server socket binded to port 12345
+23:06:55,381 OAIC-T Server INFO Server socket is listening... 
+23:21:45,305 OAIC-T Server INFO Server socket binded to port 12345
+23:21:45,306 OAIC-T Server INFO Server socket is listening... 
+23:24:21,426 OAIC-T Server INFO Connected to : 127.0.0.1:50282
+23:24:21,426 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:50282
+23:24:21,426 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:50282
+23:24:21,427 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:50282
+23:25:56,245 OAIC-T Server INFO Server socket binded to port 12345
+23:25:56,356 OAIC-T Server INFO Server socket is listening... 
+23:26:01,126 OAIC-T Server INFO Connected to : 127.0.0.1:50286
+23:26:01,126 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:50286
+23:26:01,126 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:50286
+23:26:01,248 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50286
+23:26:01,305 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "35.7", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:50286
+23:26:01,305 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:06,252 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50286
+23:26:06,252 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:50286
+23:26:06,253 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:11,255 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50286
+23:26:11,258 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "2.4", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:50286
+23:26:11,258 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:16,260 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50286
+23:26:16,261 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:50286
+23:26:16,261 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:16,648 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Action 1", "status": "Succeed", "description": "Success!"}, {"name": "Action 2", "status": "Succeed", "description": "Success!"}, {"name": "Action 3", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}]} from Actor1 127.0.0.1:50286
+23:26:16,649 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50286
+23:26:18,255 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:50286
+23:26:18,255 OAIC-T Server INFO Actor disconnected from 127.0.0.1:50286
+23:26:21,264 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50286
+00:50:16,392 OAIC-T Server INFO Server socket binded to port 12345
+00:50:16,392 OAIC-T Server INFO Server socket is listening... 
+00:51:39,78 OAIC-T Server INFO Connected to : 127.0.0.1:50288
+00:51:39,78 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:50288
+00:51:39,79 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:50288
+00:51:39,79 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:50288
+00:51:44,83 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:51:44,84 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:50288
+00:51:44,84 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:51:49,87 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+00:51:49,91 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "13.6", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:50288
+00:51:49,91 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:51:54,91 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:51:54,92 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:50288
+00:51:54,92 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:51:54,96 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Action 1", "status": "Succeed", "description": "Success!"}, {"name": "Action 2", "status": "Succeed", "description": "Success!"}, {"name": "Action 3", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}]} from Actor1 127.0.0.1:50288
+00:51:54,97 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:51:59,97 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+00:51:59,100 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "3.6", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:50288
+00:51:59,100 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:50288
+00:52:04,104 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '3', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:52:04,105 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "2", "results": [{"name": "Action 1", "status": "Succeed", "description": "Success!"}, {"name": "Action 2", "status": "Succeed", "description": "Success!"}, {"name": "Action 3", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}]}{"type": "new task received and pending to run"} from Actor1 127.0.0.1:50288
+00:52:09,110 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+00:52:14,115 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '4', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:52:19,120 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+00:52:24,120 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '5', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:50288
+00:52:29,121 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:50288
+13:45:32,136 OAIC-T Server INFO Server socket binded to port 12345
+13:45:32,137 OAIC-T Server INFO Server socket is listening... 
+13:45:49,87 OAIC-T Server INFO Connected to : 127.0.0.1:36904
+13:45:49,87 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:36904
+13:45:49,87 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:36904
+13:45:49,88 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:36904
+13:45:54,88 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'actions': [{'name': 'Action 1', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 2', 'paras': 'paras examples', 'type': 'running'}, {'name': 'Action 3', 'paras': 'paras examples', 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:36904
+13:45:54,89 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:36904
+13:45:54,89 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:36904
+13:45:59,90 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:36904
+13:45:59,210 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:36904
+13:45:59,210 OAIC-T Server INFO Actor disconnected from 127.0.0.1:36904
+18:31:27,246 OAIC-T Server INFO Server socket binded to port 12345
+18:31:27,259 OAIC-T Server INFO Server socket is listening... 
+18:31:45,327 OAIC-T Server INFO Connected to : 127.0.0.1:37736
+18:31:45,327 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37736
+18:31:45,327 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37736
+18:31:45,327 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37736
+18:31:50,331 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37736
+18:31:50,332 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37736
+18:31:50,332 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37736
+18:31:50,830 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}, {"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}, {"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}, {"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}]} from Actor1 127.0.0.1:37736
+18:31:50,830 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37736
+18:31:55,336 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37736
+18:31:55,375 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "2.9", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37736
+18:31:55,375 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37736
+18:31:58,637 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37736
+18:31:58,637 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37736
+18:32:00,336 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37736
+12:13:00,366 OAIC-T Server INFO Server socket binded to port 12345
+12:13:00,367 OAIC-T Server INFO Server socket is listening... 
+12:13:03,131 OAIC-T Server INFO Connected to : 127.0.0.1:37742
+12:13:03,132 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37742
+12:13:03,132 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37742
+12:13:05,366 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37742
+12:13:05,613 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "4.7", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37742
+12:13:05,613 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37742
+12:13:10,366 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37742
+12:13:10,367 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37742
+12:13:10,367 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37742
+12:13:10,641 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}, {"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}, {"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}, {"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}]} from Actor1 127.0.0.1:37742
+12:13:10,641 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37742
+12:13:14,890 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37742
+12:13:14,890 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37742
+12:13:15,366 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37742
+12:14:16,853 OAIC-T Server INFO Server socket binded to port 12345
+12:14:16,853 OAIC-T Server INFO Server socket is listening... 
+12:14:19,15 OAIC-T Server INFO Connected to : 127.0.0.1:37746
+12:14:19,16 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37746
+12:14:19,16 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37746
+12:14:21,858 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37746
+12:14:21,862 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "5.0", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37746
+12:14:21,862 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37746
+12:14:26,861 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37746
+12:14:26,862 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37746
+12:14:26,862 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37746
+12:14:27,19 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}, {"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}, {"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}, {"name": "Create Network Namespace", "status": "Failed", "description": "Cannot find the associated action executor. Please check if the action name is correct or the corresponding action executor is defined in the action_factory module!"}]} from Actor1 127.0.0.1:37746
+12:14:27,19 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37746
+12:14:28,426 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37746
+12:14:28,426 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37746
+12:14:31,866 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37746
+12:15:37,780 OAIC-T Server INFO Server socket binded to port 12345
+12:15:37,781 OAIC-T Server INFO Server socket is listening... 
+12:19:57,571 OAIC-T Server INFO Connected to : 127.0.0.1:37748
+12:19:57,571 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37748
+12:19:57,571 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37748
+12:19:57,571 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37748
+12:20:02,576 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37748
+12:20:02,576 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37748
+12:20:02,576 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37748
+12:20:03,402 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37748
+12:20:03,402 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37748
+12:20:07,577 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37748
+12:23:16,348 OAIC-T Server INFO Server socket binded to port 12345
+12:23:16,351 OAIC-T Server INFO Server socket is listening... 
+12:23:18,941 OAIC-T Server INFO Connected to : 127.0.0.1:37750
+12:23:18,941 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37750
+12:23:18,941 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37750
+12:23:21,349 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37750
+12:23:21,353 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "4.1", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37750
+12:23:21,353 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37750
+12:23:26,350 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37750
+12:23:26,350 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37750
+12:23:26,351 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37750
+12:23:26,568 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37750
+12:23:26,568 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37750
+12:23:31,350 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37750
+12:25:55,365 OAIC-T Server INFO Server socket binded to port 12345
+12:25:55,366 OAIC-T Server INFO Server socket is listening... 
+12:25:57,612 OAIC-T Server INFO Connected to : 127.0.0.1:37752
+12:25:57,613 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37752
+12:25:57,613 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37752
+12:26:00,366 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37752
+12:26:00,369 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "3.3", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37752
+12:26:00,369 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37752
+12:26:05,371 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37752
+12:26:05,372 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37752
+12:26:05,372 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37752
+12:26:05,732 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37752
+12:26:05,732 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37752
+12:26:10,371 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37752
+12:26:54,563 OAIC-T Server INFO Server socket binded to port 12345
+12:26:54,564 OAIC-T Server INFO Server socket is listening... 
+12:26:57,99 OAIC-T Server INFO Connected to : 127.0.0.1:37754
+12:26:57,100 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37754
+12:26:57,100 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37754
+12:26:59,565 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37754
+12:26:59,569 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "4.0", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37754
+12:26:59,569 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37754
+12:27:04,569 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37754
+12:27:04,570 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37754
+12:27:04,570 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37754
+12:27:04,708 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}]} from Actor1 127.0.0.1:37754
+12:27:04,708 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37754
+12:27:09,570 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37754
+12:27:09,573 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "3.8", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37754
+12:27:09,573 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37754
+12:27:14,573 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37754
+12:27:14,574 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37754
+12:27:14,574 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37754
+12:27:14,800 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "2", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}]} from Actor1 127.0.0.1:37754
+12:27:14,800 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37754
+12:52:42,245 OAIC-T Server INFO Server socket binded to port 12345
+12:52:42,249 OAIC-T Server INFO Server socket is listening... 
+12:52:48,275 OAIC-T Server INFO Connected to : 127.0.0.1:37756
+12:52:48,275 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37756
+12:52:48,276 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37756
+12:52:48,276 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37756
+12:52:53,277 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37756
+12:52:53,278 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37756
+12:52:53,278 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37756
+12:52:53,864 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}]} from Actor1 127.0.0.1:37756
+12:52:53,864 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37756
+12:52:58,281 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37756
+12:52:58,284 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "5.0", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37756
+12:52:58,284 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37756
+12:53:03,282 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37756
+12:53:03,283 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37756
+12:53:03,283 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37756
+12:53:03,482 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "2", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}]} from Actor1 127.0.0.1:37756
+12:53:03,482 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37756
+12:53:05,528 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37756
+12:53:05,528 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37756
+12:54:12,620 OAIC-T Server INFO Connected to : 127.0.0.1:37758
+12:54:12,620 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37758
+12:54:12,620 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37758
+12:54:12,621 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37758
+12:54:15,205 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37758
+12:54:15,205 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37758
+12:54:17,623 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '3', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37758
+12:56:50,279 OAIC-T Server INFO Server socket binded to port 12345
+12:56:50,282 OAIC-T Server INFO Server socket is listening... 
+12:56:52,710 OAIC-T Server INFO Connected to : 127.0.0.1:37762
+12:56:52,710 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37762
+12:56:52,710 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37762
+12:56:55,279 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37762
+12:56:55,283 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "3.4", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37762
+12:56:55,283 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37762
+12:57:00,280 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37762
+12:57:00,280 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37762
+12:57:00,280 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37762
+12:57:00,775 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output:  ue1\n"}]} from Actor1 127.0.0.1:37762
+12:57:00,775 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37762
+12:58:53,0 OAIC-T Server INFO Server socket binded to port 12345
+12:58:53,0 OAIC-T Server INFO Server socket is listening... 
+12:59:04,140 OAIC-T Server INFO Connected to : 127.0.0.1:37764
+12:59:04,140 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37764
+12:59:04,141 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37764
+12:59:04,141 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37764
+12:59:09,145 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37764
+12:59:09,145 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37764
+12:59:09,145 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37764
+12:59:09,727 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}]} from Actor1 127.0.0.1:37764
+12:59:09,727 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37764
+12:59:14,149 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37764
+12:59:14,153 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "4.1", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37764
+12:59:14,153 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37764
+12:59:14,404 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37764
+12:59:14,404 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37764
+12:59:19,152 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37764
+13:00:35,25 OAIC-T Server INFO Server socket binded to port 12345
+13:00:35,25 OAIC-T Server INFO Server socket is listening... 
+13:00:37,819 OAIC-T Server INFO Connected to : 127.0.0.1:37768
+13:00:37,819 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37768
+13:00:37,819 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37768
+13:00:40,28 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37768
+13:00:40,32 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "6.5", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37768
+13:00:40,32 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37768
+13:00:45,30 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37768
+13:00:45,30 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37768
+13:00:45,31 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37768
+13:00:45,394 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}]} from Actor1 127.0.0.1:37768
+13:00:45,394 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37768
+13:00:50,30 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37768
+13:00:50,33 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "4.2", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37768
+13:00:50,33 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37768
+13:00:50,625 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37768
+13:00:50,625 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37768
+13:00:55,33 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37768
+13:05:35,361 OAIC-T Server INFO Server socket binded to port 12345
+13:05:35,361 OAIC-T Server INFO Server socket is listening... 
+13:05:37,654 OAIC-T Server INFO Connected to : 127.0.0.1:37770
+13:05:37,654 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37770
+13:05:37,654 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37770
+13:05:38,713 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37770
+13:05:38,713 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37770
+13:05:48,533 OAIC-T Server INFO Connected to : 127.0.0.1:37772
+13:05:48,533 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37772
+13:05:48,533 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37772
+13:05:48,533 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37772
+13:05:53,536 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37772
+13:05:53,537 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37772
+13:05:53,537 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37772
+13:05:54,114 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}]} from Actor1 127.0.0.1:37772
+13:05:54,114 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37772
+13:05:54,678 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37772
+13:05:54,678 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37772
+13:06:05,496 OAIC-T Server INFO Connected to : 127.0.0.1:37774
+13:06:05,496 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37774
+13:06:05,497 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37774
+13:06:05,497 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37774
+13:06:10,500 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37774
+13:06:10,501 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37774
+13:06:10,501 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37774
+13:06:11,102 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "2", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}]} from Actor1 127.0.0.1:37774
+13:06:11,102 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37774
+13:06:13,612 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37774
+13:06:13,612 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37774
+02:13:24,997 OAIC-T Server INFO Connected to : 127.0.0.1:37778
+02:13:24,997 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37778
+02:13:25,198 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37778
+02:13:25,241 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37778
+02:13:30,218 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '3', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37778
+02:13:30,221 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37778
+02:13:30,222 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37778
+02:13:30,485 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "3", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}]} from Actor1 127.0.0.1:37778
+02:13:30,486 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37778
+02:13:35,221 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37778
+02:13:35,275 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "5.6", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37778
+02:13:35,275 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37778
+02:13:38,431 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37778
+02:13:38,432 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37778
+02:13:40,225 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '4', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37778
+02:13:40,311 OAIC-T Server INFO -->> Send message error: socket is disconnected!
+02:14:42,305 OAIC-T Server INFO Connected to : 127.0.0.1:37780
+02:14:42,305 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37780
+02:14:42,306 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37780
+02:14:42,306 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37780
+02:14:44,192 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37780
+02:14:44,192 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37780
+02:14:47,307 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '5', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37780
+02:14:47,623 OAIC-T Server INFO -->> Send message error: socket is disconnected!
+02:18:30,268 OAIC-T Server INFO Connected to : 127.0.0.1:37784
+02:18:30,269 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37784
+02:18:30,269 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37784
+02:18:30,269 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37784
+02:18:35,272 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '6', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37784
+02:18:35,273 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37784
+02:18:35,273 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37784
+02:18:35,845 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "6", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}]} from Actor1 127.0.0.1:37784
+02:18:35,846 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37784
+02:18:37,435 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37784
+02:18:37,435 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37784
+02:18:49,370 OAIC-T Server INFO Server socket binded to port 12345
+02:18:49,370 OAIC-T Server INFO Server socket is listening... 
+02:18:52,622 OAIC-T Server INFO Connected to : 127.0.0.1:37786
+02:18:52,622 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37786
+02:18:52,622 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37786
+02:18:54,370 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37786
+02:18:54,374 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "3.7", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37786
+02:18:54,374 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37786
+02:18:59,371 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37786
+02:18:59,372 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37786
+02:18:59,372 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37786
+02:18:59,800 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37786
+02:18:59,800 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37786
+02:20:59,365 OAIC-T Server INFO Connected to : 127.0.0.1:37790
+02:20:59,365 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37790
+02:20:59,365 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37790
+02:20:59,366 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37790
+02:21:04,367 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '2', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37790
+02:21:04,368 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37790
+02:21:04,368 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37790
+02:21:04,998 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37790
+02:21:04,998 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37790
+02:23:29,909 OAIC-T Server INFO Connected to : 127.0.0.1:37792
+02:23:29,909 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37792
+02:23:29,910 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37792
+02:23:29,910 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37792
+02:23:34,914 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '3', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37792
+02:23:34,914 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37792
+02:23:34,914 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37792
+02:23:35,540 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37792
+02:23:35,540 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37792
+02:25:28,731 OAIC-T Server INFO Connected to : 127.0.0.1:37794
+02:25:28,731 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:37794
+02:25:28,731 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37794
+02:25:28,732 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37794
+02:25:33,736 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '4', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37794
+02:25:33,737 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37794
+02:25:33,737 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37794
+02:25:34,321 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "4", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running with output: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \n---  Software Radio Systems LTE eNodeB  ---\n\n and errors: unrecognised option '--gw.netns=ue1'\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}]} from Actor1 127.0.0.1:37794
+02:25:34,321 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37794
+02:25:38,737 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37794
+02:25:38,741 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "4.5", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37794
+02:25:38,741 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37794
+02:25:43,738 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '5', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37794
+02:25:43,738 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37794
+02:25:43,739 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37794
+02:25:43,957 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:37794
+02:25:43,957 OAIC-T Server INFO Actor disconnected from 127.0.0.1:37794
+02:42:01,707 OAIC-T Server INFO Server socket binded to port 12345
+02:42:01,708 OAIC-T Server INFO Server socket is listening... 
+02:42:30,279 OAIC-T Server INFO Server socket binded to port 12345
+02:42:30,279 OAIC-T Server INFO Server socket is listening... 
+02:42:43,168 OAIC-T Server INFO Server socket binded to port 12345
+02:42:43,171 OAIC-T Server INFO Server socket is listening... 
+02:43:24,533 OAIC-T Server INFO Server socket binded to port 12345
+02:43:24,541 OAIC-T Server INFO Server socket is listening... 
+02:43:28,622 OAIC-T Server INFO Connected to : 127.0.0.1:37800
+02:43:28,622 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37800
+02:43:28,622 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37800
+02:43:34,539 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37800
+02:43:34,544 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "2.2", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37800
+02:43:34,544 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37800
+02:43:39,544 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37800
+02:43:39,545 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37800
+02:43:39,545 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37800
+02:43:40,852 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running with output:  and errors: "}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}]} from Actor1 127.0.0.1:37800
+02:43:40,852 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37800
+02:49:28,450 OAIC-T Server INFO Server socket binded to port 12345
+02:49:28,473 OAIC-T Server INFO Server socket is listening... 
+02:49:42,182 OAIC-T Server INFO Server socket binded to port 12345
+02:49:42,189 OAIC-T Server INFO Server socket is listening... 
+02:49:44,456 OAIC-T Server INFO Connected to : 127.0.0.1:37804
+02:49:44,457 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37804
+02:49:44,457 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37804
+02:49:52,184 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37804
+02:49:52,190 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "29.8", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37804
+02:49:52,191 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37804
+02:49:57,185 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37804
+02:49:57,186 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37804
+02:49:57,186 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37804
+02:53:29,768 OAIC-T Server INFO Server socket binded to port 12345
+02:53:29,769 OAIC-T Server INFO Server socket is listening... 
+02:53:32,623 OAIC-T Server INFO Connected to : 127.0.0.1:37806
+02:53:32,624 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:37806
+02:53:32,624 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:37806
+02:53:39,770 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:37806
+02:53:39,777 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "9.0", "mem": "100", "sdr_size": "2"} from Actor1 127.0.0.1:37806
+02:53:39,777 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37806
+02:53:44,771 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:37806
+02:53:44,771 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:37806
+02:53:44,771 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:37806
+11:03:25,146 OAIC-T Server INFO Server socket binded to port 12345
+11:03:25,161 OAIC-T Server INFO Server socket is listening... 
+11:04:14,258 OAIC-T Server INFO Server socket binded to port 12345
+11:04:14,258 OAIC-T Server INFO Server socket is listening... 
+11:04:16,514 OAIC-T Server INFO Connected to : 127.0.0.1:53016
+11:04:16,514 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53016
+11:04:16,514 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53016
+11:04:24,279 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53016
+11:04:24,309 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "2.4", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53016
+11:04:24,309 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53016
+11:04:29,281 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53016
+11:04:29,281 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53016
+11:04:29,281 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53016
+11:04:29,692 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:53016
+11:04:29,692 OAIC-T Server INFO Actor disconnected from 127.0.0.1:53016
+11:06:15,945 OAIC-T Server INFO Server socket binded to port 12345
+11:06:15,945 OAIC-T Server INFO Server socket is listening... 
+11:06:18,572 OAIC-T Server INFO Connected to : 127.0.0.1:53018
+11:06:18,572 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53018
+11:06:18,572 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53018
+11:06:25,945 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53018
+11:06:25,948 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "5.3", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53018
+11:06:25,948 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53018
+11:06:30,951 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53018
+11:06:30,952 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53018
+11:06:30,952 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53018
+11:22:17,142 OAIC-T Server INFO Server socket binded to port 12345
+11:22:17,142 OAIC-T Server INFO Server socket is listening... 
+11:22:21,193 OAIC-T Server INFO Connected to : 127.0.0.1:53020
+11:22:21,193 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53020
+11:22:21,193 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53020
+11:22:27,144 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53020
+11:22:27,147 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "0.4", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53020
+11:22:27,147 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53020
+11:22:32,144 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53020
+11:22:32,145 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53020
+11:22:32,145 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53020
+11:23:47,302 OAIC-T Server INFO Server socket binded to port 12345
+11:23:47,302 OAIC-T Server INFO Server socket is listening... 
+11:23:49,398 OAIC-T Server INFO Connected to : 127.0.0.1:53024
+11:23:49,398 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53024
+11:23:49,398 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53024
+11:23:57,312 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53024
+11:23:57,315 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "1.0", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53024
+11:23:57,315 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53024
+11:24:02,327 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53024
+11:24:02,327 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53024
+11:24:02,327 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53024
+11:24:14,519 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running!"}, {"name": "Stop UE", "status": "Succeed", "description": "Success! The UE is forced to stopped with the following outputs: \n and the following errors: "}, {"name": "Stop UE", "status": "Succeed", "description": "Success! The UE is forced to stopped with the following outputs: \n and the following errors: "}]} from Actor1 127.0.0.1:53024
+11:24:14,519 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53024
+11:36:13,417 OAIC-T Server INFO Server socket binded to port 12345
+11:36:13,417 OAIC-T Server INFO Server socket is listening... 
+11:36:15,576 OAIC-T Server INFO Connected to : 127.0.0.1:53026
+11:36:15,576 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53026
+11:36:15,576 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53026
+11:36:23,420 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53026
+11:36:23,423 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "5.2", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53026
+11:36:23,423 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53026
+11:36:28,422 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53026
+11:36:28,423 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53026
+11:36:28,423 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53026
+11:36:43,796 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:53026
+11:36:43,796 OAIC-T Server INFO Actor disconnected from 127.0.0.1:53026
+11:41:40,653 OAIC-T Server INFO Server socket binded to port 12345
+11:41:40,653 OAIC-T Server INFO Server socket is listening... 
+11:41:43,832 OAIC-T Server INFO Connected to : 127.0.0.1:53028
+11:41:43,832 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53028
+11:41:43,833 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53028
+11:41:50,653 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53028
+11:41:50,656 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "0.7", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53028
+11:41:50,656 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53028
+11:41:55,669 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53028
+11:41:55,671 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53028
+11:41:55,672 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53028
+11:42:11,38 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running!"}, {"name": "Stop UE", "status": "Succeed", "description": "Success! The UE is forced to stopped with the following outputs: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \nCouldn't open , trying /root/.config/srsran/ue.conf\nCouldn't open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\nReading configuration file /etc/srsran/ue.conf...\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\nOpening 1 channels in RF device=zmq with args=\"tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6\"\nSupported RF device list: zmq file\nCHx base_srate=23.04e6\"\nCHx id=ue\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCH0 rx_port=tcp://localhost:2000\nCH0 tx_port=tcp://*:20 from Actor1 127.0.0.1:53028
+23:51:21,653 OAIC-T Server INFO Server socket binded to port 12345
+23:51:21,653 OAIC-T Server INFO Server socket is listening... 
+23:51:23,768 OAIC-T Server INFO Connected to : 127.0.0.1:53034
+23:51:23,768 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53034
+23:51:23,768 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53034
+23:51:31,654 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53034
+23:51:31,657 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "0.5", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53034
+23:51:31,657 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53034
+23:51:36,664 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53034
+23:51:36,665 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53034
+23:51:36,665 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53034
+23:51:36,932 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:53034
+23:51:36,932 OAIC-T Server INFO Actor disconnected from 127.0.0.1:53034
+23:52:09,761 OAIC-T Server INFO Server socket binded to port 12345
+23:52:09,761 OAIC-T Server INFO Server socket is listening... 
+23:52:24,611 OAIC-T Server INFO Server socket binded to port 12345
+23:52:24,611 OAIC-T Server INFO Server socket is listening... 
+23:52:27,314 OAIC-T Server INFO Connected to : 127.0.0.1:53038
+23:52:27,314 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53038
+23:52:27,314 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53038
+23:52:34,621 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53038
+23:52:34,624 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "2.7", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53038
+23:52:34,624 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53038
+23:52:39,627 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53038
+23:52:39,628 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53038
+23:52:39,628 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53038
+23:52:39,975 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:53038
+23:52:39,975 OAIC-T Server INFO Actor disconnected from 127.0.0.1:53038
+23:53:30,895 OAIC-T Server INFO Server socket binded to port 12345
+23:53:30,895 OAIC-T Server INFO Server socket is listening... 
+23:53:32,862 OAIC-T Server INFO Connected to : 127.0.0.1:53040
+23:53:32,862 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53040
+23:53:32,862 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53040
+23:53:40,898 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53040
+23:53:40,902 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "1.0", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53040
+23:53:40,902 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53040
+23:53:45,907 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53040
+23:53:45,908 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53040
+23:53:45,908 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53040
+23:53:45,973 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Fail! UE already exists. Please choose another UE namespace!"}, {"name": "Stop UE", "status": "Succeed", "description": "Fail! The UE to be stopped is not running or does not exist! The UE namespace: ue1"}, {"name": "Stop UE", "status": "Succeed", "description": "Fail! The UE to be stopped is not running or does not exist! The UE namespace: ue1"}]} from Actor1 127.0.0.1:53040
+23:53:45,973 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53040
+23:56:07,117 OAIC-T Server INFO Server socket binded to port 12345
+23:56:07,117 OAIC-T Server INFO Server socket is listening... 
+23:56:09,755 OAIC-T Server INFO Connected to : 127.0.0.1:53042
+23:56:09,755 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53042
+23:56:09,755 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53042
+23:56:17,119 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53042
+23:56:17,123 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "4.7", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53042
+23:56:17,123 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53042
+23:56:22,127 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53042
+23:56:22,128 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53042
+23:56:22,128 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53042
+23:56:22,426 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:53042
+23:56:22,426 OAIC-T Server INFO Actor disconnected from 127.0.0.1:53042
+23:56:45,947 OAIC-T Server INFO Server socket binded to port 12345
+23:56:45,947 OAIC-T Server INFO Server socket is listening... 
+23:56:47,999 OAIC-T Server INFO Connected to : 127.0.0.1:53044
+23:56:48,0 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53044
+23:56:48,0 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53044
+23:56:55,947 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53044
+23:56:55,951 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "2.4", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53044
+23:56:55,951 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53044
+23:57:00,953 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53044
+23:57:00,954 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53044
+23:57:00,954 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53044
+23:57:10,970 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:53044
+23:57:10,970 OAIC-T Server INFO Actor disconnected from 127.0.0.1:53044
+23:58:00,394 OAIC-T Server INFO Server socket binded to port 12345
+23:58:00,395 OAIC-T Server INFO Server socket is listening... 
+23:58:03,322 OAIC-T Server INFO Connected to : 127.0.0.1:53046
+23:58:03,322 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53046
+23:58:03,322 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53046
+23:58:10,416 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53046
+23:58:10,419 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "0.9", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53046
+23:58:10,420 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53046
+23:58:15,431 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53046
+23:58:15,432 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53046
+23:58:15,432 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53046
+23:58:25,875 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Fail! UE is not successfully started after 10 seconds with the following output: \nActive RF plugins: libsrsran_rf_zmq.so\n\nInactive RF plugins: \n\nCouldn't open , trying /root/.config/srsran/ue.conf\n\nCouldn't open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\n\nReading configuration file /etc/srsran/ue.conf...\n\n\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\n\n\nOpening 1 channels in RF device=zmq with args=\"tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6\"\n\nSupported RF device list: zmq file\n\nCHx base_srate=23.04e6\"\n\nCHx id=ue\n\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\n\nCH0 rx_port=tcp://localhost:2000\n\nCH0 tx_port=tcp://*:2001\n\nWaiting PHY to initialize ... done!\n\nAtt from Actor1 127.0.0.1:53046
+00:00:00,428 OAIC-T Server INFO Server socket binded to port 12345
+00:00:00,428 OAIC-T Server INFO Server socket is listening... 
+00:00:05,675 OAIC-T Server INFO Connected to : 127.0.0.1:53048
+00:00:05,675 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53048
+00:00:05,675 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53048
+00:00:10,431 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53048
+00:00:10,435 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "1.0", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53048
+00:00:10,435 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53048
+00:00:15,433 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53048
+00:00:15,436 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53048
+00:00:15,436 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53048
+00:00:30,748 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Fail! UE is not successfully started after 10 seconds with the following output: Active RF plugins: libsrsran_rf_zmq.so\nInactive RF plugins: \nCouldn't open , trying /root/.config/srsran/ue.conf\nCouldn't open /root/.config/srsran/ue.conf either, trying /etc/srsran/ue.conf\nReading configuration file /etc/srsran/ue.conf...\n\nBuilt in Release mode using commit f2dff0b7a on branch master.\n\nOpening 1 channels in RF device=zmq with args=\"tx_port=tcp://*:2001, rx_port=tcp://localhost:2000, id=ue, base_srate=23.04e6\"\nSupported RF device list: zmq file\nCHx base_srate=23.04e6\"\nCHx id=ue\nCurrent sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)\nCH0 rx_port=tcp://localhost:2000\nCH0 tx_port=tcp://*:2001\nWaiting PHY to initialize ... done!\nAttaching UE...\nCurrent sample rate  from Actor1 127.0.0.1:53048
+00:27:38,732 OAIC-T Server INFO Server socket binded to port 12345
+00:27:38,732 OAIC-T Server INFO Server socket is listening... 
+00:28:12,746 OAIC-T Server INFO Server socket binded to port 12345
+00:28:12,747 OAIC-T Server INFO Server socket is listening... 
+00:28:17,348 OAIC-T Server INFO Connected to : 127.0.0.1:53050
+00:28:17,348 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53050
+00:28:17,348 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53050
+00:28:22,758 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53050
+00:28:22,761 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "2.8", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53050
+00:28:22,761 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53050
+00:28:27,764 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Generate Traffic', 'paras': {'namespace': 'ue1', 'direction': 'uplink', 'ping_time': 20}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53050
+00:28:27,765 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53050
+00:28:27,765 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53050
+00:28:38,138 OAIC-T Server INFO <<-- Received message:  from Actor1 127.0.0.1:53050
+00:28:38,138 OAIC-T Server INFO Actor disconnected from 127.0.0.1:53050
+10:46:10,572 OAIC-T Server INFO Server socket binded to port 12345
+10:46:10,572 OAIC-T Server INFO Server socket is listening... 
+10:46:14,515 OAIC-T Server INFO Connected to : 127.0.0.1:53052
+10:46:14,516 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53052
+10:46:14,516 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53052
+10:46:20,584 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53052
+10:46:20,587 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "2.4", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53052
+10:46:20,587 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53052
+10:46:25,589 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Generate Traffic', 'paras': {'namespace': 'ue1', 'direction': 'uplink', 'ping_time': 20}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53052
+10:46:25,590 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53052
+10:46:25,590 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53052
+10:50:05,803 OAIC-T Server INFO Server socket binded to port 12345
+10:50:05,803 OAIC-T Server INFO Server socket is listening... 
+10:50:10,146 OAIC-T Server INFO Connected to : 127.0.0.1:53054
+10:50:10,147 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53054
+10:50:10,147 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53054
+10:50:15,816 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53054
+10:50:15,819 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "1.0", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53054
+10:50:15,819 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53054
+10:50:20,836 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Generate Traffic', 'paras': {'namespace': 'ue1', 'direction': 'uplink', 'ping_time': 20}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53054
+10:50:20,837 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53054
+10:50:20,837 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53054
+10:50:54,780 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running with IP: 172.16.0.9"}, {"name": "Generate Traffic", "status": "Succeed", "description": "Success! Script Output: Success! Ping results: \nPING 172.16.0.1 (172.16.0.1) 56(84) bytes of data.\n64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=0.012 ms\n64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=3 ttl=64 time=0.041 ms\n64 bytes from 172.16.0.1: icmp_seq=4 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=5 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=6 ttl=64 time=0.031 ms\n64 bytes from 172.16.0.1: icmp_seq=7 ttl=64 time=0.020 ms\n64 bytes from 172.16.0.1: icmp_seq=8 ttl=64 time=0.021 ms\n64 bytes from 172.16.0.1: icmp_seq=9 ttl=64 time=0.014 ms\n64 bytes from 172.16.0.1: icmp_seq=10 ttl=64 time=0.015 m from Actor1 127.0.0.1:53054
+10:56:29,848 OAIC-T Server INFO Server socket binded to port 12345
+10:56:29,848 OAIC-T Server INFO Server socket is listening... 
+10:56:33,905 OAIC-T Server INFO Connected to : 127.0.0.1:53056
+10:56:33,906 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53056
+10:56:39,858 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Not Recognized 127.0.0.1:53056
+10:56:44,863 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Generate Traffic', 'paras': {'namespace': 'ue1', 'direction': 'uplink', 'ping_time': 20}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Not Recognized 127.0.0.1:53056
+10:59:49,841 OAIC-T Server INFO Server socket binded to port 12345
+10:59:49,841 OAIC-T Server INFO Server socket is listening... 
+10:59:52,271 OAIC-T Server INFO Connected to : 127.0.0.1:53058
+10:59:52,271 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53058
+10:59:52,271 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53058
+10:59:59,847 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53058
+10:59:59,850 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "1.4", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53058
+10:59:59,851 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53058
+11:00:04,853 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Generate Traffic', 'paras': {'namespace': 'ue1', 'direction': 'uplink', 'ping_time': 20}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53058
+11:00:04,854 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53058
+11:00:04,854 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53058
+11:00:38,816 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running with IP: 172.16.0.11"}, {"name": "Generate Traffic", "status": "Succeed", "description": "Success! Script Output: Success! Ping results: \nPING 172.16.0.1 (172.16.0.1) 56(84) bytes of data.\n64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=0.034 ms\n64 bytes from 172.16.0.1: icmp_seq=3 ttl=64 time=0.020 ms\n64 bytes from 172.16.0.1: icmp_seq=4 ttl=64 time=0.032 ms\n64 bytes from 172.16.0.1: icmp_seq=5 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=6 ttl=64 time=0.042 ms\n64 bytes from 172.16.0.1: icmp_seq=7 ttl=64 time=0.021 ms\n64 bytes from 172.16.0.1: icmp_seq=8 ttl=64 time=0.020 ms\n64 bytes from 172.16.0.1: icmp_seq=9 ttl=64 time=0.015 ms\n64 bytes from 172.16.0.1: icmp_seq=10 ttl=64 time=0.019  from Actor1 127.0.0.1:53058
+11:08:00,822 OAIC-T Server INFO Server socket binded to port 12345
+11:08:00,822 OAIC-T Server INFO Server socket is listening... 
+11:08:02,865 OAIC-T Server INFO Connected to : 127.0.0.1:53060
+11:08:02,865 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53060
+11:08:19,259 OAIC-T Server INFO Server socket binded to port 12345
+11:08:19,259 OAIC-T Server INFO Server socket is listening... 
+11:08:21,38 OAIC-T Server INFO Connected to : 127.0.0.1:53062
+11:08:21,39 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53062
+11:08:21,39 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53062
+11:08:29,259 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53062
+11:08:29,263 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "4.0", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53062
+11:08:29,263 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53062
+11:08:34,265 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Generate Traffic', 'paras': {'namespace': 'ue1', 'direction': 'uplink', 'ping_time': 20}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53062
+11:08:34,266 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53062
+11:08:34,266 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53062
+11:09:08,29 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running with IP: 172.16.0.12"}, {"name": "Generate Traffic", "status": "Succeed", "description": "Success! Script Output: Success! Ping results: \nPING 172.16.0.1 (172.16.0.1) 56(84) bytes of data.\n64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=0.256 ms\n64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=0.019 ms\n64 bytes from 172.16.0.1: icmp_seq=3 ttl=64 time=0.035 ms\n64 bytes from 172.16.0.1: icmp_seq=4 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=5 ttl=64 time=0.017 ms\n64 bytes from 172.16.0.1: icmp_seq=6 ttl=64 time=0.030 ms\n64 bytes from 172.16.0.1: icmp_seq=7 ttl=64 time=0.018 ms\n64 bytes from 172.16.0.1: icmp_seq=8 ttl=64 time=0.070 ms\n64 bytes from 172.16.0.1: icmp_seq=9 ttl=64 time=0.057 ms\n64 bytes from 172.16.0.1: icmp_seq=10 ttl=64 time=0.022  from Actor1 127.0.0.1:53062
+00:28:56,744 OAIC-T Server INFO Server socket binded to port 12345
+00:28:56,744 OAIC-T Server INFO Server socket is listening... 
+00:28:59,935 OAIC-T Server INFO Connected to : 127.0.0.1:53064
+00:28:59,935 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:53064
+00:28:59,935 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:53064
+00:29:06,757 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:53064
+00:29:06,760 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "0.9", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:53064
+00:29:06,760 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53064
+00:29:11,761 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Generate Traffic', 'paras': {'namespace': 'ue1', 'direction': 'uplink', 'ping_time': 20}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:53064
+00:29:11,762 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:53064
+00:29:11,762 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:53064
+00:29:45,440 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success! Script Output: ue1\n"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running with IP: 172.16.0.13"}, {"name": "Generate Traffic", "status": "Succeed", "description": "Success! Script Output: Success! Ping results: \nPING 172.16.0.1 (172.16.0.1) 56(84) bytes of data.\n64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=0.012 ms\n64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=0.045 ms\n64 bytes from 172.16.0.1: icmp_seq=3 ttl=64 time=0.057 ms\n64 bytes from 172.16.0.1: icmp_seq=4 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=5 ttl=64 time=0.033 ms\n64 bytes from 172.16.0.1: icmp_seq=6 ttl=64 time=0.030 ms\n64 bytes from 172.16.0.1: icmp_seq=7 ttl=64 time=0.016 ms\n64 bytes from 172.16.0.1: icmp_seq=8 ttl=64 time=0.020 ms\n64 bytes from 172.16.0.1: icmp_seq=9 ttl=64 time=0.039 ms\n64 bytes from 172.16.0.1: icmp_seq=10 ttl=64 time=0.027  from Actor1 127.0.0.1:53064
+22:13:18,795 OAIC-T Server INFO Connected to : 127.0.0.1:45316
+22:13:18,795 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:45316
+22:13:18,795 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:45316
+22:13:26,841 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:45316
+22:13:26,845 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "4.2", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:45316
+22:13:26,845 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update confirmed'} : Actor1 127.0.0.1:45316
+22:13:31,848 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Generate Traffic', 'paras': {'namespace': 'ue1', 'direction': 'uplink', 'ping_time': 20}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:45316
+22:13:31,849 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:45316
+22:13:31,849 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:45316
+22:14:05,323 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success!"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running with IP: 172.16.0.5"}, {"name": "Generate Traffic", "status": "Succeed", "description": "Success!"}, {"name": "Stop UE", "status": "Succeed", "description": "Success! The UE is forced to stop."}]} from Actor1 127.0.0.1:45316
+22:16:03,845 OAIC-T Server INFO Connected to : 127.0.0.1:45318
+22:16:03,845 OAIC-T Server INFO <<-- Received message: {"type": "registration", "name": "Actor1"} from Not Recognized 127.0.0.1:45318
+22:16:03,845 OAIC-T Server INFO -->> Send message to the actor: {'type': 'registration confirmed'} : Actor1 127.0.0.1:45318
+22:16:11,886 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update request'} : Actor1 127.0.0.1:45318
+22:16:11,889 OAIC-T Server INFO <<-- Received message: {"type": "resource update", "cpu": "1.9", "mem": "0", "sdr_size": "2"} from Actor1 127.0.0.1:45318
+22:16:11,889 OAIC-T Server INFO -->> Send message to the actor: {'type': 'resource update confirmed'} : Actor1 127.0.0.1:45318
+22:16:16,892 OAIC-T Server INFO -->> Send message to the actor: {'name': 'task_test', 'id': '1', 'mode': 'virtual radio', 'actions': [{'name': 'Create Network Namespace', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Run UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}, {'name': 'Generate Traffic', 'paras': {'namespace': 'ue1', 'direction': 'uplink', 'ping_time': 20}, 'type': 'running'}, {'name': 'Stop UE', 'paras': {'namespace': 'ue1'}, 'type': 'running'}], 'type': 'new task request'} : Actor1 127.0.0.1:45318
+22:16:16,893 OAIC-T Server INFO <<-- Received message: {"type": "new task received and pending to run"} from Actor1 127.0.0.1:45318
+22:16:16,893 OAIC-T Server INFO -->> Send message to the actor: {'type': 'confirmed'} : Actor1 127.0.0.1:45318
+22:16:50,411 OAIC-T Server INFO <<-- Received message: {"type": "task completed", "id": "1", "results": [{"name": "Create Network Namespace", "status": "Succeed", "description": "Success!"}, {"name": "Run UE", "status": "Succeed", "description": "Success! UE is initially running with IP: 172.16.0.6"}, {"name": "Generate Traffic", "status": "Succeed", "description": "Success!"}, {"name": "Stop UE", "status": "Succeed", "description": "Success! The UE is forced to stop."}]} from Actor1 127.0.0.1:45318

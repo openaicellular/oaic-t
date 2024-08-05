@@ -1,0 +1,11 @@
+{
+    "test_name": "configure epc",
+    "mode": "virtual radio",
+    "actions":
+    [
+        {
+            "name": "Stop EPC",
+            "paras": {}
+        }
+    ]
+}

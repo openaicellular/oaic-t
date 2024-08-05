@@ -1,0 +1,88 @@
+{"level": "INFO", "timestamp": "2024-07-31 20:13:16", "message": "Database connection successful.", "test_id": "dc139ebf-81cb-4079-bb90-62c8576472db"}
+{"level": "INFO", "timestamp": "2024-07-31 20:36:20", "message": "Database connection successful.", "test_id": "e6d9c8ee-93c6-487e-b2e8-b70297b36dc6"}
+{"level": "INFO", "timestamp": "2024-07-31 20:58:13", "message": "Database connection successful.", "test_id": "577accea-3c5b-4960-bb3d-a891bbe4b13b"}
+{"level": "INFO", "timestamp": "2024-07-31 23:32:52", "message": "Database connection successful.", "test_id": "d99a6695-d992-4740-8773-0f1b30d30c75"}
+{"level": "INFO", "timestamp": "2024-07-31 23:40:26", "message": "Database connection successful.", "test_id": "ba243dfe-4678-4b58-b586-a2eb4d4f69a2"}
+{"level": "INFO", "timestamp": "2024-07-31 23:43:29", "message": "Database connection successful.", "test_id": "6948285a-14d0-44b0-9941-3762ec29a66d"}
+{"level": "INFO", "timestamp": "2024-07-31 23:46:16", "message": "Database connection successful.", "test_id": "6bf6976b-b871-4082-84cf-443d0f1c169b"}
+{"level": "INFO", "timestamp": "2024-07-31 23:47:30", "message": "Database connection successful.", "test_id": "dc12c22e-4abc-467a-afa6-0b9ee9ae83ce"}
+{"level": "INFO", "timestamp": "2024-07-31 23:47:46", "message": "Database connection successful.", "test_id": "9db13a75-d3a4-48cd-af10-793182558f64"}
+{"level": "INFO", "timestamp": "2024-07-31 23:53:02", "message": "Database connection successful.", "test_id": "9eccc4f5-e046-48e6-b8eb-b9e6b85cfa02"}
+{"level": "INFO", "timestamp": "2024-07-31 23:57:29", "message": "Database connection successful.", "test_id": "5518ff34-3387-4e0f-a19d-c6e7243f43b6"}
+{"level": "INFO", "timestamp": "2024-08-01 00:00:54", "message": "Database connection successful.", "test_id": "e4401894-d25b-4e5f-88a1-d285e6d893e3"}
+{"level": "INFO", "timestamp": "2024-08-01 00:02:58", "message": "Database connection successful.", "test_id": "7c18c2e6-4248-43e8-8c05-6ad3f94ad4ca"}
+{"level": "INFO", "timestamp": "2024-08-01 00:08:32", "message": "Database connection successful.", "test_id": "a24b7414-cda5-4e60-a713-dc0f0e202dc7"}
+{"level": "INFO", "timestamp": "2024-08-01 00:11:12", "message": "Database connection successful.", "test_id": "0e8ca915-4761-4c3a-b07f-07abf08ace2f"}
+{"level": "INFO", "timestamp": "2024-08-01 00:19:15", "message": "Database connection successful.", "test_id": "99d0ae57-833c-4165-9de1-25029fe85d74"}
+{"level": "INFO", "timestamp": "2024-08-01 00:23:27", "message": "Database connection successful.", "test_id": "0ae0cd9d-1e31-4c84-a073-193dbf705946"}
+{"level": "INFO", "timestamp": "2024-08-01 00:26:58", "message": "Database connection successful.", "test_id": "57a08e65-5966-44c1-b8fc-a80ce0f4898a"}
+{"level": "INFO", "timestamp": "2024-08-01 15:08:33", "message": "Database connection successful.", "test_id": "ceb01956-7900-4202-8ddc-448fd293f9b8"}
+{"level": "INFO", "timestamp": "2024-08-01 15:17:53", "message": "Database connection successful.", "test_id": "4cf88f73-92ee-4ce2-929f-316950b4b249"}
+{"level": "INFO", "timestamp": "2024-08-01 15:38:45", "message": "Database connection successful.", "test_id": "5b059b5d-ee72-4e59-a6d4-867ffe0ed340"}
+{"level": "INFO", "timestamp": "2024-08-01 15:48:11", "message": "Database connection successful.", "test_id": "1508f88a-7e04-49a1-b335-a4cc725e3062"}
+{"level": "INFO", "timestamp": "2024-08-01 15:49:24", "message": "Database connection successful.", "test_id": "d17c2389-131e-45ed-8872-8e2394bfb970"}
+{"level": "INFO", "timestamp": "2024-08-01 15:51:28", "message": "Database connection successful.", "test_id": "6f0477b1-cd5a-4d20-b608-373942fd39d6"}
+{"level": "INFO", "timestamp": "2024-08-01 15:51:46", "message": "Database connection successful.", "test_id": "c767dbed-5b58-4d26-acf4-7e4fc4799672"}
+{"level": "INFO", "timestamp": "2024-08-01 16:25:00", "message": "Database connection successful.", "test_id": "282fc052-f66f-43c8-a088-337a650c87ea"}
+{"level": "INFO", "timestamp": "2024-08-01 16:38:26", "message": "Database connection successful.", "test_id": "e4ec3143-8099-4d7e-ae82-e69261b444c1"}
+{"level": "INFO", "timestamp": "2024-08-01 16:45:19", "message": "Database connection successful.", "test_id": "94f2065c-d44f-4c84-85f5-e3ed37d9a458"}
+{"level": "INFO", "timestamp": "2024-08-01 16:53:46", "message": "Database connection successful.", "test_id": "7d9476d7-c67f-40db-9617-0c3a3f29f2af"}
+{"level": "INFO", "timestamp": "2024-08-01 18:43:42", "message": "Database connection successful.", "test_id": "3b4ba097-fbb1-4966-ad7a-4f4de8492ae9"}
+{"level": "INFO", "timestamp": "2024-08-01 19:11:05", "message": "Database connection successful.", "test_id": "790c66cd-af63-4b30-b477-b94e9258a4a1"}
+{"level": "INFO", "timestamp": "2024-08-01 19:12:55", "message": "Database connection successful.", "test_id": "1d588ca5-9f7f-4c91-b69d-db14e1f88210"}
+{"level": "INFO", "timestamp": "2024-08-01 19:15:14", "message": "Database connection successful.", "test_id": "5ea50f23-0f4d-4a1f-b0db-51229d0450b8"}
+{"level": "INFO", "timestamp": "2024-08-01 19:28:24", "message": "Database connection successful.", "test_id": "a6c440f6-494b-4666-b2f7-a103f5061803"}
+{"level": "INFO", "timestamp": "2024-08-01 19:37:27", "message": "Database connection successful.", "test_id": "068cd71c-7661-4127-a998-bb2f74588ab3"}
+{"level": "INFO", "timestamp": "2024-08-01 20:27:50", "message": "Database connection successful.", "test_id": "4c6a277c-b64e-44eb-9900-0240f4025ce0"}
+{"level": "INFO", "timestamp": "2024-08-01 20:50:41", "message": "Database connection successful.", "test_id": "6df8f8df-1201-4c1a-b40a-2d7bb8e36926"}
+{"level": "INFO", "timestamp": "2024-08-01 21:03:15", "message": "Database connection successful.", "test_id": "9148bf39-59c9-4d8e-a2b1-3c69bba1e0e1"}
+{"level": "INFO", "timestamp": "2024-08-01 21:05:23", "message": "Database connection successful.", "test_id": "577f967b-39f6-4308-93c2-0f2eb22d4096"}
+{"level": "INFO", "timestamp": "2024-08-01 21:07:13", "message": "Database connection successful.", "test_id": "cf1bbea1-4def-468e-8f33-7a49f0a53e33"}
+{"level": "INFO", "timestamp": "2024-08-01 21:50:53", "message": "Database connection successful.", "test_id": "f8257961-0157-4187-b851-d4e1007ef6cc"}
+{"level": "INFO", "timestamp": "2024-08-01 21:58:01", "message": "Database connection successful.", "test_id": "be584130-f95e-4888-8f93-244cebf4bf63"}
+{"level": "INFO", "timestamp": "2024-08-01 22:00:33", "message": "Database connection successful.", "test_id": "c5ad6cc1-41ae-4013-a408-5c7eda9a814b"}
+{"level": "INFO", "timestamp": "2024-08-01 22:02:04", "message": "Database connection successful.", "test_id": "a8ae16e4-d859-4ceb-be61-26e6c5187440"}
+{"level": "INFO", "timestamp": "2024-08-02 12:33:38", "message": "Database connection successful.", "test_id": "2b1fca93-cc50-4d4c-b2d3-127e31f02a47"}
+{"level": "INFO", "timestamp": "2024-08-02 12:35:29", "message": "Database connection successful.", "test_id": "1eb27c56-61e8-4077-a306-7259cd370397"}
+{"level": "INFO", "timestamp": "2024-08-02 15:36:44", "message": "Database connection successful.", "test_id": "4e991582-84f3-4e42-92ad-a6b788ed255b"}
+{"level": "INFO", "timestamp": "2024-08-02 15:36:49", "message": "Retrieved UE IDs: {'ue2', 'ue5', 'ue3', 'ue1', 'ue4'}", "test_id": "ebdc8497-7e9b-4d88-8141-2c2ba1337a4b"}
+{"level": "INFO", "timestamp": "2024-08-02 15:48:16", "message": "Database connection successful.", "test_id": "e5e74dcd-c749-4209-8868-65d1fca699c1"}
+{"level": "INFO", "timestamp": "2024-08-02 15:48:20", "message": "Retrieved UE IDs: {'ue2', 'ue1', 'ue4', 'ue3', 'ue5'}", "test_id": "9130650a-9dcc-4f68-a8be-7a0a9189e3a3"}
+{"level": "INFO", "timestamp": "2024-08-02 15:53:12", "message": "Database connection successful.", "test_id": "781fd7c4-8045-4d03-a6c6-9621e1138e45"}
+{"level": "INFO", "timestamp": "2024-08-02 15:53:13", "message": "Retrieved UE IDs: {'ue3', 'ue4', 'ue1', 'ue5', 'ue2'}", "test_id": "49f2609b-a350-4fa7-b7a7-5305f3e640d3"}
+{"level": "INFO", "timestamp": "2024-08-02 15:53:13", "message": "Retrieved UE IDs: {'ue3', 'ue4', 'ue1', 'ue5', 'ue2'}", "test_id": "49f2609b-a350-4fa7-b7a7-5305f3e640d3"}
+{"level": "INFO", "timestamp": "2024-08-02 15:53:13", "message": "Retrieved UE IDs: {'ue3', 'ue4', 'ue1', 'ue5', 'ue2'}", "test_id": "49f2609b-a350-4fa7-b7a7-5305f3e640d3"}
+{"level": "INFO", "timestamp": "2024-08-02 15:53:13", "message": "Retrieved UE IDs: {'ue3', 'ue4', 'ue1', 'ue5', 'ue2'}", "test_id": "49f2609b-a350-4fa7-b7a7-5305f3e640d3"}
+{"level": "INFO", "timestamp": "2024-08-02 16:06:57", "message": "Database connection successful.", "test_id": "e7d00a48-a80c-4390-8a19-c7a83a2d1b6f"}
+{"level": "INFO", "timestamp": "2024-08-02 16:25:06", "message": "Database connection successful.", "test_id": "9216d5d5-a606-411d-bfd5-1f2f54b35573"}
+{"level": "INFO", "timestamp": "2024-08-02 16:35:37", "message": "Database connection successful.", "test_id": "33e643ed-ebbb-4c23-bcb4-6a22126983e3"}
+{"level": "INFO", "timestamp": "2024-08-02 16:43:22", "message": "Database connection successful.", "test_id": "5929d124-a7d9-44d9-a85e-18de61b3a4bc"}
+{"level": "INFO", "timestamp": "2024-08-02 16:49:31", "message": "Database connection successful.", "test_id": "2652efbb-cf27-4a25-9cc0-d676942f7bda"}
+{"level": "INFO", "timestamp": "2024-08-02 16:53:26", "message": "Database connection successful.", "test_id": "e10dcb08-e771-471b-99ed-a6ce9efba440"}
+{"level": "INFO", "timestamp": "2024-08-02 16:57:44", "message": "Database connection successful.", "test_id": "4b246529-0435-4ea7-b781-59929af67f75"}
+{"level": "INFO", "timestamp": "2024-08-02 16:59:01", "message": "Database connection successful.", "test_id": "225e7f48-15b8-42ef-b128-3a9c4921d5e3"}
+{"level": "INFO", "timestamp": "2024-08-02 17:00:55", "message": "Database connection successful.", "test_id": "c91aceac-2417-4ed5-9644-c50801da6def"}
+{"level": "INFO", "timestamp": "2024-08-02 17:21:33", "message": "Database connection successful.", "test_id": "8ac33543-8949-4dcf-a97e-e23a9954af54"}
+{"level": "INFO", "timestamp": "2024-08-02 17:24:54", "message": "Database connection successful.", "test_id": "7bfde088-553e-4d83-a91d-d7c1d1e9076a"}
+{"level": "INFO", "timestamp": "2024-08-02 17:29:04", "message": "Database connection successful.", "test_id": "d15f5b2a-48be-4b10-9904-79d2cc68f288"}
+{"level": "INFO", "timestamp": "2024-08-02 17:45:02", "message": "Database connection successful.", "test_id": "8b873b7c-dbe8-4fe3-8d57-361e76f1e33e"}
+{"level": "INFO", "timestamp": "2024-08-02 17:45:07", "message": "Retrieved UE IDs: {'ue4', 'ue3', 'ue5', 'ue2', 'ue1'}", "test_id": "abea0a2f-10a2-4149-9681-bb301aaf63f1"}
+{"level": "INFO", "timestamp": "2024-08-02 18:10:19", "message": "Database connection successful.", "test_id": "4ae733bc-0e49-4307-8e74-3582dabd8696"}
+{"level": "INFO", "timestamp": "2024-08-02 18:17:33", "message": "Database connection successful.", "test_id": "67c68630-1c7f-48b3-be07-a1f6d4347acc"}
+{"level": "INFO", "timestamp": "2024-08-02 18:24:12", "message": "Database connection successful.", "test_id": "dcaab653-5423-42aa-979c-25143649d767"}
+{"level": "INFO", "timestamp": "2024-08-02 18:35:27", "message": "Database connection successful.", "test_id": "68991846-10ad-4c5a-9155-3cd34ebea817"}
+{"level": "INFO", "timestamp": "2024-08-02 18:38:35", "message": "Database connection successful.", "test_id": "7d1e71e8-7abc-43dc-a2a3-8509247ae920"}
+{"level": "INFO", "timestamp": "2024-08-02 18:52:23", "message": "Database connection successful.", "test_id": "0bb469d7-0ecd-45db-b2b0-41a666b1cb7a"}
+{"level": "INFO", "timestamp": "2024-08-02 19:22:03", "message": "Database connection successful.", "test_id": "be255f2b-f9f3-44fc-b4a3-7fbc7b1328b1"}
+{"level": "INFO", "timestamp": "2024-08-02 19:22:07", "message": "Retrieved UE IDs: {'ue2', 'ue5', 'ue1', 'ue3', 'ue4'}", "test_id": "0d624838-a7c6-44ab-94bf-57fe0b1b371a"}
+{"level": "INFO", "timestamp": "2024-08-02 19:47:56", "message": "Database connection successful.", "test_id": "d6b20a18-528e-46d2-97e4-178046fdbcc4"}
+{"level": "INFO", "timestamp": "2024-08-02 20:15:39", "message": "Database connection successful.", "test_id": "dc873c48-58d4-452b-8b5f-2b42095770fc"}
+{"level": "INFO", "timestamp": "2024-08-02 20:18:03", "message": "Database connection successful.", "test_id": "2d701d51-1f4d-46c6-9c62-1ab748faa6bd"}
+{"level": "INFO", "timestamp": "2024-08-02 20:37:20", "message": "Database connection successful.", "test_id": "f8c5cb85-4f63-4652-a87b-633a0a07959f"}
+{"level": "INFO", "timestamp": "2024-08-02 20:42:25", "message": "Database connection successful.", "test_id": "edfe63f7-f8ed-4fd5-9c0a-1b3468b2c434"}
+{"level": "INFO", "timestamp": "2024-08-02 20:52:20", "message": "Database connection successful.", "test_id": "878e4f58-94be-408c-9e20-c0331dcd5d08"}
+{"level": "INFO", "timestamp": "2024-08-04 18:39:39", "message": "Database connection successful.", "test_id": "ea2cf800-479c-4638-b959-e3e2b7f33017"}
+{"level": "INFO", "timestamp": "2024-08-04 18:51:07", "message": "Database connection successful.", "test_id": "a9a8b1b6-c487-4116-b094-36ddadd8f99c"}
+{"level": "INFO", "timestamp": "2024-08-04 19:00:10", "message": "Database connection successful.", "test_id": "76320949-fecd-4dc4-8b0d-c7369f4055d5"}
+{"level": "INFO", "timestamp": "2024-08-04 19:07:10", "message": "Database connection successful.", "test_id": "8692a818-a1f3-4a2b-b3a8-5381eb72a7b4"}
+{"level": "INFO", "timestamp": "2024-08-04 19:12:36", "message": "Database connection successful.", "test_id": "4e428611-55bd-49d7-b9c5-a60a77f2a420"}

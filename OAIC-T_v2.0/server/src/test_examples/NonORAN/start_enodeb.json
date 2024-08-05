@@ -1,0 +1,13 @@
+{
+    "test_name": "configure enodeb",
+    "mode": "virtual radio",
+    "actions":
+    [
+        {
+            "name": "Start ENodeB",
+            "paras": {
+            	"--rf.device_name":"zmq"
+            }
+        }
+    ]
+}

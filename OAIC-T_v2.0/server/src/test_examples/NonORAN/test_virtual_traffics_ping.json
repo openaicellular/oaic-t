@@ -1,0 +1,59 @@
+{
+    "test_name": "test_virtual_traffics_example",
+    "mode": "virtual radio",
+    "actions":
+    [
+        {
+            "name": "Start EPC",
+            "paras": {}
+        },
+        
+        {
+            "name": "Start ENodeB",
+            "paras": {
+            	"--rf.device_name":"zmq"
+            }
+        },
+        
+        {
+            "name": "Create Network Namespace",
+            "paras": {
+                "namespace": "ue1"
+            }
+        },
+
+        {
+            "name": "Run UE",
+            "paras": {
+                "namespace": "ue1"
+            }
+        },
+
+        {
+            "name": "Generate Traffic",
+            "paras": {
+                "namespace": "ue1",
+                "direction": "uplink",
+                "traffic_gen_mode": "ping",
+                "ping_time": 20
+            }
+        },
+
+        {
+            "name": "Stop UE",
+            "paras": {
+                "namespace": "ue1"
+            }
+        },
+        
+        {
+            "name": "Stop ENodeB",
+            "paras": {}
+        },
+        
+        {
+            "name": "Stop EPC",
+            "paras": {}
+        }
+    ]
+}
