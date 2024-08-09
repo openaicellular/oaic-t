@@ -1,4 +1,4 @@
-<div align="right">
+
 
 ## Features of OAICT Version 2.0.0
 
@@ -11,8 +11,6 @@
 ## How to Run OAICT
 
 For detailed instructions on how to run OAICT, please refer to the [OAICT documentation](https://openaicellular.github.io/oaic/oaic_t.html).
-
-</div>
 
 
 
