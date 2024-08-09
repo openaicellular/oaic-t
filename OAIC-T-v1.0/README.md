@@ -15,7 +15,7 @@ While AI models are enablers to achieve intelligent next-G wireles networks, com
 # OAIC-T Framework
 An OAIC-T test involves automated setup of the testing environment, automated test execution, and automated generation of testing performance report. The OAIC-T framework consists of three major components: the OAIC-T server which sets up the testing environment as described in test configuration files and orchestrates the test execution as defined in test cases, the OAIC-T actor which executes test steps as instructed by the OAIC server, and the test repository which stores various test assets (e.g., test files, data files, log files, test results, etc.). 
 
-<img src="oaic-t/OAIC-T-v1.0/docs/source/oaci_t_framework.png" width=70% height=70%>
+<img src="OAIC-T-v1.0/docs/source/oaci_t_framework.png" width=70% height=70%>
 
 
 # Major Release Milestones of OAIC-T
