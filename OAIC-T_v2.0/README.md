@@ -1,8 +1,11 @@
-## Features of OAICT Version 2
+## Features of OAICT Version 2.0.0
 
-- **RANfusion Support**: Enhanced support for RANfusion, providing a more robust and flexible RAN testing environment.
-- **Bug Fixes and Stability Improvements**: Various issues from the previous version have been addressed, leading to a more stable and reliable platform.
-- **Fuzzing Support**: Integrated fuzzing capabilities allow for comprehensive testing and identification of system vulnerabilities.
+1. **Inclusion of RANFusion**: A simulator for behaviors and performances of 5G core network components.
+2. **Support for InfluxDB**: Integrated in RANFusion to store network behaviors and performance data.
+3. **KPI Metrics Implementation**: Various Key Performance Indicators (KPIs) are implemented within RANFusion.
+4. **AI Fuzzing**: Utilizes genetic algorithms to generate different network traffic patterns from a set of UEs in RANFusion to test traffic balancing methods.
+5. **Test Script Examples**: Provided examples of test scripts for user reference.
+
 
 ## How to Run OAICT
 
