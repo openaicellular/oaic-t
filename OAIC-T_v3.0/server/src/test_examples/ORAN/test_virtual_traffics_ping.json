@@ -1,0 +1,46 @@
+{
+    "test_name": "test_virtual_traffics_example",
+    "mode": "virtual radio",
+    "actions":
+    [
+        {
+            "name": "Connect Test xApp",
+            "paras": {
+            	"xapp_ip": "127.0.0.1",
+            	"xapp_port": 8757
+            }
+        },
+        
+        {
+            "name": "Create Network Namespace",
+            "paras": {
+                "namespace": "ue1"
+            }
+        },
+
+        {
+            "name": "Run UE",
+            "paras": {
+                "namespace": "ue1",
+                "waiting_time_to_startup": 20
+            }
+        },
+
+        {
+            "name": "Generate Traffic",
+            "paras": {
+                "namespace": "ue1",
+                "direction": "uplink",
+                "traffic_gen_mode": "ping",
+                "ping_time": 20
+            }
+        },
+
+        {
+            "name": "Stop UE",
+            "paras": {
+                "namespace": "ue1"
+            }
+        }
+    ]
+}
