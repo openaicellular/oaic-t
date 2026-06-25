@@ -8,7 +8,7 @@
 from actor_manager import ActorManager
 import time
 import test_script_reader as test_script_reader
-from backports import configparser
+import configparser
 import sys
 import os.path
 import argparse
